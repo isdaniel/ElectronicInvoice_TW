@@ -2,9 +2,9 @@
 #### 使用這個API框架很簡單 只須完成以下幾個步驟
 
 1. Config輸入 財政部申請的appId和appKey
->* 創建兩個Model
+2. 創建兩個Model
+>* 一個是財政部回應參數的Model
 >* 一個是財政部所需參數的Model
-2. 一個是財政部回應參數的Model
 3. 創建一個要實作的Api物件並繼承ApiBase抽象類，並在泛型那邊指定所需 Model的類型
 4. 在外部使用 MoblieInvoiceApiFactroy.GetInstace 方法將 傳入所需Model，工廠會反射回應相對應的Api物件
 5. 使用Api物件.ExcuteApi方法 傳入所需Model
