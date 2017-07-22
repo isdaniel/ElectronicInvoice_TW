@@ -1,5 +1,9 @@
-﻿namespace ElectronicInvoice.Model
+﻿using ElectronicInvoice.Infrastructure.Common;
+using ElectronicInvoice.Service;
+
+namespace ElectronicInvoice.Model
 {
+    [ApiType(typeof(QryWinningListApi))]
     public class QryWinningListModel
     {
         public string invTerm { get; set; }
@@ -40,5 +44,3 @@
         public string sixthPrizeNo6 { get; set; }
     }
 }
-
-

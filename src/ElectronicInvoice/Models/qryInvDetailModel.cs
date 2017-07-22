@@ -1,13 +1,15 @@
-﻿using System;
+﻿using ElectronicInvoice.Infrastructure.Common;
+using ElectronicInvoice.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace ElectronicInvoice.Models
 {
+    [ApiType(typeof(qryInvDetailApi))]
     public class qryInvDetailModel
     {
-
         public string appID { get; set; }
         public string randomNumber { get; set; }
         public string UUID { get; set; }

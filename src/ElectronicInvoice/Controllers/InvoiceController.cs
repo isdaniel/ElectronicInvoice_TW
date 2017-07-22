@@ -12,24 +12,29 @@ namespace ElectronicInvoice.Controllers
 {
     public class InvoiceController : Controller
     {
-        public ActionResult QryWinningList() {
+        public ActionResult QryWinningList()
+        {
             QryWinningListModel model = new QryWinningListModel()
             {
                 invTerm = "10604"
             };
-            var api=MoblieInvoiceApiFactroy.GetInstace(model);
+            MoblieInvoiceApiFactroy.GetInstanceType(model);
+            var api = MoblieInvoiceApiFactroy.GetInstace(model);
             var resultJson = api.ExcuteApi(model);
-            var resultModle=JsonConvert.DeserializeObject<QryWinningListViewModel>(resultJson);
+            var resultModle = JsonConvert.DeserializeObject<QryWinningListViewModel>(resultJson);
             return View(resultModle);
         }
 
-        public ActionResult qryInvDetail() {
+        public ActionResult qryInvDetail()
+        {
             return View();
         }
+
         [HttpPost]
-        public ActionResult qryInvDetail(qryInvDetailModel model) {
+        public ActionResult qryInvDetail(qryInvDetailModel model)
+        {
             var api = MoblieInvoiceApiFactroy.GetInstace(model);
-            var result=api.ExcuteApi(model);
+            var result = api.ExcuteApi(model);
             return Content(result);
         }
     }

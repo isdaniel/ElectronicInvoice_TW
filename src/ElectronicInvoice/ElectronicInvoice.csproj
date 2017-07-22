@@ -170,6 +170,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Common\ApiTypeAttribute.cs" />
     <Compile Include="Infrastructure\Factroy\InvoiceApiFactroy.cs" />
     <Compile Include="Infrastructure\Helper\CiphertextHelper.cs" />
     <Compile Include="Infrastructure\Helper\CommonHelper.cs" />
