@@ -170,6 +170,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AOP\AOPProxy.cs" />
+    <Compile Include="Infrastructure\AOP\IInterception.cs" />
+    <Compile Include="Infrastructure\AOP\ProxyFactory.cs" />
     <Compile Include="Infrastructure\Common\ApiTypeAttribute.cs" />
     <Compile Include="Infrastructure\Factroy\InvoiceApiFactroy.cs" />
     <Compile Include="Infrastructure\Helper\CiphertextHelper.cs" />

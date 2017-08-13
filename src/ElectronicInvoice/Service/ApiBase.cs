@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using ElectronicInvoice.Infrastructure.Helper;
 using Newtonsoft.Json;
+
 /*
  * 創建者：Daniel.shih
  * 目的：方便日後實作財政部電子發票API
  * 使用：每個api可以繼承此類別(ApiBase)，子類只需提供api參數呼叫 IApiRunner.ExcuteApi 並將參數傳入即可完成操作
  * **/
+
 namespace ElectronicInvoice.Service
 {
-    public abstract class ApiBase<T> : IApiRunner
+    public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner
         where T : class
     {
         protected readonly string UUID = "9774d56d682e549c";
@@ -51,7 +50,7 @@ namespace ElectronicInvoice.Service
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public string ExcuteApi(object model)
+        public virtual string ExcuteApi(object model)
         {
             //建立所需參數
             string result = string.Empty;
@@ -64,7 +63,7 @@ namespace ElectronicInvoice.Service
             postData = GetInvoiceParamter(SetParamter(data));
 
             //###寄送前的Log
-            WriteLog(postData, "Send");
+            //WriteLog(postData, "Send");
 
             try
             {
@@ -74,12 +73,13 @@ namespace ElectronicInvoice.Service
             }
             catch (Exception ex)
             {
-                result = GetSysErrorMsg();
-                WriteLog(ex.ToString(), "Error");
+                throw ex;
+                //result = GetSysErrorMsg();
+                //WriteLog(ex.ToString(), "Error");
             }
 
             //###寄送後的Log
-            WriteLog(result, "Recivce");
+            //WriteLog(result, "Recivce");
 
             return result;
         }
@@ -96,20 +96,6 @@ namespace ElectronicInvoice.Service
             return string.Format("{0}&signature={1}",
                 ReplacePlus(paraData),
                 HttpUtility.UrlEncode(signature));
-        }
-
-        /// <summary>
-        /// 紀錄Log
-        /// </summary>
-        /// <param name="content">內容</param>
-        /// <param name="type">寄送或是接收</param>
-        private void WriteLog(string content, string type)
-        {
-            LogHelper log = new LogHelper();
-            string apiname = this.GetType().Name;
-            string fileName = string.Format("{0}CellphonCarrier", apiname);
-
-            log.WriteLog(fileName, content, type);
         }
 
         /// <summary>

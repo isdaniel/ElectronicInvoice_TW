@@ -4,13 +4,12 @@ using System.Configuration;
 using System.Reflection;
 using System.Linq;
 using ElectronicInvoice.Infrastructure.Common;
+using ElectronicInvoice.Infrastructure.AOP;
 
 namespace ElectronicInvoice.Infrastructure.Factroy
 {
     public class MoblieInvoiceApiFactroy
     {
-        private static string _assemblyname = "";
-
         /// <summary>
         /// InvoiceApiAssemebly名稱
         /// </summary>
@@ -43,15 +42,26 @@ namespace ElectronicInvoice.Infrastructure.Factroy
             string modelName = model.GetType().Name;
             return (IApiRunner)Activator.CreateInstance
                 (GetInstanceType(model), null);
-            //modelName = modelName.Replace("Model", "Api")
-            //                     .Replace("DTO", "Api");
-            //return Assembly.GetAssembly
-            //    (typeof(MoblieInvoiceApiFactroy)).CreateInstance(AssemblyName + "." + modelName);
         }
 
         /// <summary>
-        ///
+        /// 取得InvocieApi代理
         /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static ApiBase<T> GetProxyInstace<T>(T model,
+            IInterception interception = null) where T : class
+        {
+            IApiRunner realSubject = GetInstace(model);
+            return ProxyFactory.CreateProxyInstance<ApiBase<T>>(realSubject, interception);
+        }
+
+        /// <summary>
+        /// 反射取得綁定Model上綁定的API型別
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public static Type GetInstanceType(object model)
         {
             var modelType = model.GetType();

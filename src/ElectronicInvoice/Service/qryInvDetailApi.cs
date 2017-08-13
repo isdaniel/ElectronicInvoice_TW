@@ -8,7 +8,6 @@ using System.Web;
 
 namespace ElectronicInvoice.Service
 {
-
     public class qryInvDetailApi : ApiBase<qryInvDetailModel>
     {
         protected override string SetParamter(qryInvDetailModel model)

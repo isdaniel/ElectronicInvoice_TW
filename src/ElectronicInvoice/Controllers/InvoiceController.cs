@@ -19,7 +19,8 @@ namespace ElectronicInvoice.Controllers
                 invTerm = "10604"
             };
             MoblieInvoiceApiFactroy.GetInstanceType(model);
-            var api = MoblieInvoiceApiFactroy.GetInstace(model);
+            //var api = MoblieInvoiceApiFactroy.GetInstace(model);
+            var api = MoblieInvoiceApiFactroy.GetProxyInstace(model);
             var resultJson = api.ExcuteApi(model);
             var resultModle = JsonConvert.DeserializeObject<QryWinningListViewModel>(resultJson);
             return View(resultModle);
