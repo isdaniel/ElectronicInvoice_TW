@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 namespace ElectronicInvoice.Service
 {
     public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner
-        where T : class
+        where T : class, new()
     {
         protected readonly string UUID = "9774d56d682e549c";
         protected string GovAPIKey = ConfigurationManager.AppSettings["GovAPIKey"];

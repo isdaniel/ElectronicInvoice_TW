@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ElectronicInvoice.Models
 {
-    [ApiType(typeof(qryInvDetailApi))]
+    [ApiType(ApiType = typeof(qryInvDetailApi))]
     public class qryInvDetailModel
     {
         public string appID { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Activation;
 using System.Runtime.Remoting.Messaging;
@@ -45,6 +46,7 @@ namespace ElectronicInvoice.Infrastructure.AOP
         {
             IMethodReturnMessage methodReturnMessage = null;
             IMethodCallMessage methodCallMessage = msg as IMethodCallMessage;
+            MethodInfo method = methodCallMessage.MethodBase as MethodInfo;
             if (methodCallMessage != null)
             {
                 IConstructionCallMessage constructionCallMessage = methodCallMessage as IConstructionCallMessage;
@@ -59,17 +61,20 @@ namespace ElectronicInvoice.Infrastructure.AOP
                     _interception.PreInvoke(methodCallMessage);
                     try
                     {
-                        methodReturnMessage = RemotingServices.ExecuteMessage(_target, methodCallMessage);
+                        var result = method.Invoke(_target, methodCallMessage.Args);
+                        methodReturnMessage = new ReturnMessage(
+                            result,
+                            null,
+                            0, methodCallMessage.LogicalCallContext,
+                            methodCallMessage);
                     }
-                    catch { }
-                    if (methodReturnMessage.Exception != null)
+                    catch (Exception ex)
                     {
+                        methodReturnMessage = new ReturnMessage(ex, methodCallMessage);
                         _interception.ExceptionHandle(methodReturnMessage);
                     }
-                    else
-                    {
-                        _interception.PostInvoke(methodReturnMessage);
-                    }
+
+                    _interception.PostInvoke(methodReturnMessage);
                 }
             }
             return methodReturnMessage;

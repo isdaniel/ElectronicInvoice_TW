@@ -51,7 +51,7 @@ namespace ElectronicInvoice.Infrastructure.Factroy
         /// <param name="model"></param>
         /// <returns></returns>
         public static ApiBase<T> GetProxyInstace<T>(T model,
-            IInterception interception = null) where T : class
+            IInterception interception = null) where T : class, new()
         {
             IApiRunner realSubject = GetInstace(model);
             return ProxyFactory.CreateProxyInstance<ApiBase<T>>(realSubject, interception);
@@ -68,9 +68,19 @@ namespace ElectronicInvoice.Infrastructure.Factroy
             var attr = modelType.GetCustomAttribute(typeof(ApiTypeAttribute)) as ApiTypeAttribute;
             if (attr != null)
             {
-                return attr.ApiType;
+                return GetApiType(attr);
             }
             throw new Exception("Model尚未賦予ApiTypeAttribute");
+        }
+
+        private static Type GetApiType(ApiTypeAttribute attr)
+        {
+            string IsMockAPI = ConfigurationManager.AppSettings["IsMockAPI"] ?? "0";
+            if (IsMockAPI == "1")
+            {
+                return attr.MockApiType;
+            }
+            return attr.ApiType;
         }
     }
 }

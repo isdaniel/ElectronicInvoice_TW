@@ -7,11 +7,26 @@ namespace ElectronicInvoice.Infrastructure.Common
 {
     public class ApiTypeAttribute : Attribute
     {
-        public Type ApiType { get; private set; }
+        /// <summary>
+        /// 呼叫大平台API型別
+        /// </summary>
+        public Type ApiType { get; set; }
 
-        public ApiTypeAttribute(Type type)
+        private Type _MockApiType;
+
+        /// <summary>
+        /// 模擬API型別
+        /// </summary>
+        public Type MockApiType
         {
-            ApiType = type;
+            get
+            {
+                return _MockApiType ?? ApiType;
+            }
+            set
+            {
+                _MockApiType = value;
+            }
         }
     }
 }
