@@ -34,7 +34,7 @@ namespace ElectronicInvoice.Service
         /// 取得api的Url路徑
         /// </summary>
         /// <returns></returns>
-        protected virtual string GetApiName()
+        protected virtual string GetApiURL()
         {
             string apiname = this.GetType().Name;
             if (!ConfigurationManager.AppSettings.AllKeys.Contains(apiname))
@@ -55,15 +55,12 @@ namespace ElectronicInvoice.Service
             //建立所需參數
             string result = string.Empty;
             string postData = string.Empty;
-            string posturl = GetApiName();
+            string posturl = GetApiURL();
 
             var data = ObjectToModel(model);
 
             //取得加密後的參數
             postData = GetInvoiceParamter(SetParamter(data));
-
-            //###寄送前的Log
-            //WriteLog(postData, "Send");
 
             try
             {
@@ -73,13 +70,8 @@ namespace ElectronicInvoice.Service
             }
             catch (Exception ex)
             {
-                throw ex;
-                //result = GetSysErrorMsg();
-                //WriteLog(ex.ToString(), "Error");
+                result = GetSysErrorMsg();
             }
-
-            //###寄送後的Log
-            //WriteLog(result, "Recivce");
 
             return result;
         }

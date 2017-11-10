@@ -9,6 +9,12 @@ namespace ElectronicInvoice.Infrastructure.Helper
 {
     public class LogHelper
     {
+        /// <summary>
+        /// 撰寫Log
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="content"></param>
+        /// <param name="type"></param>
         internal void WriteLog(string fileName, string content, string type)
         {
             fileName = $"{fileName}_{DateTime.Now.ToString("yyyyMMdd")}_{type}.log";

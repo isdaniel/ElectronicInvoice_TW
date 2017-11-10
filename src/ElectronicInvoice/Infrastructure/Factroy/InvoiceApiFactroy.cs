@@ -4,7 +4,9 @@ using System.Configuration;
 using System.Reflection;
 using System.Linq;
 using ElectronicInvoice.Infrastructure.Common;
-using ElectronicInvoice.Infrastructure.AOP;
+using AOPLib.Core;
+using ElectronicInvoice.Infrastructure.Extention;
+using ElectronicInvoice.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Infrastructure.Factroy
 {
@@ -13,7 +15,7 @@ namespace ElectronicInvoice.Infrastructure.Factroy
         /// <summary>
         /// InvoiceApiAssemebly名稱
         /// </summary>
-        public static string AssemblyName
+        public string AssemblyName
         {
             get
             {
@@ -35,7 +37,7 @@ namespace ElectronicInvoice.Infrastructure.Factroy
         /// </summary>
         /// <param name="model">Model參數</param>
         /// <returns></returns>
-        public static IApiRunner GetInstace(object model)
+        public IApiRunner GetInstace(object model)
         {
             if (model == null) throw new ArgumentNullException("不能傳空的參數");
 
@@ -50,11 +52,10 @@ namespace ElectronicInvoice.Infrastructure.Factroy
         /// <typeparam name="T"></typeparam>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static ApiBase<T> GetProxyInstace<T>(T model,
-            IInterception interception = null) where T : class, new()
+        public ApiBase<T> GetProxyInstace<T>(T model) where T : class, new()
         {
             IApiRunner realSubject = GetInstace(model);
-            return ProxyFactory.CreateProxyInstance<ApiBase<T>>(realSubject, interception);
+            return ProxyFactory.GetProxyInstance<ApiBase<T>>();
         }
 
         /// <summary>
@@ -62,20 +63,22 @@ namespace ElectronicInvoice.Infrastructure.Factroy
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static Type GetInstanceType(object model)
+        public Type GetInstanceType(object model)
         {
             var modelType = model.GetType();
-            var attr = modelType.GetCustomAttribute(typeof(ApiTypeAttribute)) as ApiTypeAttribute;
-            if (attr != null)
+            return modelType.GetAttributeValue((ApiTypeAttribute attr) =>
             {
-                return GetApiType(attr);
-            }
-            throw new Exception("Model尚未賦予ApiTypeAttribute");
+                if (attr != null)
+                {
+                    return GetApiType(attr);
+                }
+                throw new Exception("Model尚未賦予ApiTypeAttribute");
+            });
         }
 
         private static Type GetApiType(ApiTypeAttribute attr)
         {
-            string IsMockAPI = ConfigurationManager.AppSettings["IsMockAPI"] ?? "0";
+            string IsMockAPI = new ConfigHelper().IsMockAPI ?? "0";
             if (IsMockAPI == "1")
             {
                 return attr.MockApiType;

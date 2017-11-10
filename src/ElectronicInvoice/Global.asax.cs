@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElectronicInvoice.Infrastructure.DI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,9 @@ namespace ElectronicInvoice
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //使用AutoFac
+            AutofacConfig.Register();
         }
     }
 }

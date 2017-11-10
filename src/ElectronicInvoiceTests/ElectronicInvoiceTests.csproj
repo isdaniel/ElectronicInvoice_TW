@@ -58,11 +58,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Infrastructure\AOP\ProxyFactoryTests.cs" />
     <Compile Include="Infrastructure\Helper\PraramterHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AOPLib\AOPLib.csproj">
+      <Project>{4b0bc731-5920-4efe-9c80-d567e8da3758}</Project>
+      <Name>AOPLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice\ElectronicInvoice.csproj">
       <Project>{B7FB35FA-6E93-4128-9E53-6500852F1497}</Project>
       <Name>ElectronicInvoice</Name>
