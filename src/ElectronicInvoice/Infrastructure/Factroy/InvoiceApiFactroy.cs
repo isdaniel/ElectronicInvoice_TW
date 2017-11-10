@@ -41,7 +41,6 @@ namespace ElectronicInvoice.Infrastructure.Factroy
         {
             if (model == null) throw new ArgumentNullException("不能傳空的參數");
 
-            string modelName = model.GetType().Name;
             return (IApiRunner)Activator.CreateInstance
                 (GetInstanceType(model), null);
         }
@@ -54,8 +53,8 @@ namespace ElectronicInvoice.Infrastructure.Factroy
         /// <returns></returns>
         public ApiBase<T> GetProxyInstace<T>(T model) where T : class, new()
         {
-            IApiRunner realSubject = GetInstace(model);
-            return ProxyFactory.GetProxyInstance<ApiBase<T>>();
+            MarshalByRefObject realSubject = GetInstace(model) as MarshalByRefObject;
+            return ProxyFactory.GetProxyInstance<ApiBase<T>>(realSubject);
         }
 
         /// <summary>

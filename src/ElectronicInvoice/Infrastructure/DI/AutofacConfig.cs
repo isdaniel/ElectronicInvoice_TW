@@ -19,10 +19,10 @@ namespace ElectronicInvoice.Infrastructure.DI
         public static void Register()
         {
             // 容器建立者
-            ContainerBuilder builder = new ContainerBuilder();
+            //ContainerBuilder builder = new ContainerBuilder();
 
             // 註冊Controllers
-            builder.RegisterControllers(System.Reflection.Assembly.GetExecutingAssembly());
+           // builder.RegisterControllers(System.Reflection.Assembly.GetExecutingAssembly());
 
             //// 註冊DbContextFactory
             //string connectionString =
@@ -42,11 +42,11 @@ namespace ElectronicInvoice.Infrastructure.DI
             //       .AsImplementedInterfaces();
 
             // 建立容器
-            IContainer container = builder.Build();
+            //IContainer container = builder.Build();
+        
+            //AutofacDependencyResolver resolver = new AutofacDependencyResolver(container);
 
-            AutofacDependencyResolver resolver = new AutofacDependencyResolver(container);
-
-            DependencyResolver.SetResolver(resolver);
+            //DependencyResolver.SetResolver(resolver);
         }
     }
 }

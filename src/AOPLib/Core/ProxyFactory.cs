@@ -52,6 +52,5 @@ namespace AOPLib.Core
             var _proxy = new DynamicProxy<TOjbect>(realSubjcet);
             return _proxy.GetTransparentProxy() as TOjbect;
         }
-
     }
 }

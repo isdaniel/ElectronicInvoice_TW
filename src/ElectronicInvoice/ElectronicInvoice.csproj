@@ -193,6 +193,7 @@
     <Compile Include="Infrastructure\Helper\HttpTool.cs" />
     <Compile Include="Infrastructure\Helper\LogHelper.cs" />
     <Compile Include="Infrastructure\Helper\PraramterHelper.cs" />
+    <Compile Include="Infrastructure\ParamterContext.cs" />
     <Compile Include="Models\qryInvDetailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ApiBase.cs" />

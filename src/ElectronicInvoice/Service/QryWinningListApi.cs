@@ -19,8 +19,8 @@ namespace ElectronicInvoice.Service
             paramter["version"] = "0.2";
             paramter["action"] = "QryWinningList";
             paramter["invTerm"] = model.invTerm;
-            paramter["UUID"] = UUID;
-            paramter["appID"] = GovAppId;
+            paramter["UUID"] = paramterContext.UUID;
+            paramter["appID"] = paramterContext.GovAppId;
             return PraramterHelper.DictionaryToParamter(paramter);
         }
     }

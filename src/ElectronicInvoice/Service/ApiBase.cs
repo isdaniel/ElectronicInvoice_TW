@@ -6,6 +6,7 @@ using System.Net;
 using System.Web;
 using ElectronicInvoice.Infrastructure.Helper;
 using Newtonsoft.Json;
+using ElectronicInvoice.Infrastructure;
 
 /*
  * 創建者：Daniel.shih
@@ -18,11 +19,13 @@ namespace ElectronicInvoice.Service
     public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner
         where T : class, new()
     {
-        protected readonly string UUID = "9774d56d682e549c";
-        protected string GovAPIKey = ConfigurationManager.AppSettings["GovAPIKey"];
-        protected string GovAppId = ConfigurationManager.AppSettings["GovAppId"];
-        protected string TimeStamp = (CommonHelper.GetTimeStamp() + 15).ToString();
-        protected string TimeStampMAX = (CommonHelper.GetTimeStamp() + 10000).ToString();
+        protected ParamterContext paramterContext = new ParamterContext();
+
+        //protected readonly string UUID = "9774d56d682e549c";
+        //protected string GovAPIKey = ConfigurationManager.AppSettings["GovAPIKey"];
+        //protected string GovAppId = ConfigurationManager.AppSettings["GovAppId"];
+        //protected string TimeStamp = (CommonHelper.GetTimeStamp() + 15).ToString();
+        //protected string TimeStampMAX = (CommonHelper.GetTimeStamp() + 10000).ToString();
 
         /// <summary>
         /// 子類繼承提供參數
@@ -50,6 +53,7 @@ namespace ElectronicInvoice.Service
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
+        [Infrastructure.Attributes.Log]
         public virtual string ExcuteApi(object model)
         {
             //建立所需參數
@@ -84,7 +88,7 @@ namespace ElectronicInvoice.Service
         {
             //###進行加密動作
             string signature = CiphertextHelper.
-                EncryptionHMACSHA1Base64(GovAPIKey, paraData);
+                EncryptionHMACSHA1Base64(paramterContext.GovAPIKey, paraData);
             return string.Format("{0}&signature={1}",
                 ReplacePlus(paraData),
                 HttpUtility.UrlEncode(signature));

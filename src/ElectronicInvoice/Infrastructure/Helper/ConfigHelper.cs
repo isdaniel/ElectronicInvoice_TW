@@ -48,5 +48,21 @@ namespace ElectronicInvoice.Infrastructure.Helper
                 return ConfigurationManager.AppSettings["IsMockAPI"];
             }
         }
+
+        public string GovAppId
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["GovAppId"];
+            }
+        }
+
+        public string GovAPIKey
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["GovAPIKey"];
+            }
+        }
     }
 }
