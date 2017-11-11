@@ -1,5 +1,4 @@
-﻿using ElectronicInvoice.Infrastructure.DI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,7 +18,7 @@ namespace ElectronicInvoice
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //使用AutoFac
-            AutofacConfig.Register();
+            //AutofacConfig.Register();
         }
     }
 }

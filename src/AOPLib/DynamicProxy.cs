@@ -38,7 +38,7 @@ namespace AOPLib
             try
             {
                 //封裝執行前上下文
-                ExcuteingContext excuteContext = new ExcuteingContext(callMethod);
+                ExcuteingContext excuteContext = new ExcuteingContext(callMethod) { ClassName = _target.GetType().Name };
                 Excuting(Attrs.ExcuteFilters, excuteContext);
                 var result = targetMethod.Invoke(_target, excuteContext.InArgs);
                 returnMethod = new ReturnMessage(result,
@@ -47,7 +47,7 @@ namespace AOPLib
                                       callMethod.LogicalCallContext,
                                       callMethod);
                 //封裝執行後上下文
-                ExcutedContext excutingContext = new ExcutedContext(callMethod, returnMethod);
+                ExcutedContext excutingContext = new ExcutedContext(callMethod, returnMethod) { ClassName = _target.GetType().Name };
                 Excuted(Attrs.ExcuteFilters, excutingContext);
             }
             catch (Exception ex)

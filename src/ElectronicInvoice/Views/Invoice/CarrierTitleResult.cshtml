@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ElectronicInvoice.Models.ViewModel.InvoiceViewModel>
+
+@{
+    ViewBag.Title = "CarrierTitleResult";
+}
+
+<h2>CarrierTitleResult</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotleAmt)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotleAmt)
+            </td>
+            @*<td>
+                    <table>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Detail.FirstOrDefault().description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Detail.FirstOrDefault().unitPrice)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Detail.FirstOrDefault().quantity)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Detail.FirstOrDefault().amount)
+                            </th>
+                        </tr>
+                        @foreach (var detail in item.Detail)
+                        {
+                            <tr>
+                                <td>@detail.description</td>
+                            </tr>
+                            <tr>
+                                <td>@detail.unitPrice</td>
+                            </tr>
+                            <tr>
+                                <td>@detail.quantity</td>
+                            </tr>
+                            <tr>
+                                <td>@detail.amount</td>
+                            </tr>
+                        }
+                    </table>
+                </td>*@
+        </tr>
+    }
+</table>

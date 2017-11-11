@@ -57,6 +57,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -123,9 +127,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -181,26 +182,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Attributes\LogAttribute.cs" />
-    <Compile Include="Infrastructure\Common\ApiTypeAttribute.cs" />
-    <Compile Include="Infrastructure\DI\AutofacConfig.cs" />
-    <Compile Include="Infrastructure\Extention\AttributeExtention.cs" />
-    <Compile Include="Infrastructure\Factroy\InvoiceApiFactroy.cs" />
-    <Compile Include="Infrastructure\Helper\CiphertextHelper.cs" />
-    <Compile Include="Infrastructure\Helper\CommonHelper.cs" />
-    <Compile Include="Infrastructure\Helper\ConfigHelper.cs" />
-    <Compile Include="Infrastructure\Helper\EncryptHelper.cs" />
-    <Compile Include="Infrastructure\Helper\HttpTool.cs" />
-    <Compile Include="Infrastructure\Helper\LogHelper.cs" />
-    <Compile Include="Infrastructure\Helper\PraramterHelper.cs" />
-    <Compile Include="Infrastructure\ParamterContext.cs" />
-    <Compile Include="Models\qryInvDetailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\ApiBase.cs" />
-    <Compile Include="Service\IApiRunner.cs" />
-    <Compile Include="Service\qryInvDetailApi.cs" />
-    <Compile Include="Service\QryWinningListApi.cs" />
-    <Compile Include="Models\QryWinningListModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -241,10 +223,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Invoice\qryInvDetail.cshtml" />
     <Content Include="Views\Invoice\QryWinningList.cshtml" />
+    <Content Include="Views\Invoice\CarrierTitle.cshtml" />
+    <Content Include="Views\Invoice\CarrierTitleResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="InterFace\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -254,9 +237,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AOPLib\AOPLib.csproj">
-      <Project>{4b0bc731-5920-4efe-9c80-d567e8da3758}</Project>
-      <Name>AOPLib</Name>
+    <ProjectReference Include="..\ElectronicInvoice.Models\ElectronicInvoice.Models.csproj">
+      <Project>{bb523419-c1a2-4332-833e-c4ce6d7f91ea}</Project>
+      <Name>ElectronicInvoice.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElectronicInvoice.Produce\ElectronicInvoice.Produce.csproj">
+      <Project>{03B80758-E3AB-4E50-8485-1FE798380357}</Project>
+      <Name>ElectronicInvoice.Produce</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ElectronicInvoice.Service\ElectronicInvoice.Service.csproj">
+      <Project>{5af128d0-61d8-4c10-b27c-fc9951c8b9aa}</Project>
+      <Name>ElectronicInvoice.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -277,7 +268,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63300</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63300/</IISUrl>
+          <IISUrl>http://localhost:63000/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

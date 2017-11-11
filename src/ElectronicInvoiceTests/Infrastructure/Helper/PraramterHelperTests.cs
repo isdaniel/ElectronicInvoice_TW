@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ElectronicInvoice.Infrastructure.Helper;
+﻿using ElectronicInvoice.Core.Infrastructure.Helper;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +12,13 @@ namespace ElectronicInvoice.Infrastructure.Helper.Tests
     public class PraramterHelperTests
     {
         private Dictionary<string, string> dict;
-        [TestInitialize] 
-        public void Init() {
+
+        [TestInitialize]
+        public void Init()
+        {
             dict = new Dictionary<string, string>();
         }
+
         [TestMethod()]
         public void DictionaryToParamter_fullString_True()
         {
@@ -25,8 +28,9 @@ namespace ElectronicInvoice.Infrastructure.Helper.Tests
             string expected = "name=daniel&age=1234";
 
             string result = PraramterHelper.DictionaryToParamter(dict);
-            Assert.AreEqual(result,expected);
+            Assert.AreEqual(result, expected);
         }
+
         [TestMethod()]
         public void DictionaryToParamter_hasNullString_True()
         {

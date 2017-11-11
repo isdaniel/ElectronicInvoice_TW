@@ -20,6 +20,8 @@ namespace AOPLib.Core
 
         public object[] InArgs { get; set; }
         public string MethodName { get; set; }
+
+        public string ClassName { get; internal set; }
     }
 
     /// <summary>
@@ -39,5 +41,7 @@ namespace AOPLib.Core
         public string MethodName { get; private set; }
 
         public IMethodReturnMessage Result { get; private set; }
+
+        public string ClassName { get; internal set; }
     }
 }

@@ -1,7 +1,5 @@
-﻿using ElectronicInvoice.Infrastructure.Factroy;
-using ElectronicInvoice.Model;
-using ElectronicInvoice.Models;
-using Newtonsoft.Json;
+﻿using ElectronicInvoice.Produce.Mapping;
+using ElectronicInvoice.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,19 +10,12 @@ namespace ElectronicInvoice.Controllers
 {
     public class InvoiceController : Controller
     {
-        private MoblieInvoiceApiFactroy factory = new MoblieInvoiceApiFactroy();
+        private EIvoiceService service = new EIvoiceService();
 
         public ActionResult QryWinningList()
         {
-            QryWinningListModel model = new QryWinningListModel()
-            {
-                invTerm = "10604"
-            };
-
-            var api = factory.GetProxyInstace(model);
-            var resultJson = api.ExcuteApi(model);
-            var resultModle = JsonConvert.DeserializeObject<QryWinningListViewModel>(resultJson);
-            return View(resultModle);
+            var resultModel = service.GetWinningList("10604");
+            return View(resultModel);
         }
 
         public ActionResult qryInvDetail()
@@ -32,12 +23,25 @@ namespace ElectronicInvoice.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult qryInvDetail(qryInvDetailModel model)
+        public ActionResult CarrierTitle()
         {
-            var api = factory.GetInstace(model);
-            var result = api.ExcuteApi(model);
-            return Content(result);
+            return View();
         }
+
+        [HttpPost]
+        public ActionResult CarrierTitle(CarrierTilteModel model)
+        {
+            var result = service.GetInvoice(model);
+            return View("CarrierTitleResult", result);
+        }
+
+        //[HttpPost]
+        //public ActionResult qryInvDetail()
+        //{
+        //    return View();
+        //    //var api = factory.GetInstace(model);
+        //    //var result = api.ExcuteApi(model);
+        //    //return Content(result);
+        //}
     }
 }
