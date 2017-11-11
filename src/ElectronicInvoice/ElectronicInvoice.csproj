@@ -242,7 +242,7 @@
       <Name>ElectronicInvoice.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice.Produce\ElectronicInvoice.Produce.csproj">
-      <Project>{03B80758-E3AB-4E50-8485-1FE798380357}</Project>
+      <Project>{03b80758-e3ab-4e50-8485-1fe798380357}</Project>
       <Name>ElectronicInvoice.Produce</Name>
     </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice.Service\ElectronicInvoice.Service.csproj">
