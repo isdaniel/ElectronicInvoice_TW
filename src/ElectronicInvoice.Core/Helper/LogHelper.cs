@@ -24,8 +24,11 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
 
         private string GetFilePath(string fileName)
         {
-            string filePath = string.Empty;
-            filePath = @"C:\Users\dog83\Desktop\log\";
+            string filePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\log\\";
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
             return filePath + fileName;
         }
 

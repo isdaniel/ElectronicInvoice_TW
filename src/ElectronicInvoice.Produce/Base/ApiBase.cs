@@ -17,7 +17,7 @@ using ElectronicInvoice.Core.Facade;
 
 namespace ElectronicInvoice.Service.Base
 {
-    public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner
+    public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner<T>
         where T : class, new()
     {
         protected ParamterContext paramterContext = new ParamterContext();
@@ -49,17 +49,15 @@ namespace ElectronicInvoice.Service.Base
         /// <param name="model"></param>
         /// <returns></returns>
         [Log]
-        public virtual string ExcuteApi(object model)
+        public virtual string ExcuteApi(T model)
         {
             //建立所需參數
             string result = string.Empty;
             string postData = string.Empty;
             string posturl = GetApiURL();
 
-            var data = ObjectToModel(model);
-
             //取得加密後的參數
-            postData = GetInvoiceParamter(SetParamter(data));
+            postData = GetInvoiceParamter(SetParamter(model));
 
             try
             {
@@ -97,21 +95,6 @@ namespace ElectronicInvoice.Service.Base
         private string ReplacePlus(string paraData)
         {
             return paraData.Replace("+", "%2b");
-        }
-
-        /// <summary>
-        /// 將物件轉Model
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        private T ObjectToModel(object model)
-        {
-            var data = model as T;
-            if (data == null)
-            {
-                throw new Exception("Model參數型別不符，請確認型別");
-            }
-            return data;
         }
 
         private string GetSysErrorMsg()

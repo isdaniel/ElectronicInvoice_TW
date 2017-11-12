@@ -23,7 +23,7 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
         {
             get
             {
-                return setvice.GetCryp("EIVoiceIV").FirstOrDefault();
+                return setvice.GetCryp("EIVoiceIV");
             }
         }
 
@@ -31,7 +31,7 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
         {
             get
             {
-                return setvice.GetCryp("EIVoiceKey").FirstOrDefault();
+                return setvice.GetCryp("EIVoiceKey");
             }
         }
 
@@ -47,7 +47,7 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
         {
             get
             {
-                return setvice.GetCryp("GovAppId").FirstOrDefault();
+                return setvice.GetCryp("GovAppId");
             }
         }
 
@@ -55,7 +55,7 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
         {
             get
             {
-                return setvice.GetCryp("GovAPIKey").FirstOrDefault();
+                return setvice.GetCryp("GovAPIKey");
             }
         }
     }
@@ -64,9 +64,10 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
     {
         private CrypStoreDao dao = new CrypStoreDao();
 
-        public IEnumerable<string> GetCryp(string type)
+        public string GetCryp(string type)
         {
-            return dao.GetCrypStore().Where(o => o.ParamterType == type).Select(o => o.ParamterContent);
+            return dao.GetCrypStore().Where(o => o.ParamterType == type).
+                Select(o => o.ParamterContent).FirstOrDefault();
         }
     }
 }

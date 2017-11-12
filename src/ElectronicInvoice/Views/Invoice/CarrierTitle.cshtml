@@ -55,7 +55,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.cardEncrypt, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.cardEncrypt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.cardEncrypt, new { htmlAttributes = new { @class = "form-control" }})
                 @Html.ValidationMessageFor(model => model.cardEncrypt, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -37,7 +37,7 @@ namespace ElectronicInvoice.Service
             return string.Empty;
         }
 
-        public override string ExcuteApi(object model)
+        public override string ExcuteApi(QryWinningListModel model)
         {
             //這裡可以讀取DB的資料 我偷懶所以寫死資料
             QryWinningListViewModel MockResult = new QryWinningListViewModel()

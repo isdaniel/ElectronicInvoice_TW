@@ -15,7 +15,7 @@ namespace ElectronicInvoice.Core.Infrastructure.Attributes
 
         public override void MethodExcuted(ExcutedContext result)
         {
-            var resultJson = JsonConvert.SerializeObject(result.Result);
+            var resultJson = JsonConvert.SerializeObject(result.Result.ReturnValue);
             log.WriteLog("ExcuteAfter", resultJson, result.ClassName);
         }
 

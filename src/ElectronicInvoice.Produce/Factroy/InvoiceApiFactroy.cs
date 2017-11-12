@@ -16,12 +16,12 @@ namespace ElectronicInvoice.Core.Infrastructure.Factroy
         /// </summary>
         /// <param name="model">Model參數</param>
         /// <returns></returns>
-        public IApiRunner GetInstace(object model)
+        public IApiRunner<T> GetInstace<T>(T model)
         {
             if (model == null) throw new ArgumentNullException("不能傳空的參數");
 
-            return (IApiRunner)Activator.CreateInstance
-                (GetInstanceType(model), null);
+            return Activator.CreateInstance
+                (GetInstanceType(model), null) as IApiRunner<T>;
         }
 
         /// <summary>

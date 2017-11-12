@@ -11,6 +11,9 @@ using System.Configuration;
 
 namespace ElectronicInvoice.Dao
 {
+    /// <summary>
+    /// 目前存取資料庫 比較簡單，所以沒有在多做其他事情
+    /// </summary>
     public class CrypStoreDao
     {
         private string connstr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;

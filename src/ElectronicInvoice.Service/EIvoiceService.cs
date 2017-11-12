@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using ElectronicInvoice.Models.ViewModel;
+using ElectronicInvoice.Core.ConfigSetting;
 
 namespace ElectronicInvoice.Service
 {
@@ -14,8 +15,12 @@ namespace ElectronicInvoice.Service
     {
         private MoblieInvoiceApiFactroy factory = new MoblieInvoiceApiFactroy();
 
-        public QryWinningListViewModel GetWinningList
-            (string invTerm)
+        /// <summary>
+        /// 取得中獎號碼
+        /// </summary>
+        /// <param name="invTerm">查詢的期別</param>
+        /// <returns></returns>
+        public QryWinningListViewModel GetWinningList(string invTerm)
         {
             QryWinningListModel model = new QryWinningListModel() { invTerm = invTerm };
             var api = factory.GetProxyInstace(model);
@@ -29,23 +34,13 @@ namespace ElectronicInvoice.Service
             var api = factory.GetProxyInstace(carrierTitle);
             string result = api.ExcuteApi(carrierTitle);
             var title = JsonConvertFacde.DeserializeObject<CarrierTitle>(result);
-            List<InvoiceViewModel> InvoiceList = new List<InvoiceViewModel>();
+            List<InvoiceViewModel> InvoiceList = null;
+            //查詢成功再加入List中
             if (title.code == "200")
             {
-                foreach (var detail in title.details)
-                {
-                    InvoiceList.Add(new InvoiceViewModel()
-                    {
-                        InvNum = detail.invNum,
-                        TotleAmt = detail.amount
-                    });
-                    //var model = GetDetail(carrierTitle, detail);
-                    //var apiDetail = factory.GetProxyInstace(model);
-                    //string resultDetail = apiDetail.ExcuteApi(model);
-                    //CarrierDeatail Detail = JsonConvertFacde.DeserializeObject<CarrierDeatail>(resultDetail);
-                }
+                InvoiceList = MapperSetting.Setting().Map<List<InvoiceViewModel>>(title.details);
             }
-            return InvoiceList;
+            return InvoiceList ?? new List<InvoiceViewModel>();
         }
 
         private CarrierDetailModel GetDetail(CarrierTilteModel carrierTitle, TitleDetail detail)
