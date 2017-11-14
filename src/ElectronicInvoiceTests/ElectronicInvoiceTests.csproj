@@ -65,6 +65,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helper\DESCrypHelperTests.cs" />
     <Compile Include="Infrastructure\Helper\PraramterHelperTests.cs" />
     <Compile Include="Produce\InvoiceProduceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

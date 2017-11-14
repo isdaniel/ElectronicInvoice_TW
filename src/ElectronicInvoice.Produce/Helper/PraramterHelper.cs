@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace ElectronicInvoice.Core.Infrastructure.Helper
+namespace ElectronicInvoice.Produce.Infrastructure.Helper
 {
     public class PraramterHelper
     {
+        /// <summary>
+        /// 將字典轉成相對應參數字串
+        /// </summary>
+        /// <param name="dirc"></param>
+        /// <returns></returns>
         public static string DictionaryToParamter(IDictionary<string,string> dirc)
         {
             string value = string.Empty;
@@ -20,7 +25,7 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
             return string.Join("&", paraList);
         }
 
-        public static string SpellParamter(string key,string value) {
+        private static string SpellParamter(string key,string value) {
             return $"{key}={value}";
         }
     }

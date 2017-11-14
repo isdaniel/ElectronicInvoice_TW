@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using ElectronicInvoice.Service.Base;
-using Moq;
-using ElectronicInvoice.Models;
-using ElectronicInvoice.Core.Infrastructure.Factroy;
+﻿using NUnit.Framework;
+using ElectronicInvoice.Produce.Factroy;
+using ElectronicInvoice.Produce.Mapping;
 
 namespace ElectronicInvoiceTests.Produce
 {

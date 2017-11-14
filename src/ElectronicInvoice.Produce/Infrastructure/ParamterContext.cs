@@ -1,14 +1,14 @@
-﻿using ElectronicInvoice.Core.Infrastructure.Helper;
+﻿using ElectronicInvoice.Produce.Infrastructure.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ElectronicInvoice.Core.Infrastructure
+namespace ElectronicInvoice.Produce.Infrastructure
 {
     public partial class ParamterContext
     {
-        private DESCrypHelper help = new DESCrypHelper();
+        private DESCrypHelper help = new DESCrypHelper(null);
 
         public string UUID
         {
@@ -22,7 +22,7 @@ namespace ElectronicInvoice.Core.Infrastructure
         {
             get
             {
-                return help.DecryptData(new ConfigHelper().GovAPIKey);
+                return string.Empty;//help.DecryptData(new ConfigHelper().GovAPIKey);
             }
         }
 
@@ -30,7 +30,7 @@ namespace ElectronicInvoice.Core.Infrastructure
         {
             get
             {
-                return help.DecryptData(new ConfigHelper().GovAppId);
+                return string.Empty;//help.DecryptData(new ConfigHelper().GovAppId);
             }
         }
 

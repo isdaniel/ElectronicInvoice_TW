@@ -1,10 +1,6 @@
-﻿using ElectronicInvoice.Core.Infrastructure.Helper;
+﻿using ElectronicInvoice.Produce.Infrastructure.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElectronicInvoice.Infrastructure.Helper.Tests
 {

@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -43,11 +47,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ApiTypeAttribute.cs" />
+    <Compile Include="Attributes\LogAttribute.cs" />
     <Compile Include="Base\ApiBase.cs" />
     <Compile Include="Base\IApiRunner.cs" />
+    <Compile Include="Base\IConfig.cs" />
     <Compile Include="CarrierDetailApi.cs" />
     <Compile Include="CarrierTilteApi.cs" />
+    <Compile Include="Extention\AttributeExtention.cs" />
+    <Compile Include="Facade\JsonConvertFacde.cs" />
     <Compile Include="Factroy\InvoiceApiFactroy.cs" />
+    <Compile Include="Helper\CiphertextHelper.cs" />
+    <Compile Include="Helper\CommonHelper.cs" />
+    <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Helper\EncryptHelper.cs" />
+    <Compile Include="Helper\HttpTool.cs" />
+    <Compile Include="Helper\LogHelper.cs" />
+    <Compile Include="Helper\PraramterHelper.cs" />
+    <Compile Include="Infrastructure\DBKeyProvider.cs" />
+    <Compile Include="InvoiceResult\CarrierDetail.cs" />
+    <Compile Include="InvoiceResult\CarrierTitle.cs" />
+    <Compile Include="Infrastructure\ParamterContext.cs" />
+    <Compile Include="InvoiceResult\QryWinningListViewModel.cs" />
     <Compile Include="Mapping\CarrierDetailModel.cs" />
     <Compile Include="Mapping\CarrierTilteModel.cs" />
     <Compile Include="Mapping\qryInvDetailModel.cs" />
@@ -61,10 +82,6 @@
       <Project>{4B0BC731-5920-4EFE-9C80-D567E8DA3758}</Project>
       <Name>AOPLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ElectronicInvoice.Core\ElectronicInvoice.Core.csproj">
-      <Project>{1b352fea-e139-4879-bae8-b0952d9b7446}</Project>
-      <Name>ElectronicInvoice.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice.Models\ElectronicInvoice.Models.csproj">
       <Project>{bb523419-c1a2-4332-833e-c4ce6d7f91ea}</Project>
       <Name>ElectronicInvoice.Models</Name>
@@ -72,7 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

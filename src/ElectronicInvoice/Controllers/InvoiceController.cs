@@ -1,5 +1,4 @@
-﻿using ElectronicInvoice.Produce.Mapping;
-using ElectronicInvoice.Service;
+﻿using ElectronicInvoice.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +27,12 @@ namespace ElectronicInvoice.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult CarrierTitle(CarrierTilteModel model)
-        {
-            var result = service.GetInvoice(model);
-            return View("CarrierTitleResult", result);
-        }
+        //[HttpPost]
+        //public ActionResult CarrierTitle(CarrierTilteModel model)
+        //{
+        //    var result = service.GetInvoice(model);
+        //    return View("CarrierTitleResult", result);
+        //}
 
         //[HttpPost]
         //public ActionResult qryInvDetail()

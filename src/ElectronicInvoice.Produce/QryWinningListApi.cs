@@ -1,14 +1,11 @@
-﻿using ElectronicInvoice.Core.Facade;
-using ElectronicInvoice.Core.Infrastructure.Helper;
-using ElectronicInvoice.Models;
-using ElectronicInvoice.Models.InvoiceResult;
+﻿using ElectronicInvoice.Produce.Facade;
+using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Service.Base;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using ElectronicInvoice.Produce.InvoiceResult;
+using ElectronicInvoice.Produce.Mapping;
 
-namespace ElectronicInvoice.Service
+namespace ElectronicInvoice.Produce
 {
     /// <summary>
     /// 連接財政部API
@@ -40,7 +37,7 @@ namespace ElectronicInvoice.Service
         public override string ExcuteApi(QryWinningListModel model)
         {
             //這裡可以讀取DB的資料 我偷懶所以寫死資料
-            QryWinningListViewModel MockResult = new QryWinningListViewModel()
+            QryWinningListResult MockResult = new QryWinningListResult()
             {
                 code = "200",
                 msg = "OK",

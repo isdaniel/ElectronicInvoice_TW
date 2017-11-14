@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectronicInvoice.Models.InvoiceResult
+namespace ElectronicInvoice.Produce.InvoiceResult
 {
-    public class QryWinningListViewModel
+    public class QryWinningListResult
     {
         public string code { get; set; }
         public string msg { get; set; }

@@ -5,17 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using ElectronicInvoice.Models.ViewModel;
-using ElectronicInvoice.Models.InvoiceResult;
 
 namespace ElectronicInvoice.Core.ConfigSetting
 {
     public class MapperSetting
     {
-        public static IMapper Setting()
+        private MapperSetting() { }
+        static MapperSetting mapper = new MapperSetting();
+        public static MapperSetting Current
+        {
+            get
+            {
+                return mapper;
+            }
+        }
+        public IMapper Setting
+        {
+            get
+            {
+                return GetSetting();
+            }
+        }
+
+        public IMapper GetSetting()
         {
             var config = new MapperConfiguration(cfg =>
-            cfg.CreateMap<TitleDetail, InvoiceViewModel>());
-
+            {
+                //cfg.CreateMap<TitleDetail, InvoiceViewModel>();
+            });
+            
             var mapper = config.CreateMapper();
             return mapper;
         }

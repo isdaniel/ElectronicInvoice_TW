@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectronicInvoice.Core.Facade
+namespace ElectronicInvoice.Produce.Facade
 {
     /// <summary>
     /// 使用門面模式

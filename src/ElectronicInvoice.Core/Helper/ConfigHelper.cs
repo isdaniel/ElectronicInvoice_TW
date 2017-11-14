@@ -1,5 +1,4 @@
-﻿using ElectronicInvoice.Dao;
-using ElectronicInvoice.Models.DBModel;
+﻿using ElectronicInvoice.Models.DBModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,20 +9,22 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
 {
     public interface IConfig
     {
-        string IV { get; }
+        string GovAppId { get; }
+
+        string GovAPIKey { get; }
 
         string Key { get; }
+
+        string IV { get; }
     }
 
     public class ConfigHelper : IConfig
     {
-        private EncryptService setvice = new EncryptService();
-
         public string IV
         {
             get
             {
-                return setvice.GetCryp("EIVoiceIV");
+                return ConfigurationManager.AppSettings["IsMockAPI"];//setvice.GetCryp("EIVoiceIV");
             }
         }
 
@@ -31,7 +32,7 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
         {
             get
             {
-                return setvice.GetCryp("EIVoiceKey");
+                return ConfigurationManager.AppSettings["IsMockAPI"];//setvice.GetCryp("EIVoiceKey");
             }
         }
 
@@ -47,7 +48,7 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
         {
             get
             {
-                return setvice.GetCryp("GovAppId");
+                return ConfigurationManager.AppSettings["IsMockAPI"];//setvice.GetCryp("GovAppId");
             }
         }
 
@@ -55,19 +56,9 @@ namespace ElectronicInvoice.Core.Infrastructure.Helper
         {
             get
             {
-                return setvice.GetCryp("GovAPIKey");
+                return ConfigurationManager.AppSettings["IsMockAPI"];//setvice.GetCryp("GovAPIKey");
             }
         }
     }
 
-    public class EncryptService
-    {
-        private CrypStoreDao dao = new CrypStoreDao();
-
-        public string GetCryp(string type)
-        {
-            return dao.GetCrypStore().Where(o => o.ParamterType == type).
-                Select(o => o.ParamterContent).FirstOrDefault();
-        }
-    }
 }

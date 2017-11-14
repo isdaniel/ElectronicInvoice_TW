@@ -1,4 +1,4 @@
-﻿using ElectronicInvoice.Core.Infrastructure.Helper;
+﻿using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Produce.Mapping;
 using ElectronicInvoice.Service.Base;
 using System;

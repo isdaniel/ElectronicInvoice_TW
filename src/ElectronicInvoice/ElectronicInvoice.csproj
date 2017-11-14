@@ -254,17 +254,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ElectronicInvoice.Core\ElectronicInvoice.Core.csproj">
-      <Project>{1B352FEA-E139-4879-BAE8-B0952D9B7446}</Project>
-      <Name>ElectronicInvoice.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice.Models\ElectronicInvoice.Models.csproj">
       <Project>{bb523419-c1a2-4332-833e-c4ce6d7f91ea}</Project>
       <Name>ElectronicInvoice.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ElectronicInvoice.Produce\ElectronicInvoice.Produce.csproj">
-      <Project>{03b80758-e3ab-4e50-8485-1fe798380357}</Project>
-      <Name>ElectronicInvoice.Produce</Name>
     </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice.Service\ElectronicInvoice.Service.csproj">
       <Project>{5af128d0-61d8-4c10-b27c-fc9951c8b9aa}</Project>

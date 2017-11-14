@@ -1,13 +1,9 @@
-﻿using ElectronicInvoice.Core.Infrastructure.Helper;
-using ElectronicInvoice.Models;
+﻿using ElectronicInvoice.Produce.Infrastructure.Helper;
+using ElectronicInvoice.Produce.Mapping;
 using ElectronicInvoice.Service.Base;
-using ElectronicInvoice.Service.Mapping;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace ElectronicInvoice.Service
+namespace ElectronicInvoice.Produce
 {
     public class qryInvDetailApi : ApiBase<qryInvDetailModel>
     {

@@ -1,11 +1,6 @@
-﻿using ElectronicInvoice.Core.Infrastructure.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ElectronicInvoice.Produce.Attributes;
 
-namespace ElectronicInvoice.Service.Mapping
+namespace ElectronicInvoice.Produce.Mapping
 {
     [ApiType(ApiType = typeof(qryInvDetailApi))]
     public class qryInvDetailModel

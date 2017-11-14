@@ -1,5 +1,4 @@
 ﻿using Autofac.Integration.Mvc;
-using ElectronicInvoice.Core.ConfigSetting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +19,9 @@ namespace ElectronicInvoice
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //使用AutoFac
-            var container = AutofacConfig.Register();
-            AutofacDependencyResolver resolver = new AutofacDependencyResolver(container);
-            DependencyResolver.SetResolver(resolver);
+            //var container = AutofacConfig.Register();
+            //AutofacDependencyResolver resolver = new AutofacDependencyResolver(container);
+            //DependencyResolver.SetResolver(resolver);
         }
     }
 }

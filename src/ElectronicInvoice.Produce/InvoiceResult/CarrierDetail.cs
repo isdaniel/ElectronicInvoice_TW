@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectronicInvoice.Models.InvoiceResult
+namespace ElectronicInvoice.Produce.InvoiceResult
 {
     public class EnvoiceDetail
     {
@@ -15,7 +15,7 @@ namespace ElectronicInvoice.Models.InvoiceResult
         public string amount { get; set; }
     }
 
-    public class CarrierDeatail
+    public class CarrierDeatailResult
     {
         public string v { get; set; }
         public string code { get; set; }

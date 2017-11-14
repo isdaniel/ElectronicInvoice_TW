@@ -1,11 +1,11 @@
 ﻿using System;
-using ElectronicInvoice.Core.Infrastructure.Attributes;
-using ElectronicInvoice.Core.Infrastructure.Extention;
-using ElectronicInvoice.Core.Infrastructure.Helper;
 using ElectronicInvoice.Service.Base;
 using AOPLib.Core;
+using ElectronicInvoice.Produce.Infrastructure.Helper;
+using ElectronicInvoice.Produce.Attributes;
+using ElectronicInvoice.Produce.Extention;
 
-namespace ElectronicInvoice.Core.Infrastructure.Factroy
+namespace ElectronicInvoice.Produce.Factroy
 {
     public class MoblieInvoiceApiFactroy
     {
@@ -56,7 +56,7 @@ namespace ElectronicInvoice.Core.Infrastructure.Factroy
 
         private static Type GetApiType(ApiTypeAttribute attr)
         {
-            string IsMockAPI = new ConfigHelper().IsMockAPI ?? "0";
+            string IsMockAPI = "0";//new ConfigHelper().IsMockAPI ?? "0";
             if (IsMockAPI == "1")
             {
                 return attr.MockApiType;

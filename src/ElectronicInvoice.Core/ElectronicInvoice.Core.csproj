@@ -62,37 +62,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\ApiTypeAttribute.cs" />
-    <Compile Include="Attributes\LogAttribute.cs" />
     <Compile Include="ConfigSetting\AutofacConfig.cs" />
     <Compile Include="ConfigSetting\MapperSetting.cs" />
     <Compile Include="Extention\AttributeExtention.cs" />
     <Compile Include="Facade\JsonConvertFacde.cs" />
     <Compile Include="Helper\CiphertextHelper.cs" />
-    <Compile Include="Helper\CommonHelper.cs" />
     <Compile Include="Helper\ConfigHelper.cs" />
     <Compile Include="Helper\EncryptHelper.cs" />
     <Compile Include="Helper\HttpTool.cs" />
     <Compile Include="Helper\LogHelper.cs" />
-    <Compile Include="Helper\PraramterHelper.cs" />
-    <Compile Include="ParamterContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AOPLib\AOPLib.csproj">
-      <Project>{4b0bc731-5920-4efe-9c80-d567e8da3758}</Project>
-      <Name>AOPLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ElectronicInvoice.Dao\ElectronicInvoice.Dao.csproj">
-      <Project>{a761a992-5d08-48c2-befb-315077bcc5ea}</Project>
-      <Name>ElectronicInvoice.Dao</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice.Models\ElectronicInvoice.Models.csproj">
       <Project>{bb523419-c1a2-4332-833e-c4ce6d7f91ea}</Project>
       <Name>ElectronicInvoice.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ElectronicInvoice.Produce\ElectronicInvoice.Produce.csproj">
+      <Project>{03b80758-e3ab-4e50-8485-1fe798380357}</Project>
+      <Name>ElectronicInvoice.Produce</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Attributes\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />

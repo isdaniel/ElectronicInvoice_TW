@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectronicInvoice.Models.InvoiceResult
+namespace ElectronicInvoice.Produce.InvoiceResult
 {
     public class InvDate
     {
@@ -37,7 +37,7 @@ namespace ElectronicInvoice.Models.InvoiceResult
         public InvDate invDate { get; set; }
     }
 
-    public class CarrierTitle
+    public class CarrierTitleResult
     {
         public string v { get; set; }
         public string code { get; set; }

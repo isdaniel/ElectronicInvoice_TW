@@ -1,7 +1,7 @@
-﻿using ElectronicInvoice.Core.Infrastructure.Attributes;
+﻿using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Service;
 
-namespace ElectronicInvoice.Models
+namespace ElectronicInvoice.Produce.Mapping
 {
     [ApiType(ApiType = typeof(QryWinningListApi), MockApiType = typeof(QryWinningListMockApi))]
     public class QryWinningListModel

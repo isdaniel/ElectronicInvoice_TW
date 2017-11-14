@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using AOPLib.Core;
 using Newtonsoft.Json;
-using ElectronicInvoice.Core.Infrastructure.Helper;
+using ElectronicInvoice.Produce.Infrastructure.Helper;
 
-namespace ElectronicInvoice.Core.Infrastructure.Attributes
+namespace ElectronicInvoice.Produce.Attributes
 {
     public class LogAttribute : AopBaseAttribute
     {

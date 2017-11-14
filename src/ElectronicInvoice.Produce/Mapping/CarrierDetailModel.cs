@@ -1,9 +1,4 @@
-﻿using ElectronicInvoice.Core.Infrastructure.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ElectronicInvoice.Produce.Attributes;
 
 namespace ElectronicInvoice.Produce.Mapping
 {

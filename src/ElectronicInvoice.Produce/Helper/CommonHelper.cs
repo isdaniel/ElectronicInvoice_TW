@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectronicInvoice.Core.Infrastructure.Helper
+namespace ElectronicInvoice.Produce.Infrastructure.Helper
 {
     public class CommonHelper
     {  

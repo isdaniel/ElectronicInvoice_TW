@@ -1,13 +1,12 @@
-﻿using ElectronicInvoice.Core.Infrastructure;
-using ElectronicInvoice.Core.Infrastructure.Helper;
+﻿using ElectronicInvoice.Produce.Infrastructure.Helper;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
-using ElectronicInvoice.Core.Infrastructure.Attributes;
-using ElectronicInvoice.Core.Facade;
+using ElectronicInvoice.Produce.Facade;
+using ElectronicInvoice.Produce.Infrastructure;
+using ElectronicInvoice.Produce.Attributes;
 
 /*
  * 創建者：Daniel.shih
