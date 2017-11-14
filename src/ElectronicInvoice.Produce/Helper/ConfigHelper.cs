@@ -1,10 +1,5 @@
-﻿using ElectronicInvoice.Models.DBModel;
-using ElectronicInvoice.Produce.Base;
-using System;
-using System.Collections.Generic;
+﻿using ElectronicInvoice.Produce.Base;
 using System.Configuration;
-using System.Linq;
-using System.Web;
 
 namespace ElectronicInvoice.Produce.Infrastructure.Helper
 {

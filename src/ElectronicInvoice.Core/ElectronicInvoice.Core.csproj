@@ -67,8 +67,6 @@
     <Compile Include="Extention\AttributeExtention.cs" />
     <Compile Include="Facade\JsonConvertFacde.cs" />
     <Compile Include="Helper\CiphertextHelper.cs" />
-    <Compile Include="Helper\ConfigHelper.cs" />
-    <Compile Include="Helper\EncryptHelper.cs" />
     <Compile Include="Helper\HttpTool.cs" />
     <Compile Include="Helper\LogHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

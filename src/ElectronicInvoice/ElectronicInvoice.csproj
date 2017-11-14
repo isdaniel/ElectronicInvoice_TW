@@ -254,6 +254,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ElectronicInvoice.Core\ElectronicInvoice.Core.csproj">
+      <Project>{1b352fea-e139-4879-bae8-b0952d9b7446}</Project>
+      <Name>ElectronicInvoice.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice.Models\ElectronicInvoice.Models.csproj">
       <Project>{bb523419-c1a2-4332-833e-c4ce6d7f91ea}</Project>
       <Name>ElectronicInvoice.Models</Name>

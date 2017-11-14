@@ -1,4 +1,7 @@
 ﻿using Autofac;
+using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Infrastructure;
+using ElectronicInvoice.Produce.Infrastructure.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +21,8 @@ namespace ElectronicInvoice.Core.ConfigSetting
         {
             // 容器建立者
             ContainerBuilder builder = new ContainerBuilder();
+
+            builder.RegisterType<AppsettingConfig>().As<IConfig>();
 
             // 註冊Controllers
             // builder.RegisterControllers(System.Reflection.Assembly.GetExecutingAssembly());

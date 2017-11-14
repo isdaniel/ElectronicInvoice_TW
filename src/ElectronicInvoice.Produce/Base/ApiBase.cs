@@ -7,6 +7,7 @@ using System.Web;
 using ElectronicInvoice.Produce.Facade;
 using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Attributes;
+using ElectronicInvoice.Produce.Base;
 
 /*
  * 創建者：Daniel.shih
@@ -19,7 +20,16 @@ namespace ElectronicInvoice.Service.Base
     public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner<T>
         where T : class, new()
     {
-        protected ParamterContext paramterContext = new ParamterContext();
+        protected ParamterContext paramterContext = new ParamterContext(new AppsettingConfig());
+
+        //public ApiBase() : this(new AppsettingConfig())
+        //{
+        //}
+
+        //public ApiBase(IConfig config)
+        //{
+        //    paramterContext = new ParamterContext(config);
+        //}
 
         /// <summary>
         /// 子類繼承提供參數

@@ -1,4 +1,5 @@
-﻿using ElectronicInvoice.Service;
+﻿using ElectronicInvoice.Models.ViewModel;
+using ElectronicInvoice.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace ElectronicInvoice.Controllers
 
         public ActionResult QryWinningList()
         {
-            var resultModel = service.GetWinningList("10604");
+            QryWinningListViewModel viewModel = new QryWinningListViewModel() { invTerm = "10406" };
+            var resultModel = service.GetWinningList(viewModel);
             return View(resultModel);
         }
 
@@ -27,12 +29,12 @@ namespace ElectronicInvoice.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult CarrierTitle(CarrierTilteModel model)
-        //{
-        //    var result = service.GetInvoice(model);
-        //    return View("CarrierTitleResult", result);
-        //}
+        [HttpPost]
+        public ActionResult CarrierTitle(CarrierTilteViewModel model)
+        {
+            var result = service.GetInvoice(model);
+            return View("CarrierTitleResult", result);
+        }
 
         //[HttpPost]
         //public ActionResult qryInvDetail()

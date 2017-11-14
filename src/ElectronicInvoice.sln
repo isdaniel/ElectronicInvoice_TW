@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOPLib", "AOPLib\AOPLib.csproj", "{4B0BC731-5920-4EFE-9C80-D567E8DA3758}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicInvoice.Core", "ElectronicInvoice.Core\ElectronicInvoice.Core.csproj", "{1B352FEA-E139-4879-BAE8-B0952D9B7446}"
+	ProjectSection(ProjectDependencies) = postProject
+		{03B80758-E3AB-4E50-8485-1FE798380357} = {03B80758-E3AB-4E50-8485-1FE798380357}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicInvoice.Dao", "ElectronicInvoice.Dao\ElectronicInvoice.Dao.csproj", "{A761A992-5D08-48C2-BEFB-315077BCC5EA}"
 EndProject

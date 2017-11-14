@@ -41,7 +41,7 @@ namespace ElectronicInvoice.Produce.Factroy
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public Type GetInstanceType(object model)
+        private Type GetInstanceType(object model)
         {
             var modelType = model.GetType();
             return modelType.GetAttributeValue((ApiTypeAttribute attr) =>

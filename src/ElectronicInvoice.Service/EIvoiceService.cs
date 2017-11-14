@@ -7,6 +7,7 @@ using ElectronicInvoice.Core.ConfigSetting;
 using AutoMapper;
 using ElectronicInvoice.Produce.Factroy;
 using ElectronicInvoice.Produce.InvoiceResult;
+using Autofac;
 
 namespace ElectronicInvoice.Service
 {
@@ -14,25 +15,24 @@ namespace ElectronicInvoice.Service
     {
         private MoblieInvoiceApiFactroy factory = new MoblieInvoiceApiFactroy();
 
-        static IMapper mapper = MapperSetting.Current.Setting;
+        private static IMapper mapper = MapperSetting.Current.Setting;
 
         /// <summary>
         /// 取得中獎號碼
         /// </summary>
         /// <param name="invTerm">查詢的期別</param>
         /// <returns></returns>
-        public string GetWinningList(string invTerm)
+        public QryWinningListResultViewModel GetWinningList(QryWinningListViewModel viewModel)
         {
-            QryWinningListModel model = new QryWinningListModel() { invTerm = invTerm };
-            var api = factory.GetProxyInstace(model);
-            var resultJson = api.ExcuteApi(model);    
-            return resultJson;
+            var model = mapper.Map<QryWinningListModel>(viewModel);
+            var resultJson = ExcuteApi(model);
+            return JsonConvertFacde.DeserializeObject<QryWinningListResultViewModel>(resultJson);
         }
 
-        public List<InvoiceViewModel> GetInvoice(CarrierTilteModel carrierTitle)
+        public List<InvoiceViewModel> GetInvoice(CarrierTilteViewModel viewModel)
         {
-            var api = factory.GetProxyInstace(carrierTitle);
-            string result = api.ExcuteApi(carrierTitle);
+            var carrierTitleModel = mapper.Map<CarrierTilteModel>(viewModel);
+            string result = ExcuteApi(carrierTitleModel);
             var title = JsonConvertFacde.DeserializeObject<CarrierTitleResult>(result);
             List<InvoiceViewModel> InvoiceList = null;
             //查詢成功再加入List中
@@ -53,6 +53,20 @@ namespace ElectronicInvoice.Service
                 cardType = "3J0002",
                 invDate = $"{Convert.ToInt32(detail.invDate.year) + 1911}/{detail.invDate.month}/{detail.invDate.date}"
             };
+        }
+
+        /// <summary>
+        /// 執行API
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="carrierTitleModel"></param>
+        /// <returns></returns>
+        private string ExcuteApi<T>(T carrierTitleModel) where T :
+            class, new()
+        {
+            var api = factory.GetProxyInstace(carrierTitleModel);
+            string result = api.ExcuteApi(carrierTitleModel);
+            return result;
         }
     }
 }
