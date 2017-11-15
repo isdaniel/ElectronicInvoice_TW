@@ -4,6 +4,7 @@ using AOPLib.Core;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Extention;
+using ElectronicInvoice.Produce.Mapping;
 
 namespace ElectronicInvoice.Produce.Factroy
 {
@@ -16,12 +17,11 @@ namespace ElectronicInvoice.Produce.Factroy
         /// </summary>
         /// <param name="model">Model參數</param>
         /// <returns></returns>
-        public IApiRunner<T> GetInstace<T>(T model)
+        public IApiRunner<T> GetInstace<T>(T model) where T : class, new()
         {
             if (model == null) throw new ArgumentNullException("不能傳空的參數");
 
-            return Activator.CreateInstance
-                (GetInstanceType(model), null) as IApiRunner<T>;
+            return Activator.CreateInstance(GetInstanceType(model), null) as IApiRunner<T>;
         }
 
         /// <summary>
