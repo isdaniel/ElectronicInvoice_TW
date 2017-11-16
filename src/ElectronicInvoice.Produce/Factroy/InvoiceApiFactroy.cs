@@ -5,6 +5,7 @@ using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Extention;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Mapping;
 
 namespace ElectronicInvoice.Produce.Factroy
 {
@@ -57,7 +58,7 @@ namespace ElectronicInvoice.Produce.Factroy
             return attr.ApiType;
         }
 
-        public IApiRunner<T> GetInstace<T>(T model, object[] args)
+        public IApiRunner<T> GetInstace<T>(T model, object[] args = null)
         {
             if (model == null) throw new ArgumentNullException("不能傳空的參數");
 

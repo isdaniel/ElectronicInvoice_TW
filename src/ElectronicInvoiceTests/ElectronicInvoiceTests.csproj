@@ -69,6 +69,7 @@
     <Compile Include="Infrastructure\Helper\PraramterHelperTests.cs" />
     <Compile Include="Produce\InvoiceProduceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ApiFacotryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ElectronicInvoice.Core\ElectronicInvoice.Core.csproj">
