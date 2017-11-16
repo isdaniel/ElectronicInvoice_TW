@@ -4,24 +4,17 @@ using AOPLib.Core;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Extention;
+using ElectronicInvoice.Produce.Base;
 
 namespace ElectronicInvoice.Produce.Factroy
 {
-    public class MoblieInvoiceApiFactroy
+    public class InvoiceApiFactroy
     {
-        /// <summary>
-        /// 提供api的工廠
-        /// Model和Api命名要相關
-        /// 例如:testModel 對 testApi
-        /// </summary>
-        /// <param name="model">Model參數</param>
-        /// <returns></returns>
-        public IApiRunner<T> GetInstace<T>(T model)
-        {
-            if (model == null) throw new ArgumentNullException("不能傳空的參數");
+        private IConfig _config;
 
-            return Activator.CreateInstance
-                (GetInstanceType(model), null) as IApiRunner<T>;
+        public InvoiceApiFactroy(IConfig config)
+        {
+            _config = config;
         }
 
         /// <summary>
@@ -30,9 +23,9 @@ namespace ElectronicInvoice.Produce.Factroy
         /// <typeparam name="T"></typeparam>
         /// <param name="model">Model參數</param>
         /// <returns></returns>
-        public ApiBase<T> GetProxyInstace<T>(T model) where T : class, new()
+        public ApiBase<T> GetProxyInstace<T>(T model,object[] args = null) where T : class, new()
         {
-            ApiBase<T> realSubject = GetInstace(model) as ApiBase<T>;
+            ApiBase<T> realSubject = GetInstace(model, args) as ApiBase<T>;
             return ProxyFactory.GetProxyInstance(realSubject);
         }
 
@@ -54,14 +47,22 @@ namespace ElectronicInvoice.Produce.Factroy
             });
         }
 
-        private static Type GetApiType(ApiTypeAttribute attr)
+        private Type GetApiType(ApiTypeAttribute attr)
         {
-            string IsMockAPI = "0";//new ConfigHelper().IsMockAPI ?? "0";
+            string IsMockAPI = _config.IsMockAPI;
             if (IsMockAPI == "1")
             {
                 return attr.MockApiType;
             }
             return attr.ApiType;
+        }
+
+        public IApiRunner<T> GetInstace<T>(T model, object[] args)
+        {
+            if (model == null) throw new ArgumentNullException("不能傳空的參數");
+
+            return Activator.CreateInstance
+                (GetInstanceType(model), args) as IApiRunner<T>;
         }
     }
 }

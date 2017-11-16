@@ -20,16 +20,16 @@ namespace ElectronicInvoice.Service.Base
     public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner<T>
         where T : class, new()
     {
-        protected ParamterContext paramterContext = new ParamterContext(new AppsettingConfig());
+        protected ParamterContext paramterContext;//= new ParamterContext(new AppsettingConfig());
 
-        //public ApiBase() : this(new AppsettingConfig())
-        //{
-        //}
+        public ApiBase() : this(new AppsettingConfig())
+        {
+        }
 
-        //public ApiBase(IConfig config)
-        //{
-        //    paramterContext = new ParamterContext(config);
-        //}
+        public ApiBase(IConfig config)
+        {
+            paramterContext = new ParamterContext(config);
+        }
 
         /// <summary>
         /// 子類繼承提供參數

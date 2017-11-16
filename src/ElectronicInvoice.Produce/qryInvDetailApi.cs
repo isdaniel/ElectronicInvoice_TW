@@ -2,11 +2,13 @@
 using ElectronicInvoice.Produce.Mapping;
 using ElectronicInvoice.Service.Base;
 using System.Collections.Generic;
+using ElectronicInvoice.Produce.Base;
 
 namespace ElectronicInvoice.Produce
 {
     public class qryInvDetailApi : ApiBase<qryInvDetailModel>
     {
+
         protected override string SetParamter(qryInvDetailModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();

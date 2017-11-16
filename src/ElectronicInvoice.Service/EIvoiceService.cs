@@ -8,15 +8,14 @@ using AutoMapper;
 using ElectronicInvoice.Produce.Factroy;
 using ElectronicInvoice.Produce.InvoiceResult;
 using Autofac;
+using ElectronicInvoice.Produce.Base;
 
 namespace ElectronicInvoice.Service
 {
     public class EIvoiceService
     {
-        private MoblieInvoiceApiFactroy factory = new MoblieInvoiceApiFactroy();
-
         private static IMapper mapper = MapperSetting.Current.Setting;
-
+        private static IContainer autofac = AutofacConfig.Register();
         /// <summary>
         /// 取得中獎號碼
         /// </summary>
@@ -64,9 +63,15 @@ namespace ElectronicInvoice.Service
         private string ExcuteApi<T>(T carrierTitleModel) where T :
             class, new()
         {
+            InvoiceApiFactroy factory;
+            IConfig config;
+            using (var container = autofac.BeginLifetimeScope())
+            {
+                config = container.Resolve<IConfig>();
+                factory = container.Resolve<InvoiceApiFactroy>();
+            }
             var api = factory.GetProxyInstace(carrierTitleModel);
-            string result = api.ExcuteApi(carrierTitleModel);
-            return result;
+            return api.ExcuteApi(carrierTitleModel);
         }
     }
 }

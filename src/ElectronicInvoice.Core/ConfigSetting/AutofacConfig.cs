@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Factroy;
 using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
+using ElectronicInvoice.Service.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,17 +25,8 @@ namespace ElectronicInvoice.Core.ConfigSetting
             ContainerBuilder builder = new ContainerBuilder();
 
             builder.RegisterType<AppsettingConfig>().As<IConfig>();
-
-            // 註冊Controllers
-            // builder.RegisterControllers(System.Reflection.Assembly.GetExecutingAssembly());
-
-            //// 註冊DbContextFactory
-            //string connectionString =
-            //    ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            //builder.RegisterType<DbContextFactory>()
-            //    .WithParameter("connectionString", connectionString)
-            //    .As<IDbContextFactory>()
-            //    .InstancePerHttpRequest();
+            builder.RegisterGeneric(typeof(ApiBase<>)).PropertiesAutowired();
+            builder.RegisterType<InvoiceApiFactroy>();
 
             // 建立容器
             return builder.Build();

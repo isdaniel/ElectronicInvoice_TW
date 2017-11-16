@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ElectronicInvoice.Produce.Base;
 
 namespace ElectronicInvoice.Produce
 {
     public class CarrierDetailApi : ApiBase<CarrierDetailModel>
     {
+
         protected override string SetParamter(CarrierDetailModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();

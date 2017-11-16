@@ -4,6 +4,7 @@ using ElectronicInvoice.Service.Base;
 using System.Collections.Generic;
 using ElectronicInvoice.Produce.InvoiceResult;
 using ElectronicInvoice.Produce.Mapping;
+using ElectronicInvoice.Produce.Base;
 
 namespace ElectronicInvoice.Produce
 {
@@ -12,6 +13,7 @@ namespace ElectronicInvoice.Produce
     /// </summary>
     public class QryWinningListApi : ApiBase<QryWinningListModel>
     {
+
         protected override string SetParamter(QryWinningListModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
