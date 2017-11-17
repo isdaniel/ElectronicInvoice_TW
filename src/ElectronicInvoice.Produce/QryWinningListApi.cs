@@ -11,7 +11,7 @@ namespace ElectronicInvoice.Produce
     /// <summary>
     /// 連接財政部API
     /// </summary>
-    public class QryWinningListApi : ApiBase<QryWinningListModel>
+    internal class QryWinningListApi : ApiBase<QryWinningListModel>
     {
 
         protected override string SetParamter(QryWinningListModel model)

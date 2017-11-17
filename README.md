@@ -104,4 +104,52 @@ public class qryInvDetailApi : ApiBase<qryInvDetailModel>
     <add key="QryWinningListApi" value="https://www.einvoice.nat.gov.tw/PB2CAPIVAN/invapp/InvApp" />
 </appSettings>
 ```
+<br/>
 
+## 2017/11/16 新增範例程式
+### `EInvoiceDemo`專案範例:
+
+以下範例是呼叫【撈取中獎發票API】
+```cs
+//設定使用哪個抓取Setting類別
+var setting  = new AppsettingConfig();
+
+//建立工廠 將配置檔傳入建構子中
+InvoiceApiFactroy factory = new InvoiceApiFactroy(setting);
+
+//建立查詢參數  
+//下面範例查詢 發票民國106年7.8月中獎發票
+QryWinningListModel model = new QryWinningListModel()
+{
+    invTerm = "10608"
+};
+
+//在工廠中藉由傳入參數 取得Api產品
+var api = factory.GetProxyInstace(model);
+
+//api回傳結果
+var result = api.ExcuteApi(model);
+```
+
+WebConfig配置
+```xml
+<appSettings>
+  <!--查詢api的url  api名稱為key,請求網址為value-->
+  <add key="QryWinningListApi" value="https://www.einvoice.nat.gov.tw/PB2CAPIVAN/invapp/InvApp" />
+  <!--是否開啟API模擬-->
+  <add key="IsMockAPI" value="0" />
+  <!--設置你們Key和IV-->
+  <add key="GovAppId" value="" />
+  <add key="GovAPIKey" value=""/>
+</appSettings>
+```
+ 
+## 執行結果
+![Alt text](https://az787680.vo.msecnd.net/user/九桃/7a594954-113f-45bd-827f-39d19508fcc3/1510882195_20334.png "執行結果")
+
+<br/>
+
+# 使用Dll
+## 本框架使用第三方套件(使用前先匯入)
+### Json.NET
+### 自製AopLib.dll

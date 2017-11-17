@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{03B80758-E3AB-4E50-8485-1FE798380357}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{59FC592F-97E6-4A64-877F-9B7871422EDB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ElectronicInvoice.Produce</RootNamespace>
-    <AssemblyName>ElectronicInvoice.Produce</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>EInvoiceDemo</RootNamespace>
+    <AssemblyName>EInvoiceDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,14 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AOPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\AOPLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ElectronicInvoice.Produce, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ElectronicInvoice.Produce.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,47 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\ApiTypeAttribute.cs" />
-    <Compile Include="Attributes\LogAttribute.cs" />
-    <Compile Include="Base\ApiBase.cs" />
-    <Compile Include="Base\IApiRunner.cs" />
-    <Compile Include="Base\IConfig.cs" />
-    <Compile Include="CarrierDetailApi.cs" />
-    <Compile Include="CarrierTilteApi.cs" />
-    <Compile Include="Extention\AttributeExtention.cs" />
-    <Compile Include="Facade\JsonConvertFacde.cs" />
-    <Compile Include="Factroy\InvoiceApiFactroy.cs" />
-    <Compile Include="Helper\CiphertextHelper.cs" />
-    <Compile Include="Helper\CommonHelper.cs" />
-    <Compile Include="Helper\ConfigHelper.cs" />
-    <Compile Include="Helper\EncryptHelper.cs" />
-    <Compile Include="Helper\HttpTool.cs" />
-    <Compile Include="Helper\LogHelper.cs" />
-    <Compile Include="Helper\PraramterHelper.cs" />
-    <Compile Include="Infrastructure\DBKeyProvider.cs" />
-    <Compile Include="InvoiceResult\CarrierDetail.cs" />
-    <Compile Include="InvoiceResult\CarrierTitle.cs" />
-    <Compile Include="Infrastructure\ParamterContext.cs" />
-    <Compile Include="InvoiceResult\QryWinningListViewModel.cs" />
-    <Compile Include="Mapping\CarrierDetailModel.cs" />
-    <Compile Include="Mapping\CarrierTilteModel.cs" />
-    <Compile Include="Mapping\qryInvDetailModel.cs" />
-    <Compile Include="Mapping\QryWinningListModel.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="qryInvDetailApi.cs" />
-    <Compile Include="QryWinningListApi.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AOPLib\AOPLib.csproj">
-      <Project>{4B0BC731-5920-4EFE-9C80-D567E8DA3758}</Project>
-      <Name>AOPLib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="lib\AOPLib.dll" />
+    <Content Include="lib\ElectronicInvoice.Produce.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
