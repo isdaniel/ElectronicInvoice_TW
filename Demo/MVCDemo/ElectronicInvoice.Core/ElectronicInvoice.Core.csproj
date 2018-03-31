@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5AF128D0-61D8-4C10-B27C-FC9951C8B9AA}</ProjectGuid>
+    <ProjectGuid>{1B352FEA-E139-4879-BAE8-B0952D9B7446}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ElectronicInvoice.Service</RootNamespace>
-    <AssemblyName>ElectronicInvoice.Service</AssemblyName>
+    <RootNamespace>ElectronicInvoice.Core</RootNamespace>
+    <AssemblyName>ElectronicInvoice.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -39,6 +39,22 @@
       <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AwesomeProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\AwesomeProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.0\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ElectronicInvoice.Produce, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\ElectronicInvoice.Produce.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -46,7 +62,6 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,26 +70,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EIvoiceService.cs" />
+    <Compile Include="ConfigSetting\AutofacConfig.cs" />
+    <Compile Include="ConfigSetting\MapperSetting.cs" />
+    <Compile Include="Extention\AttributeExtention.cs" />
+    <Compile Include="Facade\JsonConvertFacde.cs" />
+    <Compile Include="Helper\CiphertextHelper.cs" />
+    <Compile Include="Helper\HttpTool.cs" />
+    <Compile Include="Helper\LogHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ElectronicInvoice.Core\ElectronicInvoice.Core.csproj">
-      <Project>{1b352fea-e139-4879-bae8-b0952d9b7446}</Project>
-      <Name>ElectronicInvoice.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ElectronicInvoice.Dao\ElectronicInvoice.Dao.csproj">
-      <Project>{a761a992-5d08-48c2-befb-315077bcc5ea}</Project>
-      <Name>ElectronicInvoice.Dao</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice.Models\ElectronicInvoice.Models.csproj">
       <Project>{bb523419-c1a2-4332-833e-c4ce6d7f91ea}</Project>
       <Name>ElectronicInvoice.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ElectronicInvoice.Produce\ElectronicInvoice.Produce.csproj">
-      <Project>{03b80758-e3ab-4e50-8485-1fe798380357}</Project>
-      <Name>ElectronicInvoice.Produce</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Attributes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

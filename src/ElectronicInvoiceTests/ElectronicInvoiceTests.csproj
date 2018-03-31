@@ -72,10 +72,6 @@
     <Compile Include="ApiFacotryTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ElectronicInvoice.Core\ElectronicInvoice.Core.csproj">
-      <Project>{1b352fea-e139-4879-bae8-b0952d9b7446}</Project>
-      <Name>ElectronicInvoice.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ElectronicInvoice.Produce\ElectronicInvoice.Produce.csproj">
       <Project>{03b80758-e3ab-4e50-8485-1fe798380357}</Project>
       <Name>ElectronicInvoice.Produce</Name>
