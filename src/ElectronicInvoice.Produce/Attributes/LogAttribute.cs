@@ -1,7 +1,7 @@
-﻿using AOPLib.FilterAttribute;
-using AOPLib.Core;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
+using AwesomeProxy.FilterAttribute;
+using AwesomeProxy;
 
 namespace ElectronicInvoice.Produce.Attributes
 {
@@ -9,16 +9,16 @@ namespace ElectronicInvoice.Produce.Attributes
     {
         private LogHelper log = new LogHelper();
 
-        public override void MethodExcuted(ExcutedContext result)
+        public override void OnExcuted(ExcutedContext context)
         {
-            var resultJson = JsonConvert.SerializeObject(result.Result.ReturnValue);
-            log.WriteLog("ExcuteAfter", resultJson, result.ClassName);
+            var resultJson = JsonConvert.SerializeObject(context.Result);
+            log.WriteLog("ExcuteAfter", resultJson, context.MethodName);
         }
 
-        public override void MethodExcuting(ExcuteingContext args)
+        public override void OnExcuting(ExcuteingContext context)
         {
-            var resultJson = JsonConvert.SerializeObject(args.InArgs);
-            log.WriteLog("ExcuteBefore", resultJson, args.ClassName);
+            var resultJson = JsonConvert.SerializeObject(context.Args);
+            log.WriteLog("ExcuteBefore", resultJson, context.MethodName);
         }
     }
 }

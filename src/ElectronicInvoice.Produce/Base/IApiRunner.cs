@@ -1,4 +1,4 @@
-namespace ElectronicInvoice.Service.Base
+namespace ElectronicInvoice.Produce.Base
 {
     /// <summary>
     /// °õ¦æapiªº¤¶­±

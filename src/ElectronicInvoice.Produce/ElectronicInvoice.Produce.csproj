@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AwesomeProxy">
+      <HintPath>..\libs\AwesomeProxy.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -76,12 +79,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="qryInvDetailApi.cs" />
     <Compile Include="QryWinningListApi.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AOPLib\AOPLib.csproj">
-      <Project>{4B0BC731-5920-4EFE-9C80-D567E8DA3758}</Project>
-      <Name>AOPLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

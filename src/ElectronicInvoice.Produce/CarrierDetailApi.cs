@@ -1,6 +1,5 @@
 ﻿using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Produce.Mapping;
-using ElectronicInvoice.Service.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;

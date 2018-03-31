@@ -1,11 +1,8 @@
 ﻿using System;
-using ElectronicInvoice.Service.Base;
-using AOPLib.Core;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Extention;
 using ElectronicInvoice.Produce.Base;
-using ElectronicInvoice.Produce.Mapping;
+using AwesomeProxy;
 
 namespace ElectronicInvoice.Produce.Factroy
 {

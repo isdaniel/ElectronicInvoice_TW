@@ -15,7 +15,7 @@ using ElectronicInvoice.Produce.Base;
  * 使用：每個api可以繼承此類別(ApiBase)，子類只需提供api參數呼叫 IApiRunner.ExcuteApi 並將參數傳入即可完成操作
  * **/
 
-namespace ElectronicInvoice.Service.Base
+namespace ElectronicInvoice.Produce.Base
 {
     public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner<T>
         where T : class, new()
