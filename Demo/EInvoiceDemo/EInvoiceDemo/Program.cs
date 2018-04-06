@@ -27,6 +27,7 @@ namespace EInvoiceDemo
                 invTerm = "10608"
             };
 
+
             //在工廠中藉由傳入參數 取得Api產品
             var api = factory.GetProxyInstace(model);
 
