@@ -1,12 +1,12 @@
-﻿using System;
+﻿using ElectronicInvoice.Produce.Factroy;
+using ElectronicInvoice.Produce.Infrastructure.Helper;
+using ElectronicInvoice.Produce.Mapping;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ElectronicInvoice.Produce;
-using ElectronicInvoice.Produce.Factroy;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
-using ElectronicInvoice.Produce.Mapping;
+
 
 namespace EInvoiceDemo
 {
@@ -15,7 +15,7 @@ namespace EInvoiceDemo
         static void Main(string[] args)
         {
             //設定使用哪個抓取Setting類別
-            var setting  = new AppsettingConfig();
+            var setting = new AppsettingConfig();
 
             //建立工廠 將配置檔傳入建構子中
             InvoiceApiFactroy factory = new InvoiceApiFactroy(setting);

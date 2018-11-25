@@ -9,12 +9,11 @@ namespace ElectronicInvoice.Produce.Infrastructure
 {
     public partial class ParamterContext
     {
-        //private DESCrypHelper help = new DESCrypHelper(null);
         public IConfig _config { get; set; }
 
         public ParamterContext(IConfig config)
         {
-            _config = config;
+            _config = config ?? new AppsettingConfig();
         }
 
         public string UUID
@@ -29,7 +28,7 @@ namespace ElectronicInvoice.Produce.Infrastructure
         {
             get
             {
-                return _config.GovAPIKey;//help.DecryptData(new ConfigHelper().GovAPIKey);
+                return _config.GovAPIKey;
             }
         }
 
@@ -37,7 +36,7 @@ namespace ElectronicInvoice.Produce.Infrastructure
         {
             get
             {
-                return _config.GovAppId;//help.DecryptData(new ConfigHelper().GovAppId);
+                return _config.GovAppId;
             }
         }
 

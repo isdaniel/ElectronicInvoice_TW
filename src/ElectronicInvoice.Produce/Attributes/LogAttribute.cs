@@ -5,6 +5,9 @@ using AwesomeProxy;
 
 namespace ElectronicInvoice.Produce.Attributes
 {
+    /// <summary>
+    /// 使用Awesome.AOP 函式庫
+    /// </summary>
     public class LogAttribute : AopBaseAttribute
     {
         private LogHelper log = new LogHelper();

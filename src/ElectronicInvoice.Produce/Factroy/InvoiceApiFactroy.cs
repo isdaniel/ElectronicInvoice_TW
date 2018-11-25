@@ -21,9 +21,11 @@ namespace ElectronicInvoice.Produce.Factroy
         /// <typeparam name="T"></typeparam>
         /// <param name="model">Model參數</param>
         /// <returns></returns>
-        public ApiBase<T> GetProxyInstace<T>(T model,object[] args = null) where T : class, new()
+        public ApiBase<T> GetProxyInstace<T>(T model,object[] args = null) 
+            where T : class, new()
         {
-            ApiBase<T> realSubject = GetInstace(model, args) as ApiBase<T>;
+            ApiBase<T> realSubject = 
+                Activator.CreateInstance(GetInstanceType(model), args) as ApiBase<T>;
             return ProxyFactory.GetProxyInstance(realSubject);
         }
 
@@ -32,7 +34,8 @@ namespace ElectronicInvoice.Produce.Factroy
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        private Type GetInstanceType(object model)
+        private Type GetInstanceType<T>(T model)
+            where T : class, new()
         {
             var modelType = model.GetType();
             return modelType.GetAttributeValue((ApiTypeAttribute attr) =>
@@ -55,12 +58,14 @@ namespace ElectronicInvoice.Produce.Factroy
             return attr.ApiType;
         }
 
-        public IApiRunner<T> GetInstace<T>(T model, object[] args = null)
-        {
-            if (model == null) throw new ArgumentNullException("不能傳空的參數");
+        //後面改用代理物件
+        //public IApiRunner<T> GetInstace<T>(T model, object[] args = null)
+        //     where T : class, new()
+        //{
+        //    if (model == null) throw new ArgumentNullException("傳入Model不能為NULL");
 
-            return Activator.CreateInstance
-                (GetInstanceType(model), args) as IApiRunner<T>;
-        }
+        //    return Activator.CreateInstance
+        //        (GetInstanceType(model), args) as IApiRunner<T>;
+        //}
     }
 }

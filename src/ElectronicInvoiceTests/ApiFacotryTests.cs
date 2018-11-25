@@ -51,7 +51,7 @@ namespace ElectronicInvoice.Produce.Tests
 
                 var model = Activator.CreateInstance(typeof(T)) as T;
 
-                var reuslt = factory.GetInstace(model);
+                var reuslt = factory.GetProxyInstace(model);
 
                 Assert.AreEqual(ApiType, reuslt.GetType());
             }

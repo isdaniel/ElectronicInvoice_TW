@@ -7,7 +7,6 @@ using System.Web;
 using ElectronicInvoice.Produce.Facade;
 using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Attributes;
-using ElectronicInvoice.Produce.Base;
 
 /*
  * 創建者：Daniel.shih
