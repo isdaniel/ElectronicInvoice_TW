@@ -67,16 +67,9 @@ namespace ElectronicInvoice.Produce.Base
             //取得加密後的參數
             postData = GetInvoiceParamter(SetParamter(model));
 
-            try
-            {
-                ServicePointManager.ServerCertificateValidationCallback
-                    = HttpTool.ValidateServerCertificate;
-                result = HttpTool.HttpPost(posturl, postData);
-            }
-            catch (Exception ex)
-            {
-                result = GetSysErrorMsg();
-            }
+            ServicePointManager.ServerCertificateValidationCallback
+                     = HttpTool.ValidateServerCertificate;
+            result = HttpTool.HttpPost(posturl, postData);
 
             return result;
         }
@@ -105,15 +98,5 @@ namespace ElectronicInvoice.Produce.Base
             return paraData.Replace("+", "%2b");
         }
 
-        private string GetSysErrorMsg()
-        {
-            var result = new
-            {
-                v = "1.0",
-                code = "999",
-                msg = "財政部電子發票資訊中心系統異常，請稍候再試或洽客服人員"
-            };
-            return JsonConvertFacde.SerializeObject(result);
-        }
     }
 }

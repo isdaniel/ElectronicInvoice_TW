@@ -68,12 +68,16 @@
     <Compile Include="Helper\LogHelper.cs" />
     <Compile Include="Helper\PraramterHelper.cs" />
     <Compile Include="Infrastructure\DBKeyProvider.cs" />
+    <Compile Include="InvoiceDetailApi.cs" />
     <Compile Include="InvoiceResult\CarrierDetail.cs" />
     <Compile Include="InvoiceResult\CarrierTitle.cs" />
     <Compile Include="Infrastructure\ParamterContext.cs" />
     <Compile Include="InvoiceResult\QryWinningListViewModel.cs" />
     <Compile Include="Mapping\CarrierDetailModel.cs" />
     <Compile Include="Mapping\CarrierTilteModel.cs" />
+    <Compile Include="InvoiceTitleApi.cs" />
+    <Compile Include="Mapping\InvoiceDetailModel.cs" />
+    <Compile Include="Mapping\InvoiceTitleModel.cs" />
     <Compile Include="Mapping\PhoneCarrierModel.cs" />
     <Compile Include="Mapping\qryInvDetailModel.cs" />
     <Compile Include="Mapping\QryWinningListModel.cs" />
