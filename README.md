@@ -4,6 +4,8 @@
 ## Build 
 
 [![NuGet Downloads](https://img.shields.io/badge/Build-succeed-green.svg)](https://ci.appveyor.com/project/WeihanLi/accesscontroldemo)
+
+[![Build status](https://ci.appveyor.com/api/projects/status/4ktwufjfsxmpishy/branch/master?svg=true)](https://ci.appveyor.com/project/isdaniel/electronicinvoice-tw/branch/master)
 -----
 
 #### 串接文件下載 [電子發票查詢API 1.4.4](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1476855387455_0.4.4.pdf) 
