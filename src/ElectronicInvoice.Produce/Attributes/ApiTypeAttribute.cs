@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 
 namespace ElectronicInvoice.Produce.Attributes {
+
+    [AttributeUsage(AttributeTargets.Class)]
     public class ApiTypeAttribute : Attribute
     {
         /// <summary>

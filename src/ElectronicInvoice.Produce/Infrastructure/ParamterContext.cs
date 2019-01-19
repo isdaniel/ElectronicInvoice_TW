@@ -9,7 +9,7 @@ namespace ElectronicInvoice.Produce.Infrastructure
 {
     public partial class ParamterContext
     {
-        public IConfig _config { get; set; }
+        private IConfig _config { get; set; }
 
         public ParamterContext(IConfig config)
         {

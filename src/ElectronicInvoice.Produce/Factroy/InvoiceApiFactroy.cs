@@ -3,6 +3,7 @@ using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Extention;
 using ElectronicInvoice.Produce.Base;
 using AwesomeProxy;
+using ElectronicInvoice.Produce.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Produce.Factroy
 {
@@ -15,6 +16,10 @@ namespace ElectronicInvoice.Produce.Factroy
             _config = config;
         }
 
+        public InvoiceApiFactroy():this(new AppsettingConfig())
+        {
+        }
+
         /// <summary>
         /// 取得InvocieApi代理
         /// </summary>
@@ -25,7 +30,7 @@ namespace ElectronicInvoice.Produce.Factroy
             where T : class, new()
         {
             ApiBase<T> realSubject = 
-                Activator.CreateInstance(GetInstanceType(model), args) as ApiBase<T>;
+                Activator.CreateInstance(GetApiType(model), args) as ApiBase<T>;
             return ProxyFactory.GetProxyInstance(realSubject);
         }
 
@@ -34,7 +39,7 @@ namespace ElectronicInvoice.Produce.Factroy
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        private Type GetInstanceType<T>(T model)
+        internal Type GetApiType<T>(T model)
             where T : class, new()
         {
             var modelType = model.GetType();

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\CommonLib\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,6 +57,7 @@
     <Compile Include="Base\IConfig.cs" />
     <Compile Include="CarrierDetailApi.cs" />
     <Compile Include="CarrierTilteApi.cs" />
+    <Compile Include="DonateQueryApi.cs" />
     <Compile Include="Extention\AttributeExtention.cs" />
     <Compile Include="Facade\JsonConvertFacde.cs" />
     <Compile Include="Factroy\InvoiceApiFactroy.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Helper\LogHelper.cs" />
     <Compile Include="Helper\PraramterHelper.cs" />
     <Compile Include="Infrastructure\DBKeyProvider.cs" />
+    <Compile Include="InvoiceApiContext.cs" />
     <Compile Include="InvoiceDetailApi.cs" />
     <Compile Include="InvoiceResult\CarrierDetail.cs" />
     <Compile Include="InvoiceResult\CarrierTitle.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Mapping\CarrierDetailModel.cs" />
     <Compile Include="Mapping\CarrierTilteModel.cs" />
     <Compile Include="InvoiceTitleApi.cs" />
+    <Compile Include="Mapping\DonateQueryModel.cs" />
     <Compile Include="Mapping\InvoiceDetailModel.cs" />
     <Compile Include="Mapping\InvoiceTitleModel.cs" />
     <Compile Include="Mapping\PhoneCarrierModel.cs" />

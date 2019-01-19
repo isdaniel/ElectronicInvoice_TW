@@ -29,7 +29,6 @@ namespace ElectronicInvoice.Produce.Infrastructure.Helper
             using (Stream requestStream = request.GetRequestStream())
             {
                 requestStream.Write(postcontentsArray, 0, postcontentsArray.Length);
-                requestStream.Close();
                 WebResponse response = request.GetResponse();
                 using (Stream responseStream = response.GetResponseStream())
                 using (StreamReader reader = new StreamReader(responseStream))
