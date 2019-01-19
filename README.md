@@ -159,7 +159,17 @@ WebConfig配置
 
 <br/>
 
-# 使用Dll
-## 本框架使用第三方套件(使用前先匯入)
-### Json.NET
-### 自製AopLib.dll
+## 2019/01/19 新增 InvoiceApiContext 
+
+* 簡化使用創建流程
+1. 創建一個 `InvoiceApiContext` 物件
+2. 傳入要使用的Model,即可獲得使用的值
+
+```c#
+DonateQueryModel donateModel = new DonateQueryModel()
+{
+    qKey = "伊甸"
+};
+InvoiceApiContext apiContext = new InvoiceApiContext();
+result = apiContext.ExcuteApi(donateModel); 
+```
