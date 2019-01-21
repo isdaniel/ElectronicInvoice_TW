@@ -15,8 +15,8 @@ namespace ElectronicInvoice.Produce
             paramter["action"] = "carrierInvChk";
             paramter["cardType"] = "3J0002";
             paramter["cardNo"] = model.cardNo;
-            paramter["expTimeStamp"] = paramterContext.TimeStampMAX;
-            paramter["timeStamp"] = paramterContext.TimeStamp;
+            paramter["expTimeStamp"] = model.CommonProp.TimeStampMAX;
+            paramter["timeStamp"] = model.CommonProp.TimeStamp;
             paramter["startDate"] = model.startDate;
             paramter["endDate"] = model.endDate;
             paramter["onlyWinningInv"] = model.onlyWinningInv;

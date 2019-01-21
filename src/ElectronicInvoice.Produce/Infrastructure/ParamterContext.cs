@@ -39,22 +39,6 @@ namespace ElectronicInvoice.Produce.Infrastructure
                 return _config.GovAppId;
             }
         }
-
-        public string TimeStamp
-        {
-            get
-            {
-                return (CommonHelper.GetTimeStamp() + 15).ToString();
-            }
-        }
-
-        public string TimeStampMAX
-        {
-            get
-            {
-                return (CommonHelper.GetTimeStamp() + 10000).ToString();
-            }
-        }
     }
 
     public enum InvoiceType

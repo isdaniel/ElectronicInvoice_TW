@@ -27,7 +27,7 @@ namespace ElectronicInvoice.Produce.Base
 
         public ApiBase(IConfig config)
         {
-            paramterContext = new ParamterContext(config);
+            paramterContext = new ParamterContext(config ?? new AppsettingConfig());
         }
 
         /// <summary>

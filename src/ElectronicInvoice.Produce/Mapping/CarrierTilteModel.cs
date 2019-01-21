@@ -1,4 +1,5 @@
 ﻿using ElectronicInvoice.Produce.Attributes;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce.Mapping
 {
@@ -12,5 +13,6 @@ namespace ElectronicInvoice.Produce.Mapping
         public string onlyWinningInv { get; set; }
 
         public string cardEncrypt { get; set; }
+        public CommonProperty CommonProp { get; } = new CommonProperty();
     }
 }
