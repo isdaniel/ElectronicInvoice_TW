@@ -17,8 +17,8 @@ namespace ElectronicInvoice.Produce
             paramter["version"] = "0.2";
             paramter["qKey"] = model.qKey;
             paramter["action"] = "qryLoveCode";
-            paramter["uuid"] = paramterContext.UUID;
-            paramter["appID"] = paramterContext.GovAppId;
+            paramter["uuid"] = model.UUID;
+            paramter["appID"] = _config.GovAppId;
             return PraramterHelper.DictionaryToParamter(paramter);
         }
     }

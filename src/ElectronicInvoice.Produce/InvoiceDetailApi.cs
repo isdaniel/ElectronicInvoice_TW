@@ -25,8 +25,8 @@ namespace ElectronicInvoice.Produce
             paramter["encrypt"] = model.Encrypt;
             paramter["sellerID"] = model.SellerID;
             paramter["randomNumber"] = model.RandomNumber; 
-            paramter["UUID"] = paramterContext.UUID;
-            paramter["appID"] = paramterContext.GovAppId;
+            paramter["UUID"] = model.UUID;
+            paramter["appID"] = _config.GovAppId;
 
             return PraramterHelper.DictionaryToParamter(paramter);
         }

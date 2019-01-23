@@ -5,9 +5,8 @@ using ElectronicInvoice.Produce.Infrastructure;
 namespace ElectronicInvoice.Produce.Mapping
 {
     [ApiType(ApiType = typeof(CarrierDetailApi))]
-    public class CarrierDetailModel
+    public class CarrierDetailModel : CommonBaseModel
     {
-        public CommonProperty CommonProp { get;  } = new CommonProperty();
         public string cardType { get; set; }
         public string cardNo { get; set; }
         public string invNum { get; set; }

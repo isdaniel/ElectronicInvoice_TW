@@ -7,7 +7,7 @@ using ElectronicInvoice.Produce.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Produce.Infrastructure
 {
-    public class CommonProperty
+    public class CommonBaseModel
     {
         public string TimeStamp
         {
@@ -22,6 +22,14 @@ namespace ElectronicInvoice.Produce.Infrastructure
             get
             {
                 return (CommonHelper.GetTimeStamp() + 10000).ToString();
+            }
+        }
+
+        public string UUID
+        {
+            get
+            {
+                return "9774d56d682e549c";
             }
         }
     }

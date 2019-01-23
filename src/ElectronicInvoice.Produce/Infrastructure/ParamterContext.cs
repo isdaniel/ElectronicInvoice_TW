@@ -16,14 +16,6 @@ namespace ElectronicInvoice.Produce.Infrastructure
             _config = config ?? new AppsettingConfig();
         }
 
-        public string UUID
-        {
-            get
-            {
-                return "9774d56d682e549c";
-            }
-        }
-
         public string GovAPIKey
         {
             get

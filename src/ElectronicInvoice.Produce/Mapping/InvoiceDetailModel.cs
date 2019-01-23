@@ -5,7 +5,7 @@ using System;
 namespace ElectronicInvoice.Produce.Mapping
 {
     [ApiType(ApiType = typeof(InvoiceDetailApi))]
-    public class InvoiceDetailModel
+    public class InvoiceDetailModel : CommonBaseModel
     {
         public InvoiceType Type { get; set; }
         public string InvNum { get; set; }

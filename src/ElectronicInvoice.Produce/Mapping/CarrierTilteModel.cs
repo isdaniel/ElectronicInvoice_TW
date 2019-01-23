@@ -4,7 +4,7 @@ using ElectronicInvoice.Produce.Infrastructure;
 namespace ElectronicInvoice.Produce.Mapping
 {
     [ApiType(ApiType = typeof(CarrierTilteApi))]
-    public class CarrierTilteModel
+    public class CarrierTilteModel : CommonBaseModel
     {
         public string cardNo { get; set; }
 
@@ -13,6 +13,5 @@ namespace ElectronicInvoice.Produce.Mapping
         public string onlyWinningInv { get; set; }
 
         public string cardEncrypt { get; set; }
-        public CommonProperty CommonProp { get; } = new CommonProperty();
     }
 }
