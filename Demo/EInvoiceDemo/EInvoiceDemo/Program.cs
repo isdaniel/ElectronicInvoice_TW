@@ -21,7 +21,7 @@ namespace EInvoiceDemo
             //下面範例查詢 發票民國106年7.8月中獎發票
             QryWinningListModel model = new QryWinningListModel()
             {
-                invTerm = "10710"
+                invTerm = "10610"
             };
 
             //建立工廠 將配置檔傳入建構子中
@@ -46,6 +46,7 @@ namespace EInvoiceDemo
             result = apiContext.ExcuteApi(donateModel); 
             #endregion
 
+            Console.WriteLine(result);
             Console.ReadKey();
         }
     }

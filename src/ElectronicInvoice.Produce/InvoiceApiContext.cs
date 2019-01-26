@@ -17,16 +17,14 @@ namespace ElectronicInvoice.Produce
 
         public InvoiceApiContext()
         {
-            var assembly= Assembly.Load("ElectronicInvoice.Produce");
-            _apiMapperCache = assembly.ExportedTypes
-               .Where(x => x.GetCustomAttribute<ApiTypeAttribute>() != null)
-               .ToDictionary(x => x,
-                             x => x.GetAttributeValue((ApiTypeAttribute y) => 
+            _apiMapperCache = AssemblyProvier.Instance
+                         .GetTypeFromAssembly<ApiTypeAttribute>()
+                         .ToDictionary(x => x,
+                              x => x.GetAttributeValue((ApiTypeAttribute y) => 
                                  Activator.CreateInstance(y.ApiType)));
         }
 
-        public string ExcuteApi<T>(T model)
-            where T : class, new()
+        public string ExcuteApi<T>(T model) where T : class, new()
         {
             object apiObject;
 
