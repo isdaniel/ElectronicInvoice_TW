@@ -17,8 +17,8 @@ namespace ElectronicInvoice.Produce
             paramter["action"] = "qryInvHeader";
             paramter["generation"] = "V2";
             paramter["invDate"] = model.InvDate.ToString("yyyy/MM/dd");
-            paramter["UUID"] = paramterContext.UUID;
-            paramter["appID"] = paramterContext.GovAppId;
+            paramter["UUID"] = model.UUID;
+            paramter["appID"] = _config.GovAppId;
 
             return PraramterHelper.DictionaryToParamter(paramter);
         }

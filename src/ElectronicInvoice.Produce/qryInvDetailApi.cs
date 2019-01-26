@@ -14,7 +14,7 @@ namespace ElectronicInvoice.Produce
             paramter["version"] = "0.3";
             paramter["action"] = "qryInvDetail";
             paramter["invTerm"] = model.invTerm;
-            paramter["UUID"] = paramterContext.UUID;
+            paramter["UUID"] = model.UUID;
             paramter["type"] = model.type;
             paramter["invNum"] = model.invNum;
             paramter["generation"] = model.generation;
@@ -23,7 +23,7 @@ namespace ElectronicInvoice.Produce
             paramter["encrypt"] = model.encrypt;
             paramter["sellerID"] = model.sellerID;
             paramter["randomNumber"] = model.randomNumber;
-            paramter["appID"] = paramterContext.GovAppId;
+            paramter["appID"] = _config.GovAppId;
             return PraramterHelper.DictionaryToParamter(paramter);
         }
     }

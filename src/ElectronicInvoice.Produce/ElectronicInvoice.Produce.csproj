@@ -82,7 +82,8 @@
     <Compile Include="Mapping\DonateQueryModel.cs" />
     <Compile Include="Mapping\InvoiceDetailModel.cs" />
     <Compile Include="Mapping\InvoiceTitleModel.cs" />
-    <Compile Include="Mapping\PhoneCarrierModel.cs" />
+    <Compile Include="Infrastructure\CommonBaseModel.cs" />
+    <Compile Include="Mapping\qryCarrierAggModel.cs" />
     <Compile Include="Mapping\qryInvDetailModel.cs" />
     <Compile Include="Mapping\QryWinningListModel.cs" />
     <Compile Include="PhoneCarrierApi.cs" />

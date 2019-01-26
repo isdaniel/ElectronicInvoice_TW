@@ -16,14 +16,6 @@ namespace ElectronicInvoice.Produce.Infrastructure
             _config = config ?? new AppsettingConfig();
         }
 
-        public string UUID
-        {
-            get
-            {
-                return "9774d56d682e549c";
-            }
-        }
-
         public string GovAPIKey
         {
             get
@@ -37,22 +29,6 @@ namespace ElectronicInvoice.Produce.Infrastructure
             get
             {
                 return _config.GovAppId;
-            }
-        }
-
-        public string TimeStamp
-        {
-            get
-            {
-                return (CommonHelper.GetTimeStamp() + 15).ToString();
-            }
-        }
-
-        public string TimeStampMAX
-        {
-            get
-            {
-                return (CommonHelper.GetTimeStamp() + 10000).ToString();
             }
         }
     }

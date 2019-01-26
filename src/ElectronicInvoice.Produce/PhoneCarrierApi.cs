@@ -21,9 +21,9 @@ namespace ElectronicInvoice.Produce
             paramter["cardType"] = "3J0002";
             paramter["cardNo"] = model.cardNo;
             paramter["cardEncrypt"] = model.cardEncrypt;
-            paramter["timeStamp"] = paramterContext.TimeStamp;
-            paramter["uuid"] = paramterContext.UUID;
-            paramter["appID"] = paramterContext.GovAppId;
+            paramter["timeStamp"] = model.TimeStamp;
+            paramter["uuid"] = model.UUID; ;
+            paramter["appID"] = _config.GovAppId;
 
             return PraramterHelper.DictionaryToParamter(paramter);
         }

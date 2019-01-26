@@ -1,9 +1,10 @@
 ﻿using ElectronicInvoice.Produce.Attributes;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce.Mapping
 {
     [ApiType(ApiType = typeof(qryInvDetailApi))]
-    public class qryInvDetailModel
+    public class qryInvDetailModel : CommonBaseModel
     {
         public string appID { get; set; }
         public string randomNumber { get; set; }

@@ -19,15 +19,15 @@ namespace ElectronicInvoice.Produce.Base
     public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner<T>
         where T : class, new()
     {
-        protected ParamterContext paramterContext;//= new ParamterContext(new AppsettingConfig());
-
+        //protected ParamterContext paramterContext;//= new ParamterContext(new AppsettingConfig());
+        protected IConfig _config;
         public ApiBase() : this(new AppsettingConfig())
         {
         }
 
         public ApiBase(IConfig config)
         {
-            paramterContext = new ParamterContext(config);
+            _config = config ?? new AppsettingConfig();
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace ElectronicInvoice.Produce.Base
         {
             //###進行加密動作
             string signature = CiphertextHelper.
-                EncryptionHMACSHA1Base64(paramterContext.GovAPIKey, paraData);
+                EncryptionHMACSHA1Base64(_config.GovAPIKey, paraData);
             return string.Format("{0}&signature={1}",
                 ReplacePlus(paraData),
                 HttpUtility.UrlEncode(signature));

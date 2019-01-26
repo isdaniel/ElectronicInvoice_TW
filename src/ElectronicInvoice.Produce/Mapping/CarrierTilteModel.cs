@@ -1,9 +1,10 @@
 ﻿using ElectronicInvoice.Produce.Attributes;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce.Mapping
 {
     [ApiType(ApiType = typeof(CarrierTilteApi))]
-    public class CarrierTilteModel
+    public class CarrierTilteModel : CommonBaseModel
     {
         public string cardNo { get; set; }
 

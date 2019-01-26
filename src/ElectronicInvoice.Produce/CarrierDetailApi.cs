@@ -20,13 +20,13 @@ namespace ElectronicInvoice.Produce
             paramter["action"] = "carrierInvDetail";
             paramter["cardType"] = "3J0002";
             paramter["cardNo"] = model.cardNo;
-            paramter["expTimeStamp"] = paramterContext.TimeStampMAX;
-            paramter["timeStamp"] = paramterContext.TimeStamp;
+            paramter["expTimeStamp"] = model.TimeStampMAX;
+            paramter["timeStamp"] = model.TimeStamp;
             paramter["invNum"] = model.invNum;
             paramter["invDate"] = model.invDate;
-            paramter["uuid"] = paramterContext.UUID;
+            paramter["uuid"] = model.UUID;
             paramter["cardEncrypt"] = model.cardEncrypt;
-            paramter["appID"] = paramterContext.GovAppId;
+            paramter["appID"] = _config.GovAppId;
 
             return PraramterHelper.DictionaryToParamter(paramter);
         }

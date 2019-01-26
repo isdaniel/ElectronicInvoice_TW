@@ -71,6 +71,10 @@ namespace ElectronicInvoice.Produce.Tests
             yield return new Tester<qryInvDetailModel> { ApiType = typeof(qryInvDetailApi) };
             yield return new Tester<CarrierTilteModel> { ApiType = typeof(CarrierTilteApi) };
             yield return new Tester<CarrierDetailModel> { ApiType = typeof(CarrierDetailApi) };
+            yield return new Tester<qryCarrierAggModel> { ApiType = typeof(QryCarrierAggApi) };
+            yield return new Tester<DonateQueryModel> { ApiType = typeof(DonateQueryApi) };
+            yield return new Tester<InvoiceDetailModel> { ApiType = typeof(InvoiceDetailApi) };
+            yield return new Tester<InvoiceTitleModel> { ApiType = typeof(InvoiceTitleApi) };
         }
 
         [Test]
