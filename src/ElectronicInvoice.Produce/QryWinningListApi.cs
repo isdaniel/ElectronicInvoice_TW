@@ -10,7 +10,7 @@ namespace ElectronicInvoice.Produce
     /// <summary>
     /// 連接財政部API
     /// </summary>
-    public class QryWinningListApi : ApiBase<QryWinningListModel>
+    internal sealed class QryWinningListApi : ApiBase<QryWinningListModel>
     {
 
         protected override string SetParamter(QryWinningListModel model)
@@ -28,7 +28,7 @@ namespace ElectronicInvoice.Produce
     /// <summary>
     /// 當出現意外狀況時可以讀取的資料
     /// </summary>
-    public class QryWinningListMockApi : ApiBase<QryWinningListModel>
+    internal sealed class QryWinningListMockApi : ApiBase<QryWinningListModel>
     {
         protected override string SetParamter(QryWinningListModel model)
         {

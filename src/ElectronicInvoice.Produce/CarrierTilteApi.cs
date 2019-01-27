@@ -5,7 +5,7 @@ using ElectronicInvoice.Produce.Base;
 
 namespace ElectronicInvoice.Produce
 {
-    public class CarrierTilteApi : ApiBase<CarrierTilteModel>
+    internal sealed class CarrierTilteApi : ApiBase<CarrierTilteModel>
     {
 
         protected override string SetParamter(CarrierTilteModel model)

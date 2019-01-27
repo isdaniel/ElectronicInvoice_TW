@@ -4,22 +4,49 @@ using ElectronicInvoice.Produce.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using ElectronicInvoice.Produce;
+using ElectronicInvoice.Produce.Attributes;
+using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Infrastructure;
 
 
 namespace EInvoiceDemo
 {
+    public class MyApi : ApiBase<MyQryWinningListModel>
+    {
+        protected override string SetParamter(MyQryWinningListModel model)
+        {
+            SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
+            paramter["version"] = "0.2";
+            paramter["action"] = "QryWinningList";
+            paramter["invTerm"] = model.invTerm;
+            paramter["UUID"] = model.UUID;
+            paramter["appID"] = _config.GovAppId;
+            return PraramterHelper.DictionaryToParamter(paramter);
+        }
+    }
+
+
+    [ApiType(ApiType = typeof(MyApi))]
+    public class MyQryWinningListModel : CommonBaseModel
+    {
+        public string invTerm { get; set; }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
+            AssemblyProvier.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
+
             string result = string.Empty;
             #region 使用工廠模式
             //建立查詢參數  
             //下面範例查詢 發票民國106年7.8月中獎發票
-            QryWinningListModel model = new QryWinningListModel()
+            MyQryWinningListModel model = new MyQryWinningListModel()
             {
                 invTerm = "10610"
             };

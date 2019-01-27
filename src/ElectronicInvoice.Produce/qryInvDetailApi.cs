@@ -5,7 +5,7 @@ using ElectronicInvoice.Produce.Base;
 
 namespace ElectronicInvoice.Produce
 {
-    public class qryInvDetailApi : ApiBase<qryInvDetailModel>
+    internal sealed class qryInvDetailApi : ApiBase<qryInvDetailModel>
     {
 
         protected override string SetParamter(qryInvDetailModel model)

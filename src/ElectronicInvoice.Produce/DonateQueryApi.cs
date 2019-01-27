@@ -9,7 +9,7 @@ using ElectronicInvoice.Produce.Mapping;
 
 namespace ElectronicInvoice.Produce
 {
-    public class DonateQueryApi : ApiBase<DonateQueryModel>
+    internal sealed class DonateQueryApi : ApiBase<DonateQueryModel>
     {
         protected override string SetParamter(DonateQueryModel model)
         {

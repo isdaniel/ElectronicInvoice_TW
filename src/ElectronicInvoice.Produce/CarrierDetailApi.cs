@@ -9,7 +9,7 @@ using ElectronicInvoice.Produce.Base;
 
 namespace ElectronicInvoice.Produce
 {
-    public class CarrierDetailApi : ApiBase<CarrierDetailModel>
+    internal sealed class CarrierDetailApi : ApiBase<CarrierDetailModel>
     {
 
         protected override string SetParamter(CarrierDetailModel model)

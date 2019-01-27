@@ -6,7 +6,7 @@ using ElectronicInvoice.Produce.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Produce
 {
-    public class InvoiceTitleApi : ApiBase<InvoiceTitleModel>
+    internal sealed class InvoiceTitleApi : ApiBase<InvoiceTitleModel>
     {
         protected override string SetParamter(InvoiceTitleModel model)
         {

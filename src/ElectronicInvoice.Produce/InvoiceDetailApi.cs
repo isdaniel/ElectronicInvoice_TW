@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicInvoice.Produce
 {
-    public class InvoiceDetailApi : ApiBase<InvoiceDetailModel>
+    internal sealed class InvoiceDetailApi : ApiBase<InvoiceDetailModel>
     {
         protected override string SetParamter(InvoiceDetailModel model)
         {

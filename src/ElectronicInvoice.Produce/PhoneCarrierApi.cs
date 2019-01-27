@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicInvoice.Produce
 {
-    public class QryCarrierAggApi : ApiBase<qryCarrierAggModel>
+    internal sealed class QryCarrierAggApi : ApiBase<qryCarrierAggModel>
     {
         protected override string SetParamter(qryCarrierAggModel model)
         {
