@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce
 {
@@ -17,7 +18,7 @@ namespace ElectronicInvoice.Produce
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
 
             paramter["version"] = "0.3";
-            paramter["action"] = "carrierInvDetail";
+            paramter["action"] = ActionParameter.CarrierDetailApi;
             paramter["cardType"] = "3J0002";
             paramter["cardNo"] = model.cardNo;
             paramter["expTimeStamp"] = model.TimeStampMAX;

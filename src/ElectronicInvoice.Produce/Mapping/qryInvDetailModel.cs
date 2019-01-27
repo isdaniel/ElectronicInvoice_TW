@@ -3,7 +3,7 @@ using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce.Mapping
 {
-    [ApiType(ApiType = typeof(qryInvDetailApi))]
+    [ApiType(ApiType = typeof(QryInvDetailApi))]
     public class qryInvDetailModel : CommonBaseModel
     {
         public string appID { get; set; }

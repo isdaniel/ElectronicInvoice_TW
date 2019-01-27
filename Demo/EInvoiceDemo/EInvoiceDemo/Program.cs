@@ -40,7 +40,8 @@ namespace EInvoiceDemo
     {
         static void Main(string[] args)
         {
-            AssemblyProvier.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
+            //Register Assembly you want to inject.
+            ApiTypeProvier.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
 
             string result = string.Empty;
             #region 使用工廠模式

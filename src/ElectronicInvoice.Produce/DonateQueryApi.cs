@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Produce.Mapping;
 
@@ -16,7 +17,7 @@ namespace ElectronicInvoice.Produce
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
             paramter["version"] = "0.2";
             paramter["qKey"] = model.qKey;
-            paramter["action"] = "qryLoveCode";
+            paramter["action"] = ActionParameter.DonateQueryApi;
             paramter["uuid"] = model.UUID;
             paramter["appID"] = _config.GovAppId;
             return PraramterHelper.DictionaryToParamter(paramter);

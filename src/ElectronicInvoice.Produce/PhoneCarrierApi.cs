@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce
 {
@@ -17,7 +18,7 @@ namespace ElectronicInvoice.Produce
 
             paramter["version"] = "1.0";
             paramter["serial"] = DateTime.Now.ToString("MMddssmmss");
-            paramter["action"] = "qryCarrierAgg";
+            paramter["action"] = ActionParameter.QryCarrierAggApi;
             paramter["cardType"] = "3J0002";
             paramter["cardNo"] = model.cardNo;
             paramter["cardEncrypt"] = model.cardEncrypt;

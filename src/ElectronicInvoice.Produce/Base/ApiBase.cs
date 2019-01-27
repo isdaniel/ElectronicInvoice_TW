@@ -16,8 +16,8 @@ using ElectronicInvoice.Produce.Attributes;
 
 namespace ElectronicInvoice.Produce.Base
 {
-    public abstract class ApiBase<T> : MarshalByRefObject, IApiRunner<T>
-        where T : class, new()
+    public abstract class ApiBase<TModel> : MarshalByRefObject, IApiRunner<TModel>
+        where TModel : class, new()
     {
         //protected ParamterContext paramterContext;//= new ParamterContext(new AppsettingConfig());
         protected IConfig _config;
@@ -34,7 +34,7 @@ namespace ElectronicInvoice.Produce.Base
         /// 子類繼承提供參數
         /// </summary>
         /// <returns></returns>
-        protected abstract string SetParamter(T model);
+        protected abstract string SetParamter(TModel model);
 
         /// <summary>
         /// 取得api的Url路徑
@@ -57,7 +57,7 @@ namespace ElectronicInvoice.Produce.Base
         /// <param name="model"></param>
         /// <returns></returns>
         [Log]
-        public virtual string ExcuteApi(T model)
+        public virtual string ExcuteApi(TModel model)
         {
             //建立所需參數
             string result = string.Empty;
@@ -73,6 +73,13 @@ namespace ElectronicInvoice.Produce.Base
 
             return result;
         }
+
+        public TRtn ExcuteApi<TRtn>(TModel model)
+        {
+           return JsonConvertFacde.DeserializeObject<TRtn>(ExcuteApi(model));
+        }
+
+
 
         /// <summary>
         /// 將參數做簽章(signature) 並附加到最後且返回

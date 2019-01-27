@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ElectronicInvoice.Produce.InvoiceResult;
 using ElectronicInvoice.Produce.Mapping;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce
 {
@@ -17,7 +18,7 @@ namespace ElectronicInvoice.Produce
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
             paramter["version"] = "0.2";
-            paramter["action"] = "QryWinningList";
+            paramter["action"] = ActionParameter.QryWinningListApi;
             paramter["invTerm"] = model.invTerm;
             paramter["UUID"] = model.UUID;
             paramter["appID"] = _config.GovAppId;

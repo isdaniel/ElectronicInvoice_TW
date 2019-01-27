@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ElectronicInvoice.Produce
 {
-    public class AssemblyProvier
+    public class ApiTypeProvier
     {
-        private static AssemblyProvier _instance;
-        public static AssemblyProvier Instance => _instance ?? (_instance = new AssemblyProvier());
+        private static ApiTypeProvier _instance;
+        public static ApiTypeProvier Instance => _instance ?? (_instance = new ApiTypeProvier());
 
-        private AssemblyProvier()
+        private ApiTypeProvier()
         {
             AssemblyList = new List<Assembly>()
             {

@@ -2,17 +2,18 @@
 using ElectronicInvoice.Produce.Mapping;
 using System.Collections.Generic;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce
 {
-    internal sealed class qryInvDetailApi : ApiBase<qryInvDetailModel>
+    internal sealed class QryInvDetailApi : ApiBase<qryInvDetailModel>
     {
 
         protected override string SetParamter(qryInvDetailModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
             paramter["version"] = "0.3";
-            paramter["action"] = "qryInvDetail";
+            paramter["action"] = ActionParameter.QryInvDetailApi;
             paramter["invTerm"] = model.invTerm;
             paramter["UUID"] = model.UUID;
             paramter["type"] = model.type;
