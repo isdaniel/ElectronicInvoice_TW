@@ -23,7 +23,7 @@ namespace ElectronicInvoice.Produce
             paramter["onlyWinningInv"] = model.onlyWinningInv;
             paramter["uuid"] = model.UUID;
             paramter["cardEncrypt"] = model.cardEncrypt;
-            paramter["appID"] = _config.GovAppId;
+            paramter["appID"] = ConfigSetting.GovAppId;
             return PraramterHelper.DictionaryToParamter(paramter);
         }
     }

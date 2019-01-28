@@ -19,7 +19,7 @@ namespace ElectronicInvoice.Produce
             paramter["qKey"] = model.qKey;
             paramter["action"] = ActionParameter.DonateQueryApi;
             paramter["uuid"] = model.UUID;
-            paramter["appID"] = _config.GovAppId;
+            paramter["appID"] = ConfigSetting.GovAppId;
             return PraramterHelper.DictionaryToParamter(paramter);
         }
     }

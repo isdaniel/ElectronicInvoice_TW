@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Produce
 {
@@ -11,7 +13,7 @@ namespace ElectronicInvoice.Produce
     {
         private static ApiTypeProvier _instance;
         public static ApiTypeProvier Instance => _instance ?? (_instance = new ApiTypeProvier());
-
+        
         private ApiTypeProvier()
         {
             AssemblyList = new List<Assembly>()

@@ -49,6 +49,7 @@ namespace ElectronicInvoice.Produce
                 apiObject is ApiBase<TModel>)
             {
                 var apiInstance = (ApiBase<TModel>)apiObject;
+                
                 return fun1(ProxyFactory.GetProxyInstance(apiInstance));
             }
 

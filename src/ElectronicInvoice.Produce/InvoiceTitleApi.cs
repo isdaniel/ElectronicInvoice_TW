@@ -19,7 +19,7 @@ namespace ElectronicInvoice.Produce
             paramter["generation"] = "V2";
             paramter["invDate"] = model.InvDate.ToString("yyyy/MM/dd");
             paramter["UUID"] = model.UUID;
-            paramter["appID"] = _config.GovAppId;
+            paramter["appID"] = ConfigSetting.GovAppId;
 
             return PraramterHelper.DictionaryToParamter(paramter);
         }

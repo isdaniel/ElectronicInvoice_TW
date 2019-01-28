@@ -55,12 +55,7 @@ namespace ElectronicInvoice.Produce.Factroy
 
         private Type GetApiType(ApiTypeAttribute attr)
         {
-            string IsMockAPI = _config.IsMockAPI;
-            if (IsMockAPI == "1")
-            {
-                return attr.MockApiType;
-            }
-            return attr.ApiType;
+            return _config.IsMockAPI == "1" ? attr.MockApiType : attr.ApiType;
         }
 
         //後面改用代理物件

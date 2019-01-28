@@ -1,5 +1,9 @@
-﻿using ElectronicInvoice.Produce.Base;
+﻿using System.Collections.Generic;
+using ElectronicInvoice.Produce.Base;
 using System.Configuration;
+using System.Linq;
+using System.Collections.Generic;
+
 
 namespace ElectronicInvoice.Produce.Infrastructure.Helper
 {
@@ -14,6 +18,13 @@ namespace ElectronicInvoice.Produce.Infrastructure.Helper
             {
                 return ConfigurationManager.AppSettings["IsMockAPI"];
             }
+        }
+
+        public Dictionary<string, string> GetApiURLTable()
+        {
+            return ConfigurationManager.AppSettings
+                            .AllKeys
+                            .ToDictionary(x => x, y => ConfigurationManager.AppSettings[y]);
         }
 
         public string GovAppId

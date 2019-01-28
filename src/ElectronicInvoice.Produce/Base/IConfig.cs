@@ -13,6 +13,8 @@ namespace ElectronicInvoice.Produce.Base
         string GovAPIKey { get; }
 
         string IsMockAPI { get; }
+
+        Dictionary<string, string> GetApiURLTable();
     }
     
     public interface IKeyProvider

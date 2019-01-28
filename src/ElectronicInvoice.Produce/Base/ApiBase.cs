@@ -19,15 +19,19 @@ namespace ElectronicInvoice.Produce.Base
     public abstract class ApiBase<TModel> : MarshalByRefObject, IApiRunner<TModel>
         where TModel : class, new()
     {
-        //protected ParamterContext paramterContext;//= new ParamterContext(new AppsettingConfig());
-        protected IConfig _config;
-        public ApiBase() : this(new AppsettingConfig())
-        {
-        }
+        private IConfig _configSetting;
 
-        public ApiBase(IConfig config)
-        {
-            _config = config ?? new AppsettingConfig();
+        public IConfig ConfigSetting {
+            get
+            {
+                _configSetting = _configSetting ?? new AppsettingConfig();
+
+                return _configSetting;
+            }
+            set
+            {
+                _configSetting = value; 
+            }
         }
 
         /// <summary>
@@ -42,13 +46,14 @@ namespace ElectronicInvoice.Produce.Base
         /// <returns></returns>
         protected virtual string GetApiURL()
         {
-            string apiname = this.GetType().Name;
-            if (!ConfigurationManager.AppSettings.AllKeys.Contains(apiname))
-            {
-                throw new Exception(string.Format("請確認Config的appsetting有無此參數 {0}",
-                    apiname));
-            }
-            return ConfigurationManager.AppSettings[apiname];
+            var urlTable  = ConfigSetting.GetApiURLTable();
+            string apiName = this.GetType().Name;
+            string result;
+
+            if (!urlTable.TryGetValue(apiName,out result))
+                throw new Exception(string.Format("請確認Config的appsetting有無此參數 {0}",apiName));
+            
+            return result;
         }
 
         /// <summary>
@@ -89,7 +94,7 @@ namespace ElectronicInvoice.Produce.Base
         {
             //###進行加密動作
             string signature = CiphertextHelper.
-                EncryptionHMACSHA1Base64(_config.GovAPIKey, paraData);
+                EncryptionHMACSHA1Base64(ConfigSetting.GovAPIKey, paraData);
             return string.Format("{0}&signature={1}",
                 ReplacePlus(paraData),
                 HttpUtility.UrlEncode(signature));
