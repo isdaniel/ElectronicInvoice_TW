@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiTypeProvier.cs" />
+    <Compile Include="ApiTypeProvider.cs" />
     <Compile Include="Attributes\ApiTypeAttribute.cs" />
     <Compile Include="Attributes\LogAttribute.cs" />
     <Compile Include="Base\ApiBase.cs" />

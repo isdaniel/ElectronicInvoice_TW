@@ -13,6 +13,8 @@ using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Helper;
 using ElectronicInvoice.Produce.Infrastructure;
+using ElectronicInvoice.Produce.InvoiceResult;
+using Newtonsoft.Json;
 
 
 namespace EInvoiceDemo
@@ -43,13 +45,13 @@ namespace EInvoiceDemo
         static void Main(string[] args)
         {
             //Register Assembly you want to inject.
-            ApiTypeProvier.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
-
+            ApiTypeProvider.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
+    
             string result = string.Empty;
             #region 使用工廠模式
             //建立查詢參數  
             //下面範例查詢 發票民國106年7.8月中獎發票
-            MyQryWinningListModel model = new MyQryWinningListModel()
+            QryWinningListModel model = new QryWinningListModel()
             {
                 invTerm = "10610"
             };
@@ -62,7 +64,6 @@ namespace EInvoiceDemo
 
             //api回傳結果
             result = api.ExcuteApi(model);
-
             Console.WriteLine(result);
             #endregion
 

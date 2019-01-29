@@ -25,18 +25,18 @@ namespace ElectronicInvoice.Produce.Tests
         [Test()]
         public void RegistertAssembly_Contain_NewOne()
         {
-            ApiTypeProvier.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
+            ApiTypeProvider.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
 
-            Assert.IsTrue(ApiTypeProvier.Instance.AssemblyList.Any(x=> x == Assembly.GetExecutingAssembly()));
-            Assert.IsTrue(ApiTypeProvier.Instance.AssemblyList.Any(x => x == Assembly.Load("ElectronicInvoice.Produce")));
+            Assert.IsTrue(ApiTypeProvider.Instance.AssemblyList.Any(x=> x == Assembly.GetExecutingAssembly()));
+            Assert.IsTrue(ApiTypeProvider.Instance.AssemblyList.Any(x => x == Assembly.Load("ElectronicInvoice.Produce")));
         }
 
         [Test()]
         public void RegistertAssembly_Contain_()
         {
-            ApiTypeProvier.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
+            ApiTypeProvider.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
 
-            var act = ApiTypeProvier.Instance.GetTypeFromAssembly<ApiTypeAttribute>()
+            var act = ApiTypeProvider.Instance.GetTypeFromAssembly<ApiTypeAttribute>()
                 .FirstOrDefault(x => x == typeof(APIModel));
 
             Assert.AreEqual(act,typeof(APIModel));

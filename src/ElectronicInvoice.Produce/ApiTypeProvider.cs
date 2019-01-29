@@ -9,12 +9,12 @@ using ElectronicInvoice.Produce.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Produce
 {
-    public class ApiTypeProvier
+    public class ApiTypeProvider
     {
-        private static ApiTypeProvier _instance;
-        public static ApiTypeProvier Instance => _instance ?? (_instance = new ApiTypeProvier());
+        private static ApiTypeProvider _instance;
+        public static ApiTypeProvider Instance => _instance ?? (_instance = new ApiTypeProvider());
         
-        private ApiTypeProvier()
+        private ApiTypeProvider()
         {
             AssemblyList = new List<Assembly>()
             {

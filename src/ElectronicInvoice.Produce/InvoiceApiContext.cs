@@ -20,7 +20,7 @@ namespace ElectronicInvoice.Produce
         private IConfig _config;
         public InvoiceApiContext(IConfig config)
         {
-            _apiMapperCache = ApiTypeProvier.Instance
+            _apiMapperCache = ApiTypeProvider.Instance
                          .GetTypeFromAssembly<ApiTypeAttribute>()
                          .ToDictionary(x => x,
                               x => x.GetAttributeValue((ApiTypeAttribute y) => 
