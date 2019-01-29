@@ -3,6 +3,7 @@ using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Produce.Mapping;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using ElectronicInvoice.Produce;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Helper;
 using ElectronicInvoice.Produce.Infrastructure;
 
 
@@ -24,7 +26,7 @@ namespace EInvoiceDemo
             paramter["action"] = "QryWinningList";
             paramter["invTerm"] = model.invTerm;
             paramter["UUID"] = model.UUID;
-            paramter["appID"] = _config.GovAppId;
+            paramter["appID"] = ConfigSetting.GovAppId;
             return PraramterHelper.DictionaryToParamter(paramter);
         }
     }
@@ -51,7 +53,7 @@ namespace EInvoiceDemo
             {
                 invTerm = "10610"
             };
-
+            
             //建立工廠 將配置檔傳入建構子中
             InvoiceApiFactroy factory = new InvoiceApiFactroy();
 

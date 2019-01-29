@@ -10,22 +10,26 @@ using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Extention;
 using ElectronicInvoice.Produce.Factroy;
+using ElectronicInvoice.Produce.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Produce
 {
     public class InvoiceApiContext
     {
         private static Dictionary<Type, object> _apiMapperCache;
-
-        public InvoiceApiContext()
+        private IConfig _config;
+        public InvoiceApiContext(IConfig config)
         {
             _apiMapperCache = ApiTypeProvier.Instance
                          .GetTypeFromAssembly<ApiTypeAttribute>()
                          .ToDictionary(x => x,
                               x => x.GetAttributeValue((ApiTypeAttribute y) => 
                                  Activator.CreateInstance(y.ApiType)));
+            _config = config ;
+        }
 
-            
+        public InvoiceApiContext():this(new AppsettingConfig())
+        {
         }
 
         public string ExcuteApi<TModel>(TModel model) 
@@ -49,7 +53,7 @@ namespace ElectronicInvoice.Produce
                 apiObject is ApiBase<TModel>)
             {
                 var apiInstance = (ApiBase<TModel>)apiObject;
-                
+                apiInstance.ConfigSetting = _config;
                 return fun1(ProxyFactory.GetProxyInstance(apiInstance));
             }
 

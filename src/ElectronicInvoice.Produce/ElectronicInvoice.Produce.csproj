@@ -65,9 +65,10 @@
     <Compile Include="Factroy\InvoiceApiFactroy.cs" />
     <Compile Include="Helper\CiphertextHelper.cs" />
     <Compile Include="Helper\CommonHelper.cs" />
-    <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Helper\AppsettingConfig.cs" />
     <Compile Include="Helper\EncryptHelper.cs" />
     <Compile Include="Helper\HttpTool.cs" />
+    <Compile Include="Helper\JsonConfig.cs" />
     <Compile Include="Helper\LogHelper.cs" />
     <Compile Include="Helper\PraramterHelper.cs" />
     <Compile Include="Infrastructure\ActionParameter.cs" />

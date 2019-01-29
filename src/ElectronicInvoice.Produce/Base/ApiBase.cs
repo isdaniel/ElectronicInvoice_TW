@@ -51,7 +51,7 @@ namespace ElectronicInvoice.Produce.Base
             string result;
 
             if (!urlTable.TryGetValue(apiName,out result))
-                throw new Exception(string.Format("請確認Config的appsetting有無此參數 {0}",apiName));
+                throw new Exception(string.Format("請確認Config有ApiURL設定： {0}",apiName));
             
             return result;
         }

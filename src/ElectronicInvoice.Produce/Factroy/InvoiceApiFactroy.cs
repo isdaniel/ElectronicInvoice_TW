@@ -29,8 +29,8 @@ namespace ElectronicInvoice.Produce.Factroy
         public ApiBase<T> GetProxyInstace<T>(T model,object[] args = null) 
             where T : class, new()
         {
-            ApiBase<T> realSubject = 
-                Activator.CreateInstance(GetApiType(model), args) as ApiBase<T>;
+            ApiBase<T> realSubject = Activator.CreateInstance(GetApiType(model), args) as ApiBase<T>;
+            realSubject.ConfigSetting = _config;
             return ProxyFactory.GetProxyInstance(realSubject);
         }
 
