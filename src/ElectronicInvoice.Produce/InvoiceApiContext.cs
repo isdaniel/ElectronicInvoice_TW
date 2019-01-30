@@ -53,8 +53,7 @@ namespace ElectronicInvoice.Produce
                 apiObject is ApiBase<TModel>)
             {
                 var apiInstance = (ApiBase<TModel>)apiObject;
-                apiInstance.ConfigSetting = _config;
-                return fun1(ProxyFactory.GetProxyInstance(apiInstance));
+                return fun1(apiInstance.GetProxyApi(_config));
             }
 
             throw new Exception("Can't Get Type from ApiMapperTable.");

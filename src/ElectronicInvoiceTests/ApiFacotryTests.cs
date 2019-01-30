@@ -54,6 +54,7 @@ namespace ElectronicInvoice.Produce.Tests
                 var reuslt = factory.GetProxyInstace(model);
 
                 Assert.AreEqual(ApiType, reuslt.GetType());
+                Assert.AreEqual(reuslt.ConfigSetting, _config);
             }
         }
 
