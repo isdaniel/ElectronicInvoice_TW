@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicInvoice.Service",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicInvoice.Dao", "ElectronicInvoice.Dao\ElectronicInvoice.Dao.csproj", "{A761A992-5D08-48C2-BEFB-315077BCC5EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicInvoice.IOC", "InvoiceService.IOC\ElectronicInvoice.IOC.csproj", "{01EADAE4-1CC0-45A7-81EC-9709A73B3A8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A761A992-5D08-48C2-BEFB-315077BCC5EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A761A992-5D08-48C2-BEFB-315077BCC5EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A761A992-5D08-48C2-BEFB-315077BCC5EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01EADAE4-1CC0-45A7-81EC-9709A73B3A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01EADAE4-1CC0-45A7-81EC-9709A73B3A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01EADAE4-1CC0-45A7-81EC-9709A73B3A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01EADAE4-1CC0-45A7-81EC-9709A73B3A8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

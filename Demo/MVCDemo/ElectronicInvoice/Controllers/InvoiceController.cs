@@ -10,12 +10,18 @@ namespace ElectronicInvoice.Controllers
 {
     public class InvoiceController : Controller
     {
-        private EIvoiceService service = new EIvoiceService();
+        private IInvoiceService _invoiceService;
+
+        public InvoiceController(IInvoiceService invoiceService)
+        {
+            _invoiceService = invoiceService;
+        }
+
 
         public ActionResult QryWinningList()
         {
             QryWinningListViewModel viewModel = new QryWinningListViewModel() { invTerm = "10406" };
-            var resultModel = service.GetWinningList(viewModel);
+            var resultModel = _invoiceService .GetWinningList(viewModel);
             return View(resultModel);
         }
 
@@ -32,7 +38,7 @@ namespace ElectronicInvoice.Controllers
         [HttpPost]
         public ActionResult CarrierTitle(CarrierTilteViewModel model)
         {
-            var result = service.GetInvoice(model);
+            var result = _invoiceService.GetInvoice(model);
             return View("CarrierTitleResult", result);
         }
 

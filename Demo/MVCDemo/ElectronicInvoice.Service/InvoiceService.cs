@@ -3,19 +3,30 @@ using ElectronicInvoice.Produce.Mapping;
 using System;
 using System.Collections.Generic;
 using ElectronicInvoice.Models.ViewModel;
-using ElectronicInvoice.Core.ConfigSetting;
 using AutoMapper;
 using ElectronicInvoice.Produce.Factroy;
 using ElectronicInvoice.Produce.InvoiceResult;
-using Autofac;
 using ElectronicInvoice.Produce.Base;
 
 namespace ElectronicInvoice.Service
 {
-    public class EIvoiceService
+    public class InvoiceService : IInvoiceService
     {
-        private static IMapper mapper = MapperSetting.Current.Setting;
-        private static IContainer autofac = AutofacConfig.Register();
+        private IMapper _mapper;
+        private InvoiceApiFactroy _invoiceApiFactroy;
+        private IConfig _config;
+
+        public InvoiceService(IMapper mapper,
+            InvoiceApiFactroy invoiceApiFactroy,
+            IConfig config)
+        {
+            _mapper = mapper;
+            _invoiceApiFactroy = invoiceApiFactroy;
+            _config = config;
+        }
+
+        //private static IMapper mapper = MapperSetting.Current.Setting;
+        //private static IContainer autofac = AutofacConfig.Register();
         /// <summary>
         /// 取得中獎號碼
         /// </summary>
@@ -23,21 +34,21 @@ namespace ElectronicInvoice.Service
         /// <returns></returns>
         public QryWinningListResultViewModel GetWinningList(QryWinningListViewModel viewModel)
         {
-            var model = mapper.Map<QryWinningListModel>(viewModel);
+            var model = _mapper.Map<QryWinningListModel>(viewModel);
             var resultJson = ExcuteApi(model);
             return JsonConvertFacde.DeserializeObject<QryWinningListResultViewModel>(resultJson);
         }
 
         public List<InvoiceViewModel> GetInvoice(CarrierTilteViewModel viewModel)
         {
-            var carrierTitleModel = mapper.Map<CarrierTilteModel>(viewModel);
+            var carrierTitleModel = _mapper.Map<CarrierTilteModel>(viewModel);
             string result = ExcuteApi(carrierTitleModel);
             var title = JsonConvertFacde.DeserializeObject<CarrierTitleResult>(result);
             List<InvoiceViewModel> InvoiceList = null;
             //查詢成功再加入List中
             if (title.code == "200")
             {
-                InvoiceList = mapper.Map<List<InvoiceViewModel>>(title.details);
+                InvoiceList = _mapper.Map<List<InvoiceViewModel>>(title.details);
             }
             return InvoiceList ?? new List<InvoiceViewModel>();
         }
@@ -63,14 +74,7 @@ namespace ElectronicInvoice.Service
         private string ExcuteApi<T>(T carrierTitleModel) where T :
             class, new()
         {
-            InvoiceApiFactroy factory;
-            IConfig config;
-            using (var container = autofac.BeginLifetimeScope())
-            {
-                config = container.Resolve<IConfig>();
-                factory = container.Resolve<InvoiceApiFactroy>();
-            }
-            var api = factory.GetProxyInstace(carrierTitleModel);
+            var api = _invoiceApiFactroy.GetProxyInstace(carrierTitleModel);
             return api.ExcuteApi(carrierTitleModel);
         }
     }

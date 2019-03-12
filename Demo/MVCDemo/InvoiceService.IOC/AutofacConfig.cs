@@ -1,14 +1,12 @@
 ﻿using Autofac;
+using ElectronicInvoice.Core.Extension;
+using ElectronicInvoice.IOC.Profiles;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Factroy;
-using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using ElectronicInvoice.Service;
 
-namespace ElectronicInvoice.Core.ConfigSetting
+namespace ElectronicInvoice.IOC
 {
     /// <summary>
     /// DI設定檔
@@ -23,9 +21,12 @@ namespace ElectronicInvoice.Core.ConfigSetting
             // 容器建立者
             ContainerBuilder builder = new ContainerBuilder();
 
-            builder.RegisterType<AppsettingConfig>().As<IConfig>();
+            builder.AddAutoMapperProfileByAssembly(typeof(InoviceProfile).Assembly);
+
+            builder.RegisterType<AppsettingConfig>().As<IConfig>().InstancePerRequest();
             builder.RegisterGeneric(typeof(ApiBase<>)).PropertiesAutowired();
-            builder.RegisterType<InvoiceApiFactroy>();
+            builder.RegisterType<InvoiceApiFactroy>().InstancePerRequest();
+            builder.RegisterType<InvoiceService>().As<IInvoiceService>().InstancePerRequest();
 
             // 建立容器
             return builder.Build();
