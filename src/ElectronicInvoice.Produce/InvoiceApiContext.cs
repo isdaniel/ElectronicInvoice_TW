@@ -35,7 +35,7 @@ namespace ElectronicInvoice.Produce
         public string ExcuteApi<TModel>(TModel model) 
             where TModel : class, new()
         {
-            return ExcuteApiProccess(model, x => x.ExcuteApi(model));
+            return ExcuteApiProccess(model, x => x.ExecuteApi(model));
         }
 
         public TRtn ExcuteApi<TModel,TRtn>(TModel model) 

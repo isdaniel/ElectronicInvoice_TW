@@ -9,7 +9,7 @@ namespace ElectronicInvoice.Produce
     internal sealed class CarrierTilteApi : ApiBase<CarrierTilteModel>
     {
 
-        protected override string SetParamter(CarrierTilteModel model)
+        protected override string SetParameter(CarrierTilteModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
             paramter["version"] = "0.3";

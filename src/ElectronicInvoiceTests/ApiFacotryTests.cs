@@ -47,7 +47,7 @@ namespace ElectronicInvoice.Produce.Tests
 
             public void Compare()
             {
-                InvoiceApiFactroy factory = new InvoiceApiFactroy(_config);
+                InvoiceApiFactory factory = new InvoiceApiFactory(_config);
 
                 var model = Activator.CreateInstance(typeof(T)) as T;
 

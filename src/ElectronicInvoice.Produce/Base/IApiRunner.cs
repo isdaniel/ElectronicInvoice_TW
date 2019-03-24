@@ -10,6 +10,6 @@ namespace ElectronicInvoice.Produce.Base
         /// </summary>
         /// <param name="model">傳入的參數</param>
         /// <returns>回傳資料</returns>
-        string ExcuteApi(T model);
+        string ExecuteApi(T model);
     }
 }

@@ -9,7 +9,7 @@ namespace ElectronicInvoice.Produce
     internal sealed class QryInvDetailApi : ApiBase<qryInvDetailModel>
     {
 
-        protected override string SetParamter(qryInvDetailModel model)
+        protected override string SetParameter(qryInvDetailModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
             paramter["version"] = "0.3";

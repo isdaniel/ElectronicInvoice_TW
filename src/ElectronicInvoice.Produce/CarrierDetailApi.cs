@@ -13,7 +13,7 @@ namespace ElectronicInvoice.Produce
     internal sealed class CarrierDetailApi : ApiBase<CarrierDetailModel>
     {
 
-        protected override string SetParamter(CarrierDetailModel model)
+        protected override string SetParameter(CarrierDetailModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
 

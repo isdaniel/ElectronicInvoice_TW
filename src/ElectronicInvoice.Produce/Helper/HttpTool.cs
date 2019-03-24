@@ -20,6 +20,9 @@ namespace ElectronicInvoice.Produce.Infrastructure.Helper
         /// <returns></returns>
         public static string HttpPost(string posturl, string postData)
         {
+            ServicePointManager.ServerCertificateValidationCallback
+                = ValidateServerCertificate;
+
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(posturl);
             request.Method = "POST";
             byte[] postcontentsArray = Encoding.UTF8.GetBytes(postData);

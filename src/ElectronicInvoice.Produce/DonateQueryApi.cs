@@ -12,7 +12,7 @@ namespace ElectronicInvoice.Produce
 {
     internal sealed class DonateQueryApi : ApiBase<DonateQueryModel>
     {
-        protected override string SetParamter(DonateQueryModel model)
+        protected override string SetParameter(DonateQueryModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
             paramter["version"] = "0.2";

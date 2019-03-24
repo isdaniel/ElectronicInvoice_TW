@@ -12,7 +12,7 @@ namespace ElectronicInvoice.Produce
 {
     internal sealed class QryCarrierAggApi : ApiBase<qryCarrierAggModel>
     {
-        protected override string SetParamter(qryCarrierAggModel model)
+        protected override string SetParameter(qryCarrierAggModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
 

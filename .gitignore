@@ -241,3 +241,6 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /CommonLib/ElectronicInvoice.Produce.dll
+/CommonLib
+/src/ElectronicInvoice.Produce/*.nuspec
+/src/ElectronicInvoice.Produce/nuget.exe

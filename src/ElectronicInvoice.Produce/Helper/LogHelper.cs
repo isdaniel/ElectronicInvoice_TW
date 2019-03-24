@@ -17,7 +17,7 @@ namespace ElectronicInvoice.Produce.Infrastructure.Helper
         /// <param name="type"></param>
         internal void WriteLog(string fileName, string content, string type)
         {
-            fileName = $"{fileName}_{DateTime.Now.ToString("yyyyMMdd")}_{type}.log";
+            fileName = $"{fileName}_{DateTime.Now:yyyyMMdd}_{type}.log";
             string filePath = GetFilePath(fileName);
             File.AppendAllText(filePath, GetLogContent(content));
         }

@@ -14,7 +14,7 @@ namespace ElectronicInvoice.Produce
     internal sealed class QryWinningListApi : ApiBase<QryWinningListModel>
     {
 
-        protected override string SetParamter(QryWinningListModel model)
+        protected override string SetParameter(QryWinningListModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
             paramter["version"] = "0.2";
@@ -31,12 +31,12 @@ namespace ElectronicInvoice.Produce
     /// </summary>
     internal sealed class QryWinningListMockApi : ApiBase<QryWinningListModel>
     {
-        protected override string SetParamter(QryWinningListModel model)
+        protected override string SetParameter(QryWinningListModel model)
         {
             return string.Empty;
         }
 
-        public override string ExcuteApi(QryWinningListModel model)
+        public override string ExecuteApi(QryWinningListModel model)
         {
             //這裡可以讀取DB的資料 我偷懶所以寫死資料
             QryWinningListResult MockResult = new QryWinningListResult()

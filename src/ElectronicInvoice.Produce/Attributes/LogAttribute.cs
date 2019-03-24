@@ -10,23 +10,23 @@ namespace ElectronicInvoice.Produce.Attributes
     /// </summary>
     public class LogAttribute : AopBaseAttribute
     {
-        private LogHelper log = new LogHelper();
+        private readonly LogHelper _log = new LogHelper();
 
         public override void OnExcuted(ExcutedContext context)
         {
             var resultJson = JsonConvert.SerializeObject(context.Result);
-            log.WriteLog("ExcuteAfter", resultJson, context.MethodName);
+            _log.WriteLog("ExecuteAfter", resultJson, context.MethodName);
         }
 
         public override void OnExcuting(ExcuteingContext context)
         {
             var resultJson = JsonConvert.SerializeObject(context.Args);
-            log.WriteLog("ExcuteBefore", resultJson, context.MethodName);
+            _log.WriteLog("ExecuteBefore", resultJson, context.MethodName);
         }
 
         public override void OnException(ExceptionContext context)
         {
-            log.WriteLog("ExcuteBefore", 
+            _log.WriteLog("Error", 
                 context.Exception.ToString(), 
                 context.MethodName);
             context.Result = GetSysErrorMsg();

@@ -38,7 +38,7 @@ namespace ElectronicInvoice.Produce.Base
         /// 子類繼承提供參數
         /// </summary>
         /// <returns></returns>
-        protected abstract string SetParamter(TModel model);
+        protected abstract string SetParameter(TModel model);
 
         /// <summary>
         /// 取得api的Url路徑
@@ -46,12 +46,11 @@ namespace ElectronicInvoice.Produce.Base
         /// <returns></returns>
         protected virtual string GetApiURL()
         {
-            var urlTable  = ConfigSetting.GetApiURLTable();
             string apiName = this.GetType().Name;
             string result;
 
-            if (!urlTable.TryGetValue(apiName,out result))
-                throw new Exception(string.Format("請確認Config有ApiURL設定： {0}",apiName));
+            if (!ConfigSetting.GetApiURLTable().TryGetValue(apiName,out result))
+                throw new Exception($"請確認Config有ApiURL設定： {apiName}");
             
             return result;
         }
@@ -62,29 +61,18 @@ namespace ElectronicInvoice.Produce.Base
         /// <param name="model"></param>
         /// <returns></returns>
         [Log]
-        public virtual string ExcuteApi(TModel model)
+        public virtual string ExecuteApi(TModel model)
         {
-            //建立所需參數
-            string result = string.Empty;
-            string postData = string.Empty;
-            string posturl = GetApiURL();
-
             //取得加密後的參數
-            postData = GetInvoiceParamter(SetParamter(model));
+            string postData = GetInvoiceParamter(SetParameter(model));
 
-            ServicePointManager.ServerCertificateValidationCallback
-                     = HttpTool.ValidateServerCertificate;
-            result = HttpTool.HttpPost(posturl, postData);
-
-            return result;
+            return HttpTool.HttpPost(GetApiURL(), postData);
         }
 
-        public TRtn ExcuteApi<TRtn>(TModel model)
+        public TRtn ExecuteApi<TRtn>(TModel model)
         {
-           return JsonConvertFacde.DeserializeObject<TRtn>(ExcuteApi(model));
+           return JsonConvertFacde.DeserializeObject<TRtn>(ExecuteApi(model));
         }
-
-
 
         /// <summary>
         /// 將參數做簽章(signature) 並附加到最後且返回
@@ -95,9 +83,7 @@ namespace ElectronicInvoice.Produce.Base
             //###進行加密動作
             string signature = CiphertextHelper.
                 EncryptionHMACSHA1Base64(ConfigSetting.GovAPIKey, paraData);
-            return string.Format("{0}&signature={1}",
-                ReplacePlus(paraData),
-                HttpUtility.UrlEncode(signature));
+            return $"{ReplacePlus(paraData)}&signature={HttpUtility.UrlEncode(signature)}";
         }
 
         /// <summary>

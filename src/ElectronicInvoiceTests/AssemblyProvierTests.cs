@@ -23,18 +23,18 @@ namespace ElectronicInvoice.Produce.Tests
     public class AssemblyProvierTests
     {
         [Test()]
-        public void RegistertAssembly_Contain_NewOne()
+        public void RegisterAssembly_Contain_NewOne()
         {
-            ApiTypeProvider.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
+            ApiTypeProvider.Instance.RegisterAssembly(Assembly.GetExecutingAssembly());
 
             Assert.IsTrue(ApiTypeProvider.Instance.AssemblyList.Any(x=> x == Assembly.GetExecutingAssembly()));
             Assert.IsTrue(ApiTypeProvider.Instance.AssemblyList.Any(x => x == Assembly.Load("ElectronicInvoice.Produce")));
         }
 
         [Test()]
-        public void RegistertAssembly_Contain_()
+        public void RegisterAssembly_Contain_()
         {
-            ApiTypeProvider.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
+            ApiTypeProvider.Instance.RegisterAssembly(Assembly.GetExecutingAssembly());
 
             var act = ApiTypeProvider.Instance.GetTypeFromAssembly<ApiTypeAttribute>()
                 .FirstOrDefault(x => x == typeof(APIModel));

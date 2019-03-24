@@ -9,7 +9,7 @@ namespace ElectronicInvoice.Produce
 {
     internal sealed class InvoiceTitleApi : ApiBase<InvoiceTitleModel>
     {
-        protected override string SetParamter(InvoiceTitleModel model)
+        protected override string SetParameter(InvoiceTitleModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
             paramter["version"] = "0.3";

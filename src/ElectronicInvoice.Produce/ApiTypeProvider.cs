@@ -12,7 +12,8 @@ namespace ElectronicInvoice.Produce
     public class ApiTypeProvider
     {
         private static ApiTypeProvider _instance;
-        public static ApiTypeProvider Instance => _instance ?? (_instance = new ApiTypeProvider());
+        public static ApiTypeProvider Instance => _instance ?? 
+                                                  (_instance = new ApiTypeProvider());
         
         private ApiTypeProvider()
         {
@@ -24,7 +25,7 @@ namespace ElectronicInvoice.Produce
 
         public List<Assembly> AssemblyList { get; }
 
-        public void RegistertAssembly(Assembly assembly)
+        public void RegisterAssembly(Assembly assembly)
         {
             AssemblyList.Add(assembly);
         }
