@@ -13,15 +13,15 @@ namespace ElectronicInvoice.Service
     public class InvoiceService : IInvoiceService
     {
         private IMapper _mapper;
-        private InvoiceApiFactroy _invoiceApiFactroy;
+        private InvoiceApiFactroy _invoiceApiFactory;
         private IConfig _config;
 
         public InvoiceService(IMapper mapper,
-            InvoiceApiFactroy invoiceApiFactroy,
+            InvoiceApiFactroy invoiceApiFactory,
             IConfig config)
         {
             _mapper = mapper;
-            _invoiceApiFactroy = invoiceApiFactroy;
+            _invoiceApiFactory = invoiceApiFactory;
             _config = config;
         }
 
@@ -35,14 +35,14 @@ namespace ElectronicInvoice.Service
         public QryWinningListResultViewModel GetWinningList(QryWinningListViewModel viewModel)
         {
             var model = _mapper.Map<QryWinningListModel>(viewModel);
-            var resultJson = ExcuteApi(model);
+            var resultJson = ExecuteApi(model);
             return JsonConvertFacde.DeserializeObject<QryWinningListResultViewModel>(resultJson);
         }
 
         public List<InvoiceViewModel> GetInvoice(CarrierTilteViewModel viewModel)
         {
             var carrierTitleModel = _mapper.Map<CarrierTilteModel>(viewModel);
-            string result = ExcuteApi(carrierTitleModel);
+            string result = ExecuteApi(carrierTitleModel);
             var title = JsonConvertFacde.DeserializeObject<CarrierTitleResult>(result);
             List<InvoiceViewModel> InvoiceList = null;
             //查詢成功再加入List中
@@ -71,10 +71,10 @@ namespace ElectronicInvoice.Service
         /// <typeparam name="T"></typeparam>
         /// <param name="carrierTitleModel"></param>
         /// <returns></returns>
-        private string ExcuteApi<T>(T carrierTitleModel) where T :
+        private string ExecuteApi<T>(T carrierTitleModel) where T :
             class, new()
         {
-            var api = _invoiceApiFactroy.GetProxyInstace(carrierTitleModel);
+            var api = _invoiceApiFactory.GetProxyInstace(carrierTitleModel);
             return api.ExcuteApi(carrierTitleModel);
         }
     }

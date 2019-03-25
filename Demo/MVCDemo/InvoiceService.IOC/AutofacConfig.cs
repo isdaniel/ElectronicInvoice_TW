@@ -25,7 +25,7 @@ namespace ElectronicInvoice.IOC
 
             builder.RegisterType<AppsettingConfig>().As<IConfig>().InstancePerRequest();
             builder.RegisterGeneric(typeof(ApiBase<>)).PropertiesAutowired();
-            builder.RegisterType<InvoiceApiFactroy>().InstancePerRequest();
+            builder.RegisterType<InvoiceApiFactory>().InstancePerRequest();
             builder.RegisterType<InvoiceService>().As<IInvoiceService>().InstancePerRequest();
 
             // 建立容器

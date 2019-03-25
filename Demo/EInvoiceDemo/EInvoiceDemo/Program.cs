@@ -21,7 +21,7 @@ namespace EInvoiceDemo
 {
     public class MyApi : ApiBase<MyQryWinningListModel>
     {
-        protected override string SetParamter(MyQryWinningListModel model)
+        protected override string SetParameter(MyQryWinningListModel model)
         {
             SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
             paramter["version"] = "0.2";
@@ -45,7 +45,7 @@ namespace EInvoiceDemo
         static void Main(string[] args)
         {
             //Register Assembly you want to inject.
-            ApiTypeProvider.Instance.RegistertAssembly(Assembly.GetExecutingAssembly());
+            ApiTypeProvider.Instance.RegisterAssembly(Assembly.GetExecutingAssembly());
     
             string result = string.Empty;
             #region 使用工廠模式
@@ -55,15 +55,15 @@ namespace EInvoiceDemo
             {
                 invTerm = "10610"
             };
-            
+
             //建立工廠 將配置檔傳入建構子中
-            InvoiceApiFactroy factory = new InvoiceApiFactroy();
+            InvoiceApiFactory factory = new InvoiceApiFactory();
 
             //在工廠中藉由傳入參數 取得Api產品
             var api = factory.GetProxyInstace(model);
 
             //api回傳結果
-            result = api.ExcuteApi(model);
+            result = api.ExecuteApi(model);
             Console.WriteLine(result);
             #endregion
 
@@ -74,7 +74,7 @@ namespace EInvoiceDemo
                 qKey = "伊甸"
             };
             InvoiceApiContext apiContext = new InvoiceApiContext();
-            result = apiContext.ExcuteApi(donateModel); 
+            result = apiContext.ExecuteApi(donateModel); 
             #endregion
 
             Console.WriteLine(result);
