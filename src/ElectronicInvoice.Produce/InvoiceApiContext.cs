@@ -32,16 +32,16 @@ namespace ElectronicInvoice.Produce
         {
         }
 
-        public string ExcuteApi<TModel>(TModel model) 
+        public string ExecuteApi<TModel>(TModel model) 
             where TModel : class, new()
         {
             return ExcuteApiProccess(model, x => x.ExecuteApi(model));
         }
 
-        public TRtn ExcuteApi<TModel,TRtn>(TModel model) 
+        public TRtn ExecuteApi<TModel,TRtn>(TModel model) 
             where TModel : class, new()
         {
-            return ExcuteApiProccess(model, x=>x.ExcuteApi<TRtn>(model));
+            return ExcuteApiProccess(model, x=>x.ExecuteApi<TRtn>(model));
         }
 
         private TRtn ExcuteApiProccess<TModel,TRtn>(TModel model,Func<ApiBase<TModel>, TRtn> fun1)
