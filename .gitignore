@@ -242,5 +242,4 @@ ModelManifest.xml
 .fake/
 /CommonLib/ElectronicInvoice.Produce.dll
 /CommonLib
-/src/ElectronicInvoice.Produce/*.nuspec
-/src/ElectronicInvoice.Produce/nuget.exe
+

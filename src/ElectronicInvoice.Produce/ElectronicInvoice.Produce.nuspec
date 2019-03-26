@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ElectronicInvoice_TW</id>
+    <version>1.0.8</version>
+    <authors>Daniel</authors>
+    <owners>Daniel</owners>
+    <licenseUrl>https://github.com/isdaniel/ElectronicInvoice_TW</licenseUrl>
+    <projectUrl>https://github.com/isdaniel/ElectronicInvoice_TW</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Add JsonConfig Setting and ApiContext</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>C# OOP</tags>
+    <dependencies>
+	  <group targetFramework="net45">
+       <dependency id="Newtonsoft.Json" version="10.0.3" />
+	  <dependency id="AwesomeProxy.Net" version="1.0.2" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
