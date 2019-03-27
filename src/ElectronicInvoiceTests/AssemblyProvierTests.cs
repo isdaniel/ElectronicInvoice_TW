@@ -1,17 +1,12 @@
-﻿using NUnit.Framework;
-using ElectronicInvoice.Produce;
-using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using ElectronicInvoice.Produce;
 using ElectronicInvoice.Produce.Attributes;
+using NUnit.Framework;
 
-namespace ElectronicInvoice.Produce.Tests
+namespace ElectronicInvoiceTests
 {
-    public  class MyApiClass{
+    public class MyApiClass{
     }
 
     [ApiType(ApiType = typeof(MyApiClass))]

@@ -1,8 +1,8 @@
-﻿using ElectronicInvoice.Produce.Infrastructure.Helper;
+﻿using System.Collections.Generic;
+using ElectronicInvoice.Produce.Infrastructure.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
-namespace ElectronicInvoice.Infrastructure.Helper.Tests
+namespace ElectronicInvoiceTests.Infrastructure.Helper
 {
     [TestClass()]
     public class PraramterHelperTests

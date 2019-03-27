@@ -1,16 +1,13 @@
-﻿using NUnit.Framework;
-using ElectronicInvoice.Produce;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ElectronicInvoice.Produce;
+using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Factory;
 using ElectronicInvoice.Produce.Mapping;
-using ElectronicInvoice.Produce.Base;
 using Moq;
+using NUnit.Framework;
 
-namespace ElectronicInvoice.Produce.Tests
+namespace ElectronicInvoiceTests
 {
     /// <summary>
     /// 測試api工廠

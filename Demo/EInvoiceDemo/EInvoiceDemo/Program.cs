@@ -23,13 +23,15 @@ namespace EInvoiceDemo
     {
         protected override string SetParameter(MyQryWinningListModel model)
         {
-            SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
-            paramter["version"] = "0.2";
-            paramter["action"] = "QryWinningList";
-            paramter["invTerm"] = model.invTerm;
-            paramter["UUID"] = model.UUID;
-            paramter["appID"] = ConfigSetting.GovAppId;
-            return PraramterHelper.DictionaryToParamter(paramter);
+            SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
+            {
+                ["version"] = "0.2",
+                ["action"] = "QryWinningList",
+                ["invTerm"] = model.invTerm,
+                ["UUID"] = model.UUID,
+                ["appID"] = ConfigSetting.GovAppId
+            };
+            return PraramterHelper.DictionaryToParamter(parameter);
         }
     }
 

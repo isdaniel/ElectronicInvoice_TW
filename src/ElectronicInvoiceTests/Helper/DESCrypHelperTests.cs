@@ -1,17 +1,12 @@
-﻿using NUnit.Framework;
+﻿using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ElectronicInvoice.Produce.Base;
 using Moq;
+using NUnit.Framework;
 
-namespace ElectronicInvoice.Produce.Infrastructure.Helper.Tests
+namespace ElectronicInvoiceTests.Helper
 {
     [TestFixture()]
-    public class DESCrypHelperTests
+    public class DesCrypHelperTests
     {
         IKeyProvider KeyProvider;
 
