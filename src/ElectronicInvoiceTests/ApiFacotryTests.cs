@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ElectronicInvoice.Produce.Factroy;
+using ElectronicInvoice.Produce.Factory;
 using ElectronicInvoice.Produce.Mapping;
 using ElectronicInvoice.Produce.Base;
 using Moq;

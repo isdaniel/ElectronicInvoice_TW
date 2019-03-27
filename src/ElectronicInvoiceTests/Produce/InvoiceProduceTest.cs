@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using ElectronicInvoice.Produce.Factroy;
+using ElectronicInvoice.Produce.Factory;
 using ElectronicInvoice.Produce.Mapping;
 using Moq;
 using ElectronicInvoice.Produce.Base;

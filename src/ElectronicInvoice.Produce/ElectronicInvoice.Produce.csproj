@@ -63,7 +63,7 @@
     <Compile Include="Extention\AttributeExtention.cs" />
     <Compile Include="Extention\ProxyFactoryExtension.cs" />
     <Compile Include="Facade\JsonConvertFacde.cs" />
-    <Compile Include="Factroy\InvoiceApiFactory.cs" />
+    <Compile Include="Factory\InvoiceApiFactory.cs" />
     <Compile Include="Helper\CiphertextHelper.cs" />
     <Compile Include="Helper\CommonHelper.cs" />
     <Compile Include="Helper\AppsettingConfig.cs" />

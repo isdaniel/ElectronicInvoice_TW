@@ -9,7 +9,6 @@ using AwesomeProxy;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Extention;
-using ElectronicInvoice.Produce.Factroy;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Produce

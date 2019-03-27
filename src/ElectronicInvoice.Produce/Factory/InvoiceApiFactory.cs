@@ -1,10 +1,10 @@
 ﻿using System;
 using ElectronicInvoice.Produce.Attributes;
-using ElectronicInvoice.Produce.Extention;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Extention;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
 
-namespace ElectronicInvoice.Produce.Factroy
+namespace ElectronicInvoice.Produce.Factory
 {
     public class InvoiceApiFactory
     {
