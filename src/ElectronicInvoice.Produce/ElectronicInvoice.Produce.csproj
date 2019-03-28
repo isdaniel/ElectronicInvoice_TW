@@ -60,8 +60,8 @@
     <Compile Include="CarrierDetailApi.cs" />
     <Compile Include="CarrierTilteApi.cs" />
     <Compile Include="DonateQueryApi.cs" />
-    <Compile Include="Extention\AttributeExtention.cs" />
-    <Compile Include="Extention\ProxyFactoryExtension.cs" />
+    <Compile Include="Extension\AttributeExtension.cs" />
+    <Compile Include="Extension\ProxyFactoryExtension.cs" />
     <Compile Include="Facade\JsonConvertFacde.cs" />
     <Compile Include="Factory\InvoiceApiFactory.cs" />
     <Compile Include="Helper\CiphertextHelper.cs" />

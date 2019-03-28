@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using AwesomeProxy;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
-using ElectronicInvoice.Produce.Extention;
+using ElectronicInvoice.Produce.Extension;
 using ElectronicInvoice.Produce.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Produce
@@ -34,16 +34,16 @@ namespace ElectronicInvoice.Produce
         public string ExecuteApi<TModel>(TModel model) 
             where TModel : class, new()
         {
-            return ExcuteApiProccess(model, x => x.ExecuteApi(model));
+            return ExecuteApiProcess(model, x => x.ExecuteApi(model));
         }
 
         public TRtn ExecuteApi<TModel,TRtn>(TModel model) 
             where TModel : class, new()
         {
-            return ExcuteApiProccess(model, x=>x.ExecuteApi<TRtn>(model));
+            return ExecuteApiProcess(model, x=>x.ExecuteApi<TRtn>(model));
         }
 
-        private TRtn ExcuteApiProccess<TModel,TRtn>(TModel model,Func<ApiBase<TModel>, TRtn> fun1)
+        private TRtn ExecuteApiProcess<TModel,TRtn>(TModel model,Func<ApiBase<TModel>, TRtn> fun1)
             where TModel : class, new()
         {
             object apiObject;
