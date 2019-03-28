@@ -1,7 +1,7 @@
 ﻿using AwesomeProxy;
 using ElectronicInvoice.Produce.Base;
 
-namespace ElectronicInvoice.Produce
+namespace ElectronicInvoice.Produce.Extension
 {
     internal static class ProxyFactoryExtension
     {

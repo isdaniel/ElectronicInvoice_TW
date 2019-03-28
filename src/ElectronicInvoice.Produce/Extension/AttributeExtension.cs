@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
-namespace ElectronicInvoice.Produce.Extention
+namespace ElectronicInvoice.Produce.Extension
 {
     public static class ExtensionAttribute
     {
