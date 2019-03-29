@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
+using ElectronicInvoice.Produce.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ElectronicInvoiceTests.Infrastructure.Helper

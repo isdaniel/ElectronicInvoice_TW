@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using ElectronicInvoice.Produce.Base;
 using System.Configuration;
 using System.Linq;
+using ElectronicInvoice.Produce.Base;
 
-
-namespace ElectronicInvoice.Produce.Infrastructure.Helper
+namespace ElectronicInvoice.Produce.Helper
 {
     /// <summary>
     /// 吃WebSetting

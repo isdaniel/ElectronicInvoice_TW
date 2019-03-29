@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace ElectronicInvoice.Produce.Infrastructure.Helper
+namespace ElectronicInvoice.Produce.Helper
 {
-    public class HttpTool
+    internal class HttpTool
     {
         /// <summary>
         /// POST傳輸
@@ -18,7 +15,7 @@ namespace ElectronicInvoice.Produce.Infrastructure.Helper
         /// <param name="posturl"></param>
         /// <param name="postData"></param>
         /// <returns></returns>
-        public static string HttpPost(string posturl, string postData)
+        internal static string HttpPost(string posturl, string postData)
         {
             ServicePointManager.ServerCertificateValidationCallback
                 = ValidateServerCertificate;
@@ -50,7 +47,7 @@ namespace ElectronicInvoice.Produce.Infrastructure.Helper
         /// <param name="chain"></param>
         /// <param name="sslPolicyErrors"></param>
         /// <returns></returns>
-        public static bool ValidateServerCertificate(
+        private static bool ValidateServerCertificate(
             Object sender,
             X509Certificate certification,
             X509Chain chain,

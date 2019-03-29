@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Web;
 
-namespace ElectronicInvoice.Produce.Infrastructure.Helper
+namespace ElectronicInvoice.Produce.Helper
 {
-    public class LogHelper
+    internal class LogHelper
     {
         /// <summary>
         /// 撰寫Log

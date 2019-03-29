@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Helper;
 using ElectronicInvoice.Produce.Infrastructure;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
 using ElectronicInvoice.Produce.Mapping;
 
 namespace ElectronicInvoice.Produce

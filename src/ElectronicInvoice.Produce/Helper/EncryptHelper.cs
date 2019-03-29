@@ -1,20 +1,17 @@
-﻿using ElectronicInvoice.Produce.Base;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
+using ElectronicInvoice.Produce.Base;
 
-namespace ElectronicInvoice.Produce.Infrastructure.Helper
+namespace ElectronicInvoice.Produce.Helper
 {
-    public class DESCrypHelper
+    public class DesCrypHelper
     {
         private Encoding encoding = Encoding.UTF8;
         private DESCryptoServiceProvider des = new DESCryptoServiceProvider();
 
-        public DESCrypHelper(IKeyProvider provider)
+        public DesCrypHelper(IKeyProvider provider)
         {
             des.Key = encoding.GetBytes(provider.Key);
             des.IV = encoding.GetBytes(provider.IV);

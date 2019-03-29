@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
 using AwesomeProxy.FilterAttribute;
 using AwesomeProxy;
+using ElectronicInvoice.Produce.Helper;
 
 namespace ElectronicInvoice.Produce.Attributes
 {

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
+﻿using System.Collections.Generic;
 
-namespace ElectronicInvoice.Produce.Infrastructure.Helper
+namespace ElectronicInvoice.Produce.Helper
 {
     public class PraramterHelper
     {

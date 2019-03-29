@@ -1,5 +1,4 @@
-﻿using ElectronicInvoice.Produce.Infrastructure.Helper;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Linq;
 using System.Net;
@@ -7,6 +6,7 @@ using System.Web;
 using ElectronicInvoice.Produce.Facade;
 using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Attributes;
+using ElectronicInvoice.Produce.Helper;
 
 /*
  * 創建者：Daniel.shih

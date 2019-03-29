@@ -2,8 +2,8 @@
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Mapping;
 using System.Collections.Generic;
+using ElectronicInvoice.Produce.Helper;
 using ElectronicInvoice.Produce.Infrastructure;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
 
 namespace ElectronicInvoice.Produce
 {

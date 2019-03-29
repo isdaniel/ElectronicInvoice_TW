@@ -2,7 +2,7 @@
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Extension;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
+using ElectronicInvoice.Produce.Helper;
 
 namespace ElectronicInvoice.Produce.Factory
 {

@@ -1,5 +1,5 @@
 ﻿using ElectronicInvoice.Produce.Base;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
+using ElectronicInvoice.Produce.Helper;
 using Moq;
 using NUnit.Framework;
 
@@ -28,7 +28,7 @@ namespace ElectronicInvoiceTests.Helper
         public void 一般字串各種符號__字串加解密Test__成功(string input)
         {
             string original = input;
-            DESCrypHelper DESTool = new DESCrypHelper(KeyProvider);
+            DesCrypHelper DESTool = new DesCrypHelper(KeyProvider);
             string encrypStr = DESTool.EncryptData(original);
             string result = DESTool.DecryptData(encrypStr);
             Assert.AreEqual(result, original);
@@ -39,7 +39,7 @@ namespace ElectronicInvoiceTests.Helper
         public void 一般字串各種符號__byte加解密Test__成功(byte[] input)
         {
             byte[] original = input;
-            DESCrypHelper DESTool = new DESCrypHelper(KeyProvider);
+            DesCrypHelper DESTool = new DesCrypHelper(KeyProvider);
             byte[] encrypStr = DESTool.EncryptData(original);
             byte[] result = DESTool.DecryptData(encrypStr);
             Assert.AreEqual(result, original);
