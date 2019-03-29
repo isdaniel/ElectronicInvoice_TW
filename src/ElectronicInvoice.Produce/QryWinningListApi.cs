@@ -22,7 +22,7 @@ namespace ElectronicInvoice.Produce
             paramter["invTerm"] = model.invTerm;
             paramter["UUID"] = model.UUID;
             paramter["appID"] = ConfigSetting.GovAppId;
-            return PraramterHelper.DictionaryToParamter(paramter);
+            return ParameterHelper.DictionaryToParameter(paramter);
         }
     }
 

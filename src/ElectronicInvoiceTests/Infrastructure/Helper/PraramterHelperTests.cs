@@ -23,7 +23,7 @@ namespace ElectronicInvoiceTests.Infrastructure.Helper
 
             string expected = "name=daniel&age=1234";
 
-            string result = PraramterHelper.DictionaryToParamter(dict);
+            string result = ParameterHelper.DictionaryToParameter(dict);
             Assert.AreEqual(result, expected);
         }
 
@@ -34,7 +34,7 @@ namespace ElectronicInvoiceTests.Infrastructure.Helper
             dict["age"] = null;
 
             string expected = "name=daniel&age=";
-            string result = PraramterHelper.DictionaryToParamter(dict);
+            string result = ParameterHelper.DictionaryToParameter(dict);
 
             Assert.AreEqual(result, expected);
         }

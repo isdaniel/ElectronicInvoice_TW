@@ -71,7 +71,7 @@
     <Compile Include="Helper\HttpTool.cs" />
     <Compile Include="Helper\JsonConfig.cs" />
     <Compile Include="Helper\LogHelper.cs" />
-    <Compile Include="Helper\PraramterHelper.cs" />
+    <Compile Include="Helper\ParameterHelper.cs" />
     <Compile Include="Infrastructure\ActionParameter.cs" />
     <Compile Include="Infrastructure\DBKeyProvider.cs" />
     <Compile Include="InvoiceApiContext.cs" />

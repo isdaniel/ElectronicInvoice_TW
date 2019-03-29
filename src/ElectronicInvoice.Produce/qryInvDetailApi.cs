@@ -25,7 +25,7 @@ namespace ElectronicInvoice.Produce
             paramter["sellerID"] = model.sellerID;
             paramter["randomNumber"] = model.randomNumber;
             paramter["appID"] = ConfigSetting.GovAppId;
-            return PraramterHelper.DictionaryToParamter(paramter);
+            return ParameterHelper.DictionaryToParameter(paramter);
         }
     }
 }

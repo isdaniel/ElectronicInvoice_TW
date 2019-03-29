@@ -25,7 +25,7 @@ namespace ElectronicInvoice.Produce
             paramter["cardEncrypt"] = model.cardEncrypt;
             paramter["appID"] = ConfigSetting.GovAppId;
 
-            return PraramterHelper.DictionaryToParamter(paramter);
+            return ParameterHelper.DictionaryToParameter(paramter);
         }
     }
 }
