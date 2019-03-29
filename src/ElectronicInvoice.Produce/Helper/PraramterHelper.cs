@@ -11,18 +11,7 @@ namespace ElectronicInvoice.Produce.Helper
         /// <returns></returns>
         public static string DictionaryToParamter(IDictionary<string,string> dirc)
         {
-            string value = string.Empty;
-            List<string> paraList = new List<string>();
-            foreach (var item in dirc)
-            {
-                value = item.Value ?? "";
-                paraList.Add(SpellParamter(item.Key, value));
-            }
-            return string.Join("&", paraList);
-        }
-
-        private static string SpellParamter(string key,string value) {
-            return $"{key}={value}";
+            return string.Join("&", dirc.Select(x => $"{x.Key}={x.Value}"));
         }
     }
 }
