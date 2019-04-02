@@ -12,7 +12,7 @@ namespace ElectronicInvoice.Produce.Mapping
     [ApiType(ApiType = typeof(CarrierDetailApi))]
     public class CarrierDetailModel : CommonBaseModel
     {
-        public string CardType { get; set; }
+        public CardType CardType { get; set; } 
         public string CardNo { get; set; }
         public string InvNum { get; set; }
         public string InvDate { get; set; }

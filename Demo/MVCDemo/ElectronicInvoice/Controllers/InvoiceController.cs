@@ -10,7 +10,7 @@ namespace ElectronicInvoice.Controllers
 {
     public class InvoiceController : Controller
     {
-        private IInvoiceService _invoiceService;
+        private readonly IInvoiceService _invoiceService;
 
         public InvoiceController(IInvoiceService invoiceService)
         {

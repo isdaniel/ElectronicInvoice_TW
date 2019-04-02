@@ -1,4 +1,4 @@
-nuget pack ..\src\ElectronicInvoice.Produce\ElectronicInvoice.Produce.nuspec
+nuget pack ..\src\ElectronicInvoice.Produce\
 
 for /f "delims=" %%a in ('dir /s /b *.nupkg') do set filename=%%~nxa
 

@@ -1,4 +1,5 @@
-﻿using Autofac.Integration.Mvc;
+﻿using System.Reflection;
+using Autofac.Integration.Mvc;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -17,8 +18,9 @@ namespace ElectronicInvoice
 
 
             //使用AutoFac
-            var container = AutofacConfig.Register();
-            AutofacDependencyResolver resolver = new AutofacDependencyResolver(container);
+            var builder = AutofacConfig.Register();
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            AutofacDependencyResolver resolver = new AutofacDependencyResolver(builder.Build());
             DependencyResolver.SetResolver(resolver);
         }
     }

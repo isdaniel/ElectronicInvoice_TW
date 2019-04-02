@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Extension;
 using ElectronicInvoice.Produce.Helper;
 using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Mapping;
@@ -15,7 +16,7 @@ namespace ElectronicInvoice.Produce.API.Application
             {
                 ["version"] = "0.3",
                 ["action"] = ActionParameter.CarrierDetailApi,
-                ["cardType"] = model.CardType,
+                ["cardType"] = model.CardType.GetCardName(),
                 ["cardNo"] = model.CardNo,
                 ["expTimeStamp"] = model.TimeStampMAX,
                 ["timeStamp"] = model.TimeStamp,

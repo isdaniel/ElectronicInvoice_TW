@@ -2,8 +2,8 @@
 using ElectronicInvoice.Core.Extension;
 using ElectronicInvoice.IOC.Profiles;
 using ElectronicInvoice.Produce.Base;
-using ElectronicInvoice.Produce.Factroy;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
+using ElectronicInvoice.Produce.Factory;
+using ElectronicInvoice.Produce.Helper;
 using ElectronicInvoice.Service;
 
 namespace ElectronicInvoice.IOC
@@ -16,20 +16,20 @@ namespace ElectronicInvoice.IOC
         /// <summary>
         /// 註冊DI注入物件資料
         /// </summary>
-        public static IContainer Register()
+        public static ContainerBuilder Register()
         {
             // 容器建立者
             ContainerBuilder builder = new ContainerBuilder();
 
-            builder.AddAutoMapperProfileByAssembly(typeof(InoviceProfile).Assembly);
-
+            builder.AddAutoMapperProfileByAssembly(typeof(InvoiceProfile).Assembly);
+            
             builder.RegisterType<AppsettingConfig>().As<IConfig>().InstancePerRequest();
             builder.RegisterGeneric(typeof(ApiBase<>)).PropertiesAutowired();
             builder.RegisterType<InvoiceApiFactory>().InstancePerRequest();
             builder.RegisterType<InvoiceService>().As<IInvoiceService>().InstancePerRequest();
 
             // 建立容器
-            return builder.Build();
+            return builder;
         }
     }
 }

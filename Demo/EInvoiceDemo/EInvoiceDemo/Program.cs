@@ -1,20 +1,13 @@
-﻿using ElectronicInvoice.Produce.Factroy;
-using ElectronicInvoice.Produce.Infrastructure.Helper;
-using ElectronicInvoice.Produce.Mapping;
+﻿using ElectronicInvoice.Produce.Mapping;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using ElectronicInvoice.Produce;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Factory;
 using ElectronicInvoice.Produce.Helper;
 using ElectronicInvoice.Produce.Infrastructure;
-using ElectronicInvoice.Produce.InvoiceResult;
-using Newtonsoft.Json;
 
 
 namespace EInvoiceDemo
@@ -23,6 +16,7 @@ namespace EInvoiceDemo
     {
         protected override string SetParameter(MyQryWinningListModel model)
         {
+
             SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
             {
                 ["version"] = "0.2",
@@ -31,7 +25,8 @@ namespace EInvoiceDemo
                 ["UUID"] = model.UUID,
                 ["appID"] = ConfigSetting.GovAppId
             };
-            return PraramterHelper.DictionaryToParamter(parameter);
+            
+            return ParameterHelper.DictionaryToParameter(parameter);
         }
     }
 
