@@ -1,8 +1,10 @@
-﻿using ElectronicInvoice.Produce.Attributes;
+﻿using ElectronicInvoice.Produce.API.Application;
+using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce.Mapping
 {
+
     [ApiType(ApiType = typeof(QryInvDetailApi))]
     public class qryInvDetailModel : CommonBaseModel
     {
@@ -14,7 +16,7 @@ namespace ElectronicInvoice.Produce.Mapping
         public string invNum { get; set; }
         public string action { get; set; }
         public string generation { get; set; }
-        public string invTerm { get; set; }
+        public string InvTerm { get; set; }
         public string invDate { get; set; }
         public string encrypt { get; set; }
     }

@@ -1,15 +1,19 @@
 ﻿using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Infrastructure;
 using System;
+using ElectronicInvoice.Produce.API;
+using ElectronicInvoice.Produce.API.Application;
 
 namespace ElectronicInvoice.Produce.Mapping
-{
+{    
+    /// <summary>
+    /// 查詢發票明細
+    /// </summary>
     [ApiType(ApiType = typeof(InvoiceDetailApi))]
     public class InvoiceDetailModel : CommonBaseModel
     {
         public InvoiceType Type { get; set; }
         public string InvNum { get; set; }
-        //public string action { get; set; }
         /// <summary>
         /// Type 為 Barcode時為必填
         /// </summary>

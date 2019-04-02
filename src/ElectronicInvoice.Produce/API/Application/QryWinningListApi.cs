@@ -1,12 +1,12 @@
-﻿using ElectronicInvoice.Produce.Facade;
-using System.Collections.Generic;
-using ElectronicInvoice.Produce.InvoiceResult;
-using ElectronicInvoice.Produce.Mapping;
+﻿using System.Collections.Generic;
 using ElectronicInvoice.Produce.Base;
+using ElectronicInvoice.Produce.Facade;
 using ElectronicInvoice.Produce.Helper;
 using ElectronicInvoice.Produce.Infrastructure;
+using ElectronicInvoice.Produce.InvoiceResult;
+using ElectronicInvoice.Produce.Mapping;
 
-namespace ElectronicInvoice.Produce
+namespace ElectronicInvoice.Produce.API.Application
 {
     /// <summary>
     /// 連接財政部API
@@ -16,13 +16,15 @@ namespace ElectronicInvoice.Produce
 
         protected override string SetParameter(QryWinningListModel model)
         {
-            SortedDictionary<string, string> paramter = new SortedDictionary<string, string>();
-            paramter["version"] = "0.2";
-            paramter["action"] = ActionParameter.QryWinningListApi;
-            paramter["invTerm"] = model.invTerm;
-            paramter["UUID"] = model.UUID;
-            paramter["appID"] = ConfigSetting.GovAppId;
-            return ParameterHelper.DictionaryToParameter(paramter);
+            SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
+            {
+                ["version"] = "0.2",
+                ["action"] = ActionParameter.QryWinningListApi,
+                ["invTerm"] = model.invTerm,
+                ["UUID"] = model.UUID,
+                ["appID"] = ConfigSetting.GovAppId
+            };
+            return ParameterHelper.DictionaryToParameter(parameter);
         }
     }
 

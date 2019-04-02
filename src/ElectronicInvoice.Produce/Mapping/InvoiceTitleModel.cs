@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ElectronicInvoice.Produce.API.Application;
 
 namespace ElectronicInvoice.Produce.Mapping
 {
-
+    /// <summary>
+    /// 查詢發票表頭
+    /// </summary>
     [ApiType(ApiType = typeof(InvoiceTitleApi))]
     public class InvoiceTitleModel : CommonBaseModel
     {
@@ -16,19 +19,4 @@ namespace ElectronicInvoice.Produce.Mapping
         public string InvNum { get; set; }
         public DateTime InvDate { get; set; }
     }
-
-    public class InvoiceTitleReturnModel
-    {
-        public string invNum { get; set; }
-        public string invDate { get; set; }
-        public string sellerName { get; set; }
-        public string invStatus { get; set; }
-        public string invPeriod { get; set; }
-        public string sellerBan { get; set; }
-        public string invoiceTime { get; set; }
-        public string v { get; set; }
-        public string code { get; set; }
-        public string msg { get; set; }
-    }
-
 }

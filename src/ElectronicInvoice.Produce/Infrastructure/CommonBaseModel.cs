@@ -9,28 +9,12 @@ namespace ElectronicInvoice.Produce.Infrastructure
 {
     public class CommonBaseModel
     {
-        public string TimeStamp
-        {
-            get
-            {
-                return (CommonHelper.GetTimeStamp() + 15).ToString();
-            }
-        }
+        public string TimeStamp => (CommonHelper.GetTimeStamp() + 15).ToString();
 
-        public string TimeStampMAX
-        {
-            get
-            {
-                return (CommonHelper.GetTimeStamp() + 10000).ToString();
-            }
-        }
+        public string TimeStampMAX => (CommonHelper.GetTimeStamp() + 10000).ToString();
 
-        public string UUID
-        {
-            get
-            {
-                return "9774d56d682e549c";
-            }
-        }
+        public string UUID => "9774d56d682e549c";
+
+        public string Serial => DateTime.Now.ToString("MMddssmmss");
     }
 }

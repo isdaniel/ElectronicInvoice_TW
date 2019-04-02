@@ -2,21 +2,19 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/ElectronicInvoice_TW.svg)](https://www.nuget.org/packages/ElectronicInvoice_TW/) [![NuGet Downloads](https://img.shields.io/badge/Build-succeed-green.svg)](https://ci.appveyor.com/project/WeihanLi/accesscontroldemo) [![Build status](https://ci.appveyor.com/api/projects/status/4ktwufjfsxmpishy/branch/master?svg=true)](https://ci.appveyor.com/project/isdaniel/electronicinvoice-tw/branch/master)
 -----
 
-
 Nuget下載
 
     PM > Install-Package ElectronicInvoice_TW 
 
-#### 串接文件下載 [電子發票查詢API 1.4.4](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1476855387455_0.4.4.pdf) 
+---
 
 ## 範例程式
 ### `EInvoiceDemo`專案範例:
 
 範例是呼叫【撈取中獎發票API】
 
-------
-
 ## 使用工廠模式
+
 ```cs
 //設定使用哪個抓取Setting類別
 var setting  = new AppsettingConfig();
@@ -55,6 +53,10 @@ DonateQueryModel donateModel = new DonateQueryModel()
 InvoiceApiContext apiContext = new InvoiceApiContext(setting);
 result = apiContext.ExcuteApi(donateModel); 
 ```
+使用Model可以參考
+
+* [Model使用對應表](docs/ModelMapper.md)
+
 -----
 
 WebConfig配置
@@ -93,8 +95,21 @@ JsonConfig 範例
 
 [SDK說明連結](https://docs.google.com/presentation/d/1BhmZxK8nkhuroFEJCEwRmuqu_ooGMPI4YELOGgh3P1o/edit#slide=id.p) 
 
-
 [Blog原理解說](https://dotblogs.com.tw/daniel/2017/10/15/203221) 
 
+----
 
+## Todo List
 
+**基礎建設：**
+
+- [X] 建立`InvoiceApiContext`封裝**Factory Api**實做
+- [X] 撰寫單元測試 
+- [X] API文件和Model類別使用對應表 
+
+**API實做：**
+
+- [X] [電子發票應用API規格(v1.7)](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1510206773173_0.pdf)
+- [ ] [電子發票營業人應用API規格(v1.6)](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1468833776540_0.pdf)
+- [ ] [雲端發票行動支付應用API規格(v1.6)](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1510206811150_0.pdf)
+- [ ] [電子發票政府應用API規格(v1.2)](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1528963625157_0.pdf) 

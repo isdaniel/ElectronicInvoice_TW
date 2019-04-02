@@ -7,23 +7,10 @@ using System.Threading.Tasks;
 
 namespace ElectronicInvoice.Produce.Infrastructure
 {
-    public class DBKeyProvider : IKeyProvider
+    public class DbKeyProvider : IKeyProvider
     {
-        public string IV
-        {
-            get
-            {
-                return "959DC314";
-            }
-        }
+        public string IV => "959DC314";
 
-        public string Key
-        {
-            get
-            {
-                return "AB3E4C7B";
-            }
-        }
-
+        public string Key => "AB3E4C7B";
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using ElectronicInvoice.Produce;
+using ElectronicInvoice.Produce.API;
+using ElectronicInvoice.Produce.API.Application;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Factory;
 using ElectronicInvoice.Produce.Mapping;
@@ -26,9 +28,6 @@ namespace ElectronicInvoiceTests
             moqConfig.Setup(o => o.GovAppId).Returns("0");
             _config = moqConfig.Object;
         }
-        
-
-
         public interface ITester
         {
             void Compare();
@@ -67,9 +66,9 @@ namespace ElectronicInvoiceTests
         {
             yield return new Tester<QryWinningListModel> { ApiType = typeof(QryWinningListApi) };
             yield return new Tester<qryInvDetailModel> { ApiType = typeof(QryInvDetailApi) };
-            yield return new Tester<CarrierTilteModel> { ApiType = typeof(CarrierTilteApi) };
+            yield return new Tester<CarrierTitleModel> { ApiType = typeof(CarrierTilteApi) };
             yield return new Tester<CarrierDetailModel> { ApiType = typeof(CarrierDetailApi) };
-            yield return new Tester<qryCarrierAggModel> { ApiType = typeof(QryCarrierAggApi) };
+            yield return new Tester<QryCarrierAggModel> { ApiType = typeof(QryCarrierAggApi) };
             yield return new Tester<DonateQueryModel> { ApiType = typeof(DonateQueryApi) };
             yield return new Tester<InvoiceDetailModel> { ApiType = typeof(InvoiceDetailApi) };
             yield return new Tester<InvoiceTitleModel> { ApiType = typeof(InvoiceTitleApi) };

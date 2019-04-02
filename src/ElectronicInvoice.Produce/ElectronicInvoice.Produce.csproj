@@ -52,16 +52,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiTypeProvider.cs" />
+    <Compile Include="API\Application\CarrierDonateApi.cs" />
     <Compile Include="Attributes\ApiTypeAttribute.cs" />
+    <Compile Include="Attributes\ContentAttribute.cs" />
     <Compile Include="Attributes\LogAttribute.cs" />
     <Compile Include="Base\ApiBase.cs" />
     <Compile Include="Base\IApiRunner.cs" />
     <Compile Include="Base\IConfig.cs" />
-    <Compile Include="CarrierDetailApi.cs" />
-    <Compile Include="CarrierTilteApi.cs" />
-    <Compile Include="DonateQueryApi.cs" />
+    <Compile Include="API\Application\CarrierDetailApi.cs" />
+    <Compile Include="API\Application\CarrierTilteApi.cs" />
+    <Compile Include="API\Application\DonateQueryApi.cs" />
     <Compile Include="Extension\AttributeExtension.cs" />
     <Compile Include="Extension\ProxyFactoryExtension.cs" />
+    <Compile Include="Extension\TypeExtension.cs" />
     <Compile Include="Facade\JsonConvertFacde.cs" />
     <Compile Include="Factory\InvoiceApiFactory.cs" />
     <Compile Include="Helper\CiphertextHelper.cs" />
@@ -74,26 +77,28 @@
     <Compile Include="Helper\ParameterHelper.cs" />
     <Compile Include="Infrastructure\ActionParameter.cs" />
     <Compile Include="Infrastructure\DBKeyProvider.cs" />
+    <Compile Include="Infrastructure\InvoiceType.cs" />
     <Compile Include="InvoiceApiContext.cs" />
-    <Compile Include="InvoiceDetailApi.cs" />
+    <Compile Include="API\Application\InvoiceDetailApi.cs" />
     <Compile Include="InvoiceResult\CarrierDetail.cs" />
     <Compile Include="InvoiceResult\CarrierTitle.cs" />
-    <Compile Include="Infrastructure\ParamterContext.cs" />
     <Compile Include="InvoiceResult\QryWinningListViewModel.cs" />
     <Compile Include="Mapping\CarrierDetailModel.cs" />
-    <Compile Include="Mapping\CarrierTilteModel.cs" />
-    <Compile Include="InvoiceTitleApi.cs" />
+    <Compile Include="Mapping\CarrierDonateModel.cs" />
+    <Compile Include="Mapping\CarrierTitleModel.cs" />
+    <Compile Include="API\Application\InvoiceTitleApi.cs" />
     <Compile Include="Mapping\DonateQueryModel.cs" />
     <Compile Include="Mapping\InvoiceDetailModel.cs" />
     <Compile Include="Mapping\InvoiceTitleModel.cs" />
     <Compile Include="Infrastructure\CommonBaseModel.cs" />
+    <Compile Include="InvoiceResult\InvoiceTitleReturnModel.cs" />
     <Compile Include="Mapping\qryCarrierAggModel.cs" />
     <Compile Include="Mapping\qryInvDetailModel.cs" />
     <Compile Include="Mapping\QryWinningListModel.cs" />
-    <Compile Include="PhoneCarrierApi.cs" />
+    <Compile Include="API\Application\PhoneCarrierApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QryInvDetailApi.cs" />
-    <Compile Include="QryWinningListApi.cs" />
+    <Compile Include="API\Application\QryInvDetailApi.cs" />
+    <Compile Include="API\Application\QryWinningListApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

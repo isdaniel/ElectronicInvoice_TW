@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ElectronicInvoice.Produce.InvoiceResult
 {
@@ -15,7 +11,7 @@ namespace ElectronicInvoice.Produce.InvoiceResult
         public string amount { get; set; }
     }
 
-    public class CarrierDeatailResult
+    public class CarrierDetailResult
     {
         public string v { get; set; }
         public string code { get; set; }

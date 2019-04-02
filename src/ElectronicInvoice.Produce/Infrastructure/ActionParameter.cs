@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace ElectronicInvoice.Produce.Infrastructure
 {
-    internal class ActionParameter
+    internal static class ActionParameter
     {
-        public const string CarrierDetailApi = "carrierInvDetail";
-        public const string CarrierTilteApi = "carrierInvChk";
-        public const string DonateQueryApi = "qryLoveCode";
-        public const string InvoiceDetailApi = "qryInvDetail";
-        public const string InvoiceTitleApi = "qryInvHeader";
-        public const string QryCarrierAggApi = "qryCarrierAgg";
-        public const string QryInvDetailApi = "qryCarrierAgg";
-        public const string QryWinningListApi = "QryWinningList";
-        
-
+        internal const string CarrierDetailApi = "carrierInvDetail";
+        internal const string CarrierTitleApi = "carrierInvChk";
+        internal const string DonateQueryApi = "qryLoveCode";
+        internal const string InvoiceDetailApi = "qryInvDetail";
+        internal const string InvoiceTitleApi = "qryInvHeader";
+        internal const string QryCarrierAggApi = "qryCarrierAgg";
+        internal const string QryInvDetailApi = "qryInvDetail";
+        internal const string QryWinningListApi = "QryWinningList";
+        internal const string CarrierDonateApi = "carrierInvDnt";
     }
 }

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using AwesomeProxy;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Extension;
@@ -16,7 +11,7 @@ namespace ElectronicInvoice.Produce
     public class InvoiceApiContext
     {
         private static Dictionary<Type, object> _apiMapperCache;
-        private IConfig _config;
+        private readonly IConfig _config;
         public InvoiceApiContext(IConfig config)
         {
             _apiMapperCache = ApiTypeProvider.Instance

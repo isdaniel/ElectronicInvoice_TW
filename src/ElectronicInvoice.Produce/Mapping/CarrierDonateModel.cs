@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using ElectronicInvoice.Produce.API;
+﻿using System;
 using ElectronicInvoice.Produce.API.Application;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Infrastructure;
@@ -7,16 +6,16 @@ using ElectronicInvoice.Produce.Infrastructure;
 namespace ElectronicInvoice.Produce.Mapping
 {
     /// <summary>
-    /// 載具發票明細查詢
+    /// 載具發票捐贈
     /// </summary>
-    [ApiType(ApiType = typeof(CarrierDetailApi))]
-    public class CarrierDetailModel : CommonBaseModel
+    [ApiType(ApiType = typeof(CarrierDonateApi))]
+    public class CarrierDonateModel : CommonBaseModel
     {
-        public string CardType { get; set; }
+        public CardType CardType { get; set; }
         public string CardNo { get; set; }
+        public DateTime InvDate { get; set; }
         public string InvNum { get; set; }
-        public string InvDate { get; set; }
-
+        public string NpoBan { get; set; }
         public string CardEncrypt { get; set; }
     }
 }
