@@ -19,7 +19,7 @@ namespace ElectronicInvoice.Produce.API.Application
             {
                 ["version"] = "0.1",
                 ["serial"] =  model.Serial,
-                ["action"] = ActionParameter.CarrierDonateApi,
+                ["action"] = GetMapperAction,
                 ["cardType"] = model.CardType.GetCardName(),
                 ["cardNo"] = model.CardNo,
                 ["expTimeStamp"] = model.TimeStampMAX,

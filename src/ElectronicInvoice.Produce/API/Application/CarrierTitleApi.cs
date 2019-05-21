@@ -8,7 +8,7 @@ using ElectronicInvoice.Produce.Mapping;
 
 namespace ElectronicInvoice.Produce.API.Application
 {
-    internal sealed class CarrierTilteApi : ApiBase<CarrierTitleModel>
+    internal sealed class CarrierTitleApi : ApiBase<CarrierTitleModel>
     {
 
         protected override string SetParameter(CarrierTitleModel model)
@@ -16,7 +16,7 @@ namespace ElectronicInvoice.Produce.API.Application
             SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
             {
                 ["version"] = "0.3",
-                ["action"] = ActionParameter.CarrierTitleApi,
+                ["action"] = GetMapperAction,
                 ["cardType"] = model.CardType.GetAttributeValue<ContentAttribute,string>(x=> x.Name),
                 ["cardNo"] = model.CardNo,
                 ["expTimeStamp"] = model.TimeStampMAX,

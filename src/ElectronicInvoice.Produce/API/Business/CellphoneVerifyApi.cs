@@ -4,20 +4,21 @@ using ElectronicInvoice.Produce.Helper;
 using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Mapping;
 
-namespace ElectronicInvoice.Produce.API.Application
+namespace ElectronicInvoice.Produce.API.Business
 {
-    internal sealed class DonateQueryApi : ApiBase<DonateQueryModel>
+    internal sealed class CellphoneVerifyApi : ApiBase<CellphoneVerifyModel>
     {
-        protected override string SetParameter(DonateQueryModel model)
+        protected override string SetParameter(CellphoneVerifyModel model)
         {
             SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
             {
-                ["version"] = "0.2",
-                ["qKey"] = model.qKey,
+                ["version"] = "0.1",
                 ["action"] = GetMapperAction,
-                ["uuid"] = model.UUID,
-                ["appID"] = ConfigSetting.GovAppId
+                ["barCode"] = model.BarCode,
+                ["TxID"] = model.TxID,
+                ["appId"] = ConfigSetting.GovAppId
             };
+
             return ParameterHelper.DictionaryToParameter(parameter);
         }
     }

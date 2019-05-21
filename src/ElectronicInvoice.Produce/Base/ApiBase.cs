@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net;
@@ -19,6 +20,36 @@ namespace ElectronicInvoice.Produce.Base
     public abstract class ApiBase<TModel> : MarshalByRefObject, IApiRunner<TModel>
         where TModel : class, new()
     {
+        private readonly Dictionary<string,string> _actionMapper = new Dictionary<string, string>()
+        {
+            { "CarrierDetailApi","carrierInvDetail"},
+            { "CarrierTitleApi","carrierInvChk"},
+            { "DonateQueryApi","qryLoveCode"},
+            { "InvoiceDetailApi","qryInvDetail"},
+            { "InvoiceTitleApi","qryInvHeader"},
+            { "QryCarrierAggApi","qryCarrierAgg"},
+            { "QryInvDetailApi","qryInvDetail"},
+            { "QryWinningListApi","QryWinningList"},
+            { "CarrierDonateApi","carrierInvDnt"},
+            { "CellphoneVerifyApi","bcv"},
+            { "DonateVerifyApi","preserveCodeCheck"}
+        };
+
+        internal virtual string GetMapperAction
+        {
+            get
+            {
+                string result;
+
+                if (!_actionMapper.TryGetValue(GetType().Name, out result))
+                {
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+        }
+
         private IConfig _configSetting;
 
         public IConfig ConfigSetting {

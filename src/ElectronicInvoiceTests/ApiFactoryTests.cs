@@ -15,7 +15,7 @@ namespace ElectronicInvoiceTests
     /// 測試api工廠
     /// </summary>
     [TestFixture()]
-    public class QryWinningListMockApiTests
+    public class ApiFactoryTests
     {
         private static IConfig _config;
 
@@ -33,7 +33,7 @@ namespace ElectronicInvoiceTests
             void Compare();
         }
 
-        public class Tester<T> : ITester
+        private class Tester<T> : ITester
             where T : class, new()
         {
             /// <summary>
@@ -62,11 +62,11 @@ namespace ElectronicInvoiceTests
         /// 4.返回值須和測試的傳入參數對應上
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<ITester> TestCases()
+        private static IEnumerable<ITester> TestCases()
         {
             yield return new Tester<QryWinningListModel> { ApiType = typeof(QryWinningListApi) };
             yield return new Tester<qryInvDetailModel> { ApiType = typeof(QryInvDetailApi) };
-            yield return new Tester<CarrierTitleModel> { ApiType = typeof(CarrierTilteApi) };
+            yield return new Tester<CarrierTitleModel> { ApiType = typeof(CarrierTitleApi) };
             yield return new Tester<CarrierDetailModel> { ApiType = typeof(CarrierDetailApi) };
             yield return new Tester<QryCarrierAggModel> { ApiType = typeof(QryCarrierAggApi) };
             yield return new Tester<DonateQueryModel> { ApiType = typeof(DonateQueryApi) };
@@ -76,7 +76,7 @@ namespace ElectronicInvoiceTests
 
         [Test]
         [TestCaseSource("TestCases")]
-        public void facotryProduce_Test_True(ITester tester)
+        public void FactoryProduce_Test_True(ITester tester)
         {
             tester.Compare();
         }

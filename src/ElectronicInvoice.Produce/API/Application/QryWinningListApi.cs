@@ -19,7 +19,7 @@ namespace ElectronicInvoice.Produce.API.Application
             SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
             {
                 ["version"] = "0.2",
-                ["action"] = ActionParameter.QryWinningListApi,
+                ["action"] = GetMapperAction,
                 ["invTerm"] = model.invTerm,
                 ["UUID"] = model.UUID,
                 ["appID"] = ConfigSetting.GovAppId

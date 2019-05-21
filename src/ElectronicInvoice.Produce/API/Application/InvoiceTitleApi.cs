@@ -15,7 +15,7 @@ namespace ElectronicInvoice.Produce.API.Application
                 ["version"] = "0.3",
                 ["type"] = model.Type.ToString(),
                 ["InvNum"] = model.InvNum,
-                ["action"] = ActionParameter.InvoiceTitleApi,
+                ["action"] = GetMapperAction,
                 ["generation"] = "V2",
                 ["invDate"] = model.InvDate.ToString("yyyy/MM/dd"),
                 ["UUID"] = model.UUID,

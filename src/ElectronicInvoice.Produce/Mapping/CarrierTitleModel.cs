@@ -9,7 +9,7 @@ namespace ElectronicInvoice.Produce.Mapping
     /// <summary>
     /// 載具發票表頭查詢
     /// </summary>
-    [ApiType(ApiType = typeof(CarrierTilteApi))]
+    [ApiType(ApiType = typeof(CarrierTitleApi))]
     public class CarrierTitleModel : CommonBaseModel
     {
         public string CardNo { get; set; }

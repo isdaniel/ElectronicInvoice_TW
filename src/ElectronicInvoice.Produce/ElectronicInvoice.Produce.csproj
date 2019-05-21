@@ -53,14 +53,20 @@
   <ItemGroup>
     <Compile Include="ApiTypeProvider.cs" />
     <Compile Include="API\Application\CarrierDonateApi.cs" />
+    <Compile Include="API\Business\DonatedGroupApi.cs" />
+    <Compile Include="Mapping\DonatedGroupModel.cs" />
+    <Compile Include="API\Business\DonateVerifyApi.cs" />
+    <Compile Include="Mapping\DonateVerifyModel.cs" />
+    <Compile Include="Mapping\CellphoneVerifyModel.cs" />
     <Compile Include="Attributes\ApiTypeAttribute.cs" />
+    <Compile Include="API\Business\CellphoneVerifyApi.cs" />
     <Compile Include="Attributes\ContentAttribute.cs" />
     <Compile Include="Attributes\LogAttribute.cs" />
     <Compile Include="Base\ApiBase.cs" />
     <Compile Include="Base\IApiRunner.cs" />
     <Compile Include="Base\IConfig.cs" />
     <Compile Include="API\Application\CarrierDetailApi.cs" />
-    <Compile Include="API\Application\CarrierTilteApi.cs" />
+    <Compile Include="API\Application\CarrierTitleApi.cs" />
     <Compile Include="API\Application\DonateQueryApi.cs" />
     <Compile Include="Extension\AttributeExtension.cs" />
     <Compile Include="Extension\ProxyFactoryExtension.cs" />
@@ -75,7 +81,6 @@
     <Compile Include="Helper\JsonConfig.cs" />
     <Compile Include="Helper\LogHelper.cs" />
     <Compile Include="Helper\ParameterHelper.cs" />
-    <Compile Include="Infrastructure\ActionParameter.cs" />
     <Compile Include="Infrastructure\DBKeyProvider.cs" />
     <Compile Include="Infrastructure\InvoiceType.cs" />
     <Compile Include="InvoiceApiContext.cs" />

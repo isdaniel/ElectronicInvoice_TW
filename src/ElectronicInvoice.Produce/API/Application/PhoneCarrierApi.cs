@@ -17,7 +17,7 @@ namespace ElectronicInvoice.Produce.API.Application
             {
                 ["version"] = "1.0",
                 ["serial"] = model.Serial,
-                ["action"] = ActionParameter.QryCarrierAggApi,
+                ["action"] = GetMapperAction,
                 ["cardType"] = model.CardType.GetCardName(),
                 ["cardNo"] = model.CardNo,
                 ["CardEncrypt"] = model.CardEncrypt,
