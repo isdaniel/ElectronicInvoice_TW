@@ -93,7 +93,7 @@ JsonConfig 範例
 
 <br/>
 
-[SDK說明連結](https://docs.google.com/presentation/d/1BhmZxK8nkhuroFEJCEwRmuqu_ooGMPI4YELOGgh3P1o/edit#slide=id.p) 
+[SDK說明連結](https://www.slideshare.net/SHIHBINGSHOU/invoice-tw-sdk/SHIHBINGSHOU/invoice-tw-sdk) 
 
 [Blog原理解說](https://dotblogs.com.tw/daniel/2017/10/15/203221) 
 
