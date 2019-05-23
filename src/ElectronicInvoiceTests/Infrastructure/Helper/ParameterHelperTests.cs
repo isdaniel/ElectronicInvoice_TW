@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ElectronicInvoiceTests.Infrastructure.Helper
 {
     [TestClass()]
-    public class PraramterHelperTests
+    public class ParameterHelperTests
     {
         private Dictionary<string, string> dict;
 
@@ -16,7 +16,7 @@ namespace ElectronicInvoiceTests.Infrastructure.Helper
         }
 
         [TestMethod()]
-        public void DictionaryToParamter_fullString_True()
+        public void DictionaryToParameter_fullString_True()
         {
             dict["name"] = "daniel";
             dict["age"] = "1234";
@@ -28,7 +28,7 @@ namespace ElectronicInvoiceTests.Infrastructure.Helper
         }
 
         [TestMethod()]
-        public void DictionaryToParamter_hasNullString_True()
+        public void DictionaryToParameter_hasNullString_True()
         {
             dict["name"] = "daniel";
             dict["age"] = null;

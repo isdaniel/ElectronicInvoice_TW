@@ -21,7 +21,6 @@ namespace ElectronicInvoiceTests.Helper
             KeyProvider = moqKey.Object;
         }
 
-
         [TestCase("!@#)_sdJP你好EWHIEHO")]
         [TestCase("!@*(!@*)!*@()f fjfjop10-")]
         [TestCase("嘻嘻哈哈")]
@@ -29,8 +28,8 @@ namespace ElectronicInvoiceTests.Helper
         {
             string original = input;
             DesCrypHelper DESTool = new DesCrypHelper(KeyProvider);
-            string encrypStr = DESTool.EncryptData(original);
-            string result = DESTool.DecryptData(encrypStr);
+            string encryptStr = DESTool.EncryptData(original);
+            string result = DESTool.DecryptData(encryptStr);
             Assert.AreEqual(result, original);
         }
 
@@ -39,9 +38,9 @@ namespace ElectronicInvoiceTests.Helper
         public void 一般字串各種符號__byte加解密Test__成功(byte[] input)
         {
             byte[] original = input;
-            DesCrypHelper DESTool = new DesCrypHelper(KeyProvider);
-            byte[] encrypStr = DESTool.EncryptData(original);
-            byte[] result = DESTool.DecryptData(encrypStr);
+            DesCrypHelper desTool = new DesCrypHelper(KeyProvider);
+            byte[] encryptStr = desTool.EncryptData(original);
+            byte[] result = desTool.DecryptData(encryptStr);
             Assert.AreEqual(result, original);
         }
     }

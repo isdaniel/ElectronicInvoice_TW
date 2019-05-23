@@ -69,7 +69,7 @@
   <ItemGroup>
     <Compile Include="AssemblyProvierTests.cs" />
     <Compile Include="Helper\DESCrypHelperTests.cs" />
-    <Compile Include="Infrastructure\Helper\PraramterHelperTests.cs" />
+    <Compile Include="Infrastructure\Helper\ParameterHelperTests.cs" />
     <Compile Include="Infrastructure\Helper\JsonConfigTest.cs" />
     <Compile Include="Produce\InvoiceProduceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
