@@ -20,7 +20,7 @@ Nuget下載
 var setting  = new AppsettingConfig();
 
 //建立工廠 將配置檔傳入建構子中
-InvoiceApiFactroy factory = new InvoiceApiFactroy(setting);
+InvoiceApiFactory factory = new InvoiceApiFactory(setting);
 
 //建立查詢參數  
 //下面範例查詢 發票民國106年7.8月中獎發票
