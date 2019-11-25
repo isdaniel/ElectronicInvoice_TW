@@ -33,7 +33,7 @@ QryWinningListModel model = new QryWinningListModel()
 var api = factory.GetProxyInstace(model);
 
 //api回傳結果
-var result = api.ExcuteApi(model);
+var result = api.ExecuteApi(model);
 ```
 
 -----
@@ -51,7 +51,7 @@ DonateQueryModel donateModel = new DonateQueryModel()
     qKey = "伊甸"
 };
 InvoiceApiContext apiContext = new InvoiceApiContext(setting);
-result = apiContext.ExcuteApi(donateModel); 
+result = apiContext.ExecuteApi(donateModel); 
 ```
 使用Model可以參考
 
