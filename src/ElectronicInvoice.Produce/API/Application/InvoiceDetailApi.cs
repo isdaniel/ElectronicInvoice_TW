@@ -12,9 +12,9 @@ namespace ElectronicInvoice.Produce.API.Application
         {
             SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
             {
-                ["version"] = "0.3",
+                ["version"] = model.Version,
                 ["type"] = model.Type.ToString(),
-                ["InvNum"] = model.InvNum,
+                ["invNum"] = model.InvNum,
                 ["action"] = GetMapperAction,
                 ["generation"] = "V2",
                 ["invTerm"] = model.InvTerm,
@@ -22,7 +22,7 @@ namespace ElectronicInvoice.Produce.API.Application
                 ["encrypt"] = model.Encrypt,
                 ["sellerID"] = model.SellerID,
                 ["randomNumber"] = model.RandomNumber,
-                ["uuid"] = model.UUID,
+                ["UUID"] = model.UUID,
                 ["appID"] = ConfigSetting.GovAppId
             };
 

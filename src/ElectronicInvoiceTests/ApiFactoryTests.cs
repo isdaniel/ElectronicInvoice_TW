@@ -65,7 +65,6 @@ namespace ElectronicInvoiceTests
         private static IEnumerable<ITester> TestCases()
         {
             yield return new Tester<QryWinningListModel> { ApiType = typeof(QryWinningListApi) };
-            yield return new Tester<qryInvDetailModel> { ApiType = typeof(QryInvDetailApi) };
             yield return new Tester<CarrierTitleModel> { ApiType = typeof(CarrierTitleApi) };
             yield return new Tester<CarrierDetailModel> { ApiType = typeof(CarrierDetailApi) };
             yield return new Tester<QryCarrierAggModel> { ApiType = typeof(QryCarrierAggApi) };

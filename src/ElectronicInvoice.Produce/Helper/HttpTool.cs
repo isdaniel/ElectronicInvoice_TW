@@ -19,7 +19,7 @@ namespace ElectronicInvoice.Produce.Helper
         {
             ServicePointManager.ServerCertificateValidationCallback
                 = ValidateServerCertificate;
-
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(posturl);
             request.Method = "POST";
             byte[] postcontentsArray = Encoding.UTF8.GetBytes(postData);

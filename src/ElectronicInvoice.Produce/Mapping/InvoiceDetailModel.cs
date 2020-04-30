@@ -29,5 +29,6 @@ namespace ElectronicInvoice.Produce.Mapping
         public string SellerID { get; set; }
 
         public string RandomNumber { get; set; }
+        public string Version { get; set; } = "0.5";
     }
 }

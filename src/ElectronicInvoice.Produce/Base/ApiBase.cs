@@ -28,7 +28,6 @@ namespace ElectronicInvoice.Produce.Base
             { "InvoiceDetailApi","qryInvDetail"},
             { "InvoiceTitleApi","qryInvHeader"},
             { "QryCarrierAggApi","qryCarrierAgg"},
-            { "QryInvDetailApi","qryInvDetail"},
             { "QryWinningListApi","QryWinningList"},
             { "CarrierDonateApi","carrierInvDnt"},
             { "CellphoneVerifyApi","bcv"},

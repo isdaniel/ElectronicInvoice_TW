@@ -6,7 +6,7 @@ namespace ElectronicInvoice.Produce.Infrastructure
 {
     public enum InvoiceType
     {
-        BarCode,
+        Barcode,
         QRCode
     }
 

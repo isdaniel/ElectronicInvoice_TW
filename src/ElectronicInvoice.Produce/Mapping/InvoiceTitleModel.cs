@@ -18,5 +18,6 @@ namespace ElectronicInvoice.Produce.Mapping
         public InvoiceType Type { get; set; }
         public string InvNum { get; set; }
         public DateTime InvDate { get; set; }
+        public string Version { get; set; } = "0.5";
     }
 }

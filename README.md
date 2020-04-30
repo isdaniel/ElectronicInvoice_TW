@@ -63,7 +63,7 @@ WebConfig配置
 ```xml
 <appSettings>
   <!--查詢api的url  api名稱為key,請求網址為value-->
-  <add key="QryWinningListApi" value="https://www.einvoice.nat.gov.tw/PB2CAPIVAN/invapp/InvApp" />
+  <add key="QryWinningListApi" value="https://api.einvoice.nat.gov.tw/PB2CAPIVAN/invapp/InvApp" />
   <!--是否開啟API模擬-->
   <add key="IsMockAPI" value="0" />
   <!--設置你們Key和IV-->

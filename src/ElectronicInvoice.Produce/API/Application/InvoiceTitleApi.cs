@@ -12,7 +12,7 @@ namespace ElectronicInvoice.Produce.API.Application
         {
             SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
             {
-                ["version"] = "0.3",
+                ["version"] = model.Version,
                 ["type"] = model.Type.ToString(),
                 ["InvNum"] = model.InvNum,
                 ["action"] = GetMapperAction,

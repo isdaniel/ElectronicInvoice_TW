@@ -54,6 +54,7 @@
     <Compile Include="ApiTypeProvider.cs" />
     <Compile Include="API\Application\CarrierDonateApi.cs" />
     <Compile Include="API\Business\DonatedGroupApi.cs" />
+    <Compile Include="InvoiceResult\InvoiceDetailReturnModel.cs" />
     <Compile Include="Mapping\DonatedGroupModel.cs" />
     <Compile Include="API\Business\DonateVerifyApi.cs" />
     <Compile Include="Mapping\DonateVerifyModel.cs" />
@@ -98,11 +99,9 @@
     <Compile Include="Infrastructure\CommonBaseModel.cs" />
     <Compile Include="InvoiceResult\InvoiceTitleReturnModel.cs" />
     <Compile Include="Mapping\qryCarrierAggModel.cs" />
-    <Compile Include="Mapping\qryInvDetailModel.cs" />
     <Compile Include="Mapping\QryWinningListModel.cs" />
     <Compile Include="API\Application\PhoneCarrierApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="API\Application\QryInvDetailApi.cs" />
     <Compile Include="API\Application\QryWinningListApi.cs" />
   </ItemGroup>
   <ItemGroup>
