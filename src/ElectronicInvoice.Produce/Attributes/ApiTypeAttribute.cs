@@ -12,22 +12,5 @@ namespace ElectronicInvoice.Produce.Attributes {
         /// 呼叫大平台API型別
         /// </summary>
         public Type ApiType { get; set; }
-
-        private Type _MockApiType;
-
-        /// <summary>
-        /// 模擬API型別
-        /// </summary>
-        public Type MockApiType
-        {
-            get
-            {
-                return _MockApiType ?? ApiType;
-            }
-            set
-            {
-                _MockApiType = value;
-            }
-        }
     }
 }

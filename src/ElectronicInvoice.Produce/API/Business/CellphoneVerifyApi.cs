@@ -21,5 +21,9 @@ namespace ElectronicInvoice.Produce.API.Business
 
             return ParameterHelper.DictionaryToParameter(parameter);
         }
+
+        public CellphoneVerifyApi(IConfig config, ISysLog log) : base(config, log)
+        {
+        }
     }
 }

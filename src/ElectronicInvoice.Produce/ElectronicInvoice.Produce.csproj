@@ -54,6 +54,7 @@
     <Compile Include="ApiTypeProvider.cs" />
     <Compile Include="API\Application\CarrierDonateApi.cs" />
     <Compile Include="API\Business\DonatedGroupApi.cs" />
+    <Compile Include="Infrastructure\InvoiceContainer.cs" />
     <Compile Include="InvoiceResult\InvoiceDetailReturnModel.cs" />
     <Compile Include="Mapping\DonatedGroupModel.cs" />
     <Compile Include="API\Business\DonateVerifyApi.cs" />
@@ -80,7 +81,7 @@
     <Compile Include="Helper\EncryptHelper.cs" />
     <Compile Include="Helper\HttpTool.cs" />
     <Compile Include="Helper\JsonConfig.cs" />
-    <Compile Include="Helper\LogHelper.cs" />
+    <Compile Include="Infrastructure\ConsoleLog.cs" />
     <Compile Include="Helper\ParameterHelper.cs" />
     <Compile Include="Infrastructure\DBKeyProvider.cs" />
     <Compile Include="Infrastructure\InvoiceType.cs" />

@@ -30,5 +30,9 @@ namespace ElectronicInvoice.Produce.API.Application
             };
             return ParameterHelper.DictionaryToParameter(parameter);
         }
+
+        public CarrierTitleApi(IConfig config, ISysLog log) : base(config, log)
+        {
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Helper;
+using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Mapping;
 
 namespace ElectronicInvoice.Produce.API.Business
@@ -19,6 +20,10 @@ namespace ElectronicInvoice.Produce.API.Business
             };
 
             return ParameterHelper.DictionaryToParameter(parameter);
+        }
+
+        public DonateVerifyApi(IConfig config, ISysLog log) : base(config, log)
+        {
         }
     }
 }

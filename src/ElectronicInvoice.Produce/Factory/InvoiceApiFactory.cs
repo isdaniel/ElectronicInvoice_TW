@@ -3,16 +3,24 @@ using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Extension;
 using ElectronicInvoice.Produce.Helper;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce.Factory
 {
     public class InvoiceApiFactory
     {
         private IConfig _config;
+        private ISysLog _log;
 
-        public InvoiceApiFactory(IConfig config)
+        public InvoiceApiFactory(IConfig config) : this(config,new ConsoleLog())
+        {
+          
+        }
+
+        public InvoiceApiFactory(IConfig config,ISysLog log)
         {
             _config = config;
+            _log = log;
         }
 
         public InvoiceApiFactory() : this(new AppsettingConfig())
@@ -25,12 +33,13 @@ namespace ElectronicInvoice.Produce.Factory
         /// <typeparam name="T"></typeparam>
         /// <param name="model">Model參數</param>
         /// <returns></returns>
-        public ApiBase<T> GetProxyInstace<T>(T model, object[] args = null)
+        public ApiBase<T> GetProxyInstace<T>(T model)
             where T : class, new()
         {
+            object[] args = { _config,_log};
             ApiBase<T> realSubject = Activator.CreateInstance(GetApiType(model), args) as ApiBase<T>;
 
-            return realSubject.GetProxyApi(_config);
+            return realSubject.GetProxyApi();
         }
 
         /// <summary>
@@ -46,15 +55,10 @@ namespace ElectronicInvoice.Produce.Factory
             {
                 if (attr != null)
                 {
-                    return GetApiType(attr);
+                    return attr.ApiType;
                 }
                 throw new Exception("Model尚未賦予ApiTypeAttribute");
             });
-        }
-
-        private Type GetApiType(ApiTypeAttribute attr)
-        {
-            return _config.IsMockAPI == "1" ? attr.MockApiType : attr.ApiType;
         }
     }
 }

@@ -20,5 +20,9 @@ namespace ElectronicInvoice.Produce.API.Application
             };
             return ParameterHelper.DictionaryToParameter(parameter);
         }
+
+        public DonateQueryApi(IConfig config, ISysLog log) : base(config, log)
+        {
+        }
     }
 }

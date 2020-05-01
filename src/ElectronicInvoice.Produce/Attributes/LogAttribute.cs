@@ -2,6 +2,7 @@
 using AwesomeProxy.FilterAttribute;
 using AwesomeProxy;
 using ElectronicInvoice.Produce.Helper;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce.Attributes
 {
@@ -10,25 +11,28 @@ namespace ElectronicInvoice.Produce.Attributes
     /// </summary>
     public class LogAttribute : AopBaseAttribute
     {
-        private readonly LogHelper _log = new LogHelper();
+        private ISysLog _log;
+        public LogAttribute()
+        {
+            _log = InvoiceContainer.Instance.GetObject<ISysLog>();
+        }
 
         public override void OnExcuted(ExcutedContext context)
         {
+            
             var resultJson = JsonConvert.SerializeObject(context.Result);
-            _log.WriteLog("ExecuteAfter", resultJson, context.MethodName);
+            _log.WriteLog($"ExecuteAfter: {resultJson}");
         }
 
         public override void OnExcuting(ExcuteingContext context)
         {
             var resultJson = JsonConvert.SerializeObject(context.Args);
-            _log.WriteLog("ExecuteBefore", resultJson, context.MethodName);
+            _log.WriteLog($"ExecuteAfter: {resultJson}");
         }
 
         public override void OnException(ExceptionContext context)
         {
-            _log.WriteLog("Error", 
-                context.Exception.ToString(), 
-                context.MethodName);
+            _log.WriteLog($"Error: {context.Exception.ToString()}");
             context.Result = GetSysErrorMsg();
         }
 
@@ -38,9 +42,10 @@ namespace ElectronicInvoice.Produce.Attributes
             var result = new
             {
                 v = "1.0",
-                code = "999",
-                msg = "財政部電子發票資訊中心系統異常，請稍候再試或洽客服人員"
+                code = "9999",
+                msg = "執行過程中發生錯誤，請提Issues至GitHub! https://github.com/isdaniel/ElectronicInvoice_TW/issues"
             };
+
             return Facade.JsonConvertFacde.SerializeObject(result);
         }
     }

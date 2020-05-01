@@ -20,6 +20,14 @@ namespace ElectronicInvoice.Produce.Base
     public abstract class ApiBase<TModel> : MarshalByRefObject, IApiRunner<TModel>
         where TModel : class, new()
     {
+        public ApiBase(IConfig config,ISysLog log)
+        {
+            ConfigSetting = config;
+            Logger = log;
+            InvoiceContainer.Instance.TryToAdd(config);
+            InvoiceContainer.Instance.TryToAdd(log);
+        }
+
         private readonly Dictionary<string,string> _actionMapper = new Dictionary<string, string>()
         {
             { "CarrierDetailApi","carrierInvDetail"},
@@ -49,20 +57,9 @@ namespace ElectronicInvoice.Produce.Base
             }
         }
 
-        private IConfig _configSetting;
+        protected ISysLog Logger { get; set; }
 
-        public IConfig ConfigSetting {
-            get
-            {
-                _configSetting = _configSetting ?? new AppsettingConfig();
-
-                return _configSetting;
-            }
-            set
-            {
-                _configSetting = value; 
-            }
-        }
+        protected IConfig ConfigSetting { get; set; }
 
         /// <summary>
         /// 子類繼承提供參數
@@ -94,7 +91,7 @@ namespace ElectronicInvoice.Produce.Base
         public virtual string ExecuteApi(TModel model)
         {
             //取得加密後的參數
-            string postData = GetInvoiceParamter(SetParameter(model));
+            string postData = GetInvoiceParameter(SetParameter(model));
 
             return HttpTool.HttpPost(GetApiURL(), postData);
         }
@@ -108,7 +105,7 @@ namespace ElectronicInvoice.Produce.Base
         /// 將參數做簽章(signature) 並附加到最後且返回
         /// </summary>
         /// <returns></returns>
-        private string GetInvoiceParamter(string paraData)
+        private string GetInvoiceParameter(string paraData)
         {
             //###進行加密動作
             string signature = CiphertextHelper.

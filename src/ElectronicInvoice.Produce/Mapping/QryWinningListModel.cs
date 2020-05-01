@@ -7,7 +7,7 @@ namespace ElectronicInvoice.Produce.Mapping
     /// <summary>
     /// 查詢中獎發票號碼清單
     /// </summary>
-    [ApiType(ApiType = typeof(QryWinningListApi), MockApiType = typeof(QryWinningListMockApi))]
+    [ApiType(ApiType = typeof(QryWinningListApi))]
     public class QryWinningListModel : CommonBaseModel
     {
         public string invTerm { get; set; }
