@@ -1,44 +1,107 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using ElectronicInvoice.Produce.Infrastructure;
+using Newtonsoft.Json;
 
 namespace ElectronicInvoice.Produce.InvoiceResult
 {
-    public class InvDate
+   public partial class CarrierTitleResult
     {
-        public string year { get; set; }
-        public string month { get; set; }
-        public string date { get; set; }
-        public string day { get; set; }
-        public string hours { get; set; }
-        public string minutes { get; set; }
-        public string seconds { get; set; }
-        public string time { get; set; }
-        public string timezoneOffset { get; set; }
+        [JsonProperty("v")]
+        public string V { get; set; }
+
+        [JsonProperty("code")]
+        public int Code { get; set; }
+
+        [JsonProperty("msg")]
+        public string Msg { get; set; }
+
+        [JsonProperty("onlyWinningInv")]
+        public string OnlyWinningInv { get; set; }
+
+        [JsonProperty("details")]
+        public IEnumerable<TitleDetail> Details { get; set; }
     }
 
     public class TitleDetail
     {
-        public string rowNum { get; set; }
-        public string invNum { get; set; }
-        public string cardType { get; set; }
-        public string cardNo { get; set; }
-        public string sellerName { get; set; }
-        public string invStatus { get; set; }
-        public string invDonatable { get; set; }
-        public string amount { get; set; }
-        public string invPeriod { get; set; }
-        public string sellerBan { get; set; }
-        public string sellerAddress { get; set; }
-        public string invoiceTime { get; set; }
-        public string donateMark { get; set; }
-        public InvDate invDate { get; set; }
+        [JsonProperty("rowNum")]
+        public int RowNum { get; set; }
+
+        [JsonProperty("invNum")]
+        public string InvNum { get; set; }
+
+        [JsonProperty("cardType")]
+        public string CardType { get; set; }
+
+        [JsonProperty("cardNo")]
+        public string CardNo { get; set; }
+
+        [JsonProperty("sellerName")]
+        public string SellerName { get; set; }
+
+        [JsonProperty("invStatus")]
+        public string InvStatus { get; set; }
+
+        [JsonProperty("invDonatable")]
+        public bool InvDonatable { get; set; }
+
+        [JsonProperty("amount")]
+        public decimal Amount { get; set; }
+
+        [JsonProperty("invPeriod")]
+        public string InvPeriod { get; set; }
+
+        [JsonProperty("sellerBan")]
+        public string SellerBan { get; set; }
+
+        [JsonProperty("sellerAddress")]
+        public string SellerAddress { get; set; }
+
+        [JsonProperty("invoiceTime")]
+        public DateTime InvoiceTime { get; set; }
+
+        [JsonProperty("donateMark")]
+        public long DonateMark { get; set; }
+
+        [JsonProperty("invDate")]
+        public InvDate InvDate { get; set; }
     }
 
-    public class CarrierTitleResult
+    public partial class InvDate
     {
-        public string v { get; set; }
-        public string code { get; set; }
-        public string msg { get; set; }
-        public string onlyWinningInv { get; set; }
-        public List<TitleDetail> details { get; set; }
+        [JsonProperty("year")]
+        public int Year { get; set; }
+
+        [JsonProperty("month")]
+        public int Month { get; set; }
+
+        [JsonProperty("date")]
+        public int Date { get; set; }
+
+        [JsonProperty("day")]
+        public int Day { get; set; }
+
+        [JsonProperty("hours")]
+        public int Hours { get; set; }
+
+        [JsonProperty("minutes")]
+        public int Minutes { get; set; }
+
+        [JsonProperty("seconds")]
+        public int Seconds { get; set; }
+
+        [JsonProperty("time")]
+        public string Time { get; set; }
+
+        [JsonProperty("timezoneOffset")]
+        public long TimezoneOffset { get; set; }
+
+        public DateTime InvDateTime {
+            get
+            {
+                return new DateTime(Year,Month,Date);
+            }
+        }
     }
 }
