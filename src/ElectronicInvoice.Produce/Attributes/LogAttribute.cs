@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using AwesomeProxy.FilterAttribute;
 using AwesomeProxy;
 using ElectronicInvoice.Produce.Helper;
@@ -9,7 +10,7 @@ namespace ElectronicInvoice.Produce.Attributes
     /// <summary>
     /// 使用Awesome.AOP 函式庫
     /// </summary>
-    public class LogAttribute : AopBaseAttribute
+    public class LogAttribute : Attribute, IExcuteFilter, IExceptionFilter
     {
         private ISysLog _log;
         public LogAttribute()
@@ -17,20 +18,19 @@ namespace ElectronicInvoice.Produce.Attributes
             _log = InvoiceContainer.Instance.GetObject<ISysLog>();
         }
 
-        public override void OnExcuted(ExcutedContext context)
+        public void OnExecuted(ExecutedContext context)
         {
-            
             var resultJson = JsonConvert.SerializeObject(context.Result);
             _log.WriteLog($"ExecuteAfter: {resultJson}");
         }
 
-        public override void OnExcuting(ExcuteingContext context)
+        public void OnExecuting(ExecutingContext context)
         {
             var resultJson = JsonConvert.SerializeObject(context.Args);
             _log.WriteLog($"ExecuteAfter: {resultJson}");
         }
 
-        public override void OnException(ExceptionContext context)
+        public void OnException(ExceptionContext context)
         {
             _log.WriteLog($"Error: {context.Exception.ToString()}");
             context.Result = GetSysErrorMsg();

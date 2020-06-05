@@ -96,6 +96,7 @@ namespace ElectronicInvoice.Produce.Base
             return HttpTool.HttpPost(GetApiURL(), postData);
         }
 
+        [Log]
         public TRtn ExecuteApi<TRtn>(TModel model)
         {
            return JsonConvertFacde.DeserializeObject<TRtn>(ExecuteApi(model));
