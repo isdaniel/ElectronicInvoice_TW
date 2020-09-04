@@ -20,7 +20,7 @@ namespace ElectronicInvoice.Produce.API.Application
                 ["action"] = GetMapperAction,
                 ["cardType"] = model.CardType.GetCardName(),
                 ["cardNo"] = model.CardNo,
-                ["CardEncrypt"] = model.CardEncrypt,
+                ["cardEncrypt"] = model.CardEncrypt,
                 ["timeStamp"] = model.TimeStamp,
                 ["uuid"] = model.UUID,
                 ["appID"] = ConfigSetting.GovAppId

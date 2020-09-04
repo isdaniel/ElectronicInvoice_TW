@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ElectronicInvoice_TW</id>
-    <version>1.1.0.3</version>
+    <version>1.1.0.5</version>
     <authors>Daniel</authors>
     <owners>Daniel</owners>
     <licenseUrl>https://github.com/isdaniel/ElectronicInvoice_TW</licenseUrl>
@@ -16,7 +16,7 @@
     <dependencies>
 	  <group targetFramework="net45">
        <dependency id="Newtonsoft.Json" version="10.0.3" />
-	  <dependency id="AwesomeProxy.Net" version="1.0.3" />
+	   <dependency id="AwesomeProxy.Net" version="1.0.3" />
       </group>
     </dependencies>
   </metadata>

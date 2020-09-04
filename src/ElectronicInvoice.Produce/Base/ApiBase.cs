@@ -39,7 +39,8 @@ namespace ElectronicInvoice.Produce.Base
             { "QryWinningListApi","QryWinningList"},
             { "CarrierDonateApi","carrierInvDnt"},
             { "CellphoneVerifyApi","bcv"},
-            { "DonateVerifyApi","preserveCodeCheck"}
+            { "DonateVerifyApi","preserveCodeCheck"},
+            { "GetBarcodeApi","getBarcode"},
         };
 
         internal virtual string GetMapperAction

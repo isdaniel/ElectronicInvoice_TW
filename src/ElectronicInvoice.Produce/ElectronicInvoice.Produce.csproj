@@ -53,6 +53,7 @@
     <Compile Include="ApiTypeProvider.cs" />
     <Compile Include="API\Application\CarrierDonateApi.cs" />
     <Compile Include="API\Business\DonatedGroupApi.cs" />
+    <Compile Include="API\Business\GetBarcodeApi.cs" />
     <Compile Include="Infrastructure\InvoiceContainer.cs" />
     <Compile Include="InvoiceResult\InvoiceDetailReturnModel.cs" />
     <Compile Include="Mapping\DonatedGroupModel.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Mapping\CarrierTitleModel.cs" />
     <Compile Include="API\Application\InvoiceTitleApi.cs" />
     <Compile Include="Mapping\DonateQueryModel.cs" />
+    <Compile Include="Mapping\GetBarcodeModel.cs" />
     <Compile Include="Mapping\InvoiceDetailModel.cs" />
     <Compile Include="Mapping\InvoiceTitleModel.cs" />
     <Compile Include="Infrastructure\CommonBaseModel.cs" />
