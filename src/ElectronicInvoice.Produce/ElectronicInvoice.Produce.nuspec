@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ElectronicInvoice_TW</id>
-    <version>1.5.0.0</version>
+    <version>1.5.0.1</version>
     <authors>Daniel</authors>
     <owners>Daniel</owners>
     <licenseUrl>https://github.com/isdaniel/ElectronicInvoice_TW</licenseUrl>
@@ -14,14 +14,16 @@
     <copyright>Copyright 2020</copyright>
     <tags>C# OOP</tags>
     <dependencies>
-	    <group targetFramework="net462"/>
-      <group targetFramework=".NETPortable4.5-Profile111" />
       <group targetFramework="netstandard2.0">
          <dependency id="Microsoft.Extensions.Configuration.Json" version="3.1.10" />
          <dependency id="Newtonsoft.Json" version="12.0.3" />
          <dependency id="System.Data.DataSetExtensions" version="4.5.0" />
          <dependency id="System.Configuration.ConfigurationManager" version="4.4.1" />
       </group>
+      <group targetFramework="net461"/>
+      <group targetFramework="net462"/>
+      <group targetFramework="net472"/>
     </dependencies>
   </metadata>
 </package>
+

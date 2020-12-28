@@ -1,0 +1,35 @@
+image: Visual Studio 2019
+version: build '{build}'
+configuration: Release
+platform: Any CPU
+before_build:
+- cmd: nuget restore src\ElectronicInvoice.sln
+
+nuget:
+  publish_nuget: true
+  project_feed: true
+
+environment:
+  MSBUILD_LOGGER: C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll
+  my_variable:
+    secure: HddBjnU/iNbTxarY4VSFOBwpA8OE2Slp45Ag5UuSw+sunD8vFzRTblgPInhxKCFB
+  
+build:
+  publish_nuget: true
+  
+build_script:
+  - msbuild src\ElectronicInvoice.sln /r /t:Build;Test;Pack /logger:"%MSBUILD_LOGGER%"
+
+deploy:
+  - provider: NuGet
+    api_key:
+      secure: HddBjnU/iNbTxarY4VSFOBwpA8OE2Slp45Ag5UuSw+sunD8vFzRTblgPInhxKCFB
+    on:
+        branch: master
+    artifact: /.*(\.|\.s)nupkg/
+        
+# artifacts:
+#   - path: 'out\*.nupkg'
+#   - path: 'out\*.snupkg'
+
+
