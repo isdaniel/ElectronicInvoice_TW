@@ -2,21 +2,25 @@
 <package >
   <metadata>
     <id>ElectronicInvoice_TW</id>
-    <version>1.1.0.5</version>
+    <version>1.5.0.0</version>
     <authors>Daniel</authors>
     <owners>Daniel</owners>
     <licenseUrl>https://github.com/isdaniel/ElectronicInvoice_TW</licenseUrl>
     <projectUrl>https://github.com/isdaniel/ElectronicInvoice_TW</projectUrl>
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Add JsonConfig Setting and ApiContext</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>Copyright 2018</copyright>
+    <description>Support for .net standerd 2.0(which mean support .net core) and .net version higher than 4.62</description>
+    <releaseNotes>Support for .net standerd 2.0</releaseNotes>
+    <copyright>Copyright 2020</copyright>
     <tags>C# OOP</tags>
     <dependencies>
-	  <group targetFramework="net45">
-       <dependency id="Newtonsoft.Json" version="10.0.3" />
-	   <dependency id="AwesomeProxy.Net" version="1.0.3" />
+	    <group targetFramework="net462"/>
+      <group targetFramework=".NETPortable4.5-Profile111" />
+      <group targetFramework="netstandard2.0">
+         <dependency id="Microsoft.Extensions.Configuration.Json" version="3.1.10" />
+         <dependency id="Newtonsoft.Json" version="12.0.3" />
+         <dependency id="System.Data.DataSetExtensions" version="4.5.0" />
+         <dependency id="System.Configuration.ConfigurationManager" version="4.4.1" />
       </group>
     </dependencies>
   </metadata>

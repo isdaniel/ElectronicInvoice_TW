@@ -12,30 +12,7 @@ using ElectronicInvoice.Produce.Infrastructure;
 
 namespace EInvoiceDemo
 {
-    public class MyApi : ApiBase<MyQryWinningListModel>
-    {
-        protected override string SetParameter(MyQryWinningListModel model)
-        {
 
-            SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
-            {
-                ["version"] = "0.2",
-                ["action"] = "QryWinningList",
-                ["invTerm"] = model.invTerm,
-                ["UUID"] = model.UUID,
-                ["appID"] = ConfigSetting.GovAppId
-            };
-            
-            return ParameterHelper.DictionaryToParameter(parameter);
-        }
-    }
-
-
-    [ApiType(ApiType = typeof(MyApi))]
-    public class MyQryWinningListModel : CommonBaseModel
-    {
-        public string invTerm { get; set; }
-    }
 
     class Program
     {

@@ -26,13 +26,11 @@ namespace ElectronicInvoice.Produce.Helper
         {
             byte[] outputBytes = null;
             using (MemoryStream memoryStream = new MemoryStream(encryptBytes))
+            using (CryptoStream decryptStream = new CryptoStream(memoryStream, des.CreateDecryptor(), CryptoStreamMode.Read))
             {
-                using (CryptoStream decryptStream = new CryptoStream(memoryStream, des.CreateDecryptor(), CryptoStreamMode.Read))
-                {
-                    MemoryStream outputStream = new MemoryStream();
-                    decryptStream.CopyTo(outputStream);
-                    outputBytes = outputStream.ToArray();
-                }
+                MemoryStream outputStream = new MemoryStream();
+                decryptStream.CopyTo(outputStream);
+                outputBytes = outputStream.ToArray();
             }
             return outputBytes;
         }
@@ -60,14 +58,12 @@ namespace ElectronicInvoice.Produce.Helper
         {
             byte[] outputBytes = null;
             using (MemoryStream memoryStream = new MemoryStream())
+            using (CryptoStream encryptStream = new CryptoStream(memoryStream, des.CreateEncryptor(), CryptoStreamMode.Write))
             {
-                using (CryptoStream encryptStream = new CryptoStream(memoryStream, des.CreateEncryptor(), CryptoStreamMode.Write))
-                {
-                    MemoryStream inputStream = new MemoryStream(data);
-                    inputStream.CopyTo(encryptStream);
-                    encryptStream.FlushFinalBlock();
-                    outputBytes = memoryStream.ToArray();
-                }
+                MemoryStream inputStream = new MemoryStream(data);
+                inputStream.CopyTo(encryptStream);
+                encryptStream.FlushFinalBlock();
+                outputBytes = memoryStream.ToArray();
             }
 
             return outputBytes;
