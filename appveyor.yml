@@ -5,10 +5,6 @@ platform: Any CPU
 before_build:
 - cmd: nuget restore src\ElectronicInvoice.sln
 
-nuget:
-  publish_nuget: true
-  project_feed: true
-
 environment:
   MSBUILD_LOGGER: C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll
   my_variable:
@@ -27,6 +23,10 @@ deploy:
     on:
         branch: master
     artifact: /.*(\.|\.s)nupkg/
+    
+nuget:
+  publish_nuget: true
+  project_feed: true
         
 # artifacts:
 #   - path: 'out\*.nupkg'
