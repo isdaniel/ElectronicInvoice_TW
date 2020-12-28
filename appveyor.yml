@@ -23,9 +23,8 @@ deploy:
     on:
         branch: master
     artifact: /.*(\.|\.s)nupkg/
-    
+
 nuget:
-  publish_nuget: true
   project_feed: true
         
 # artifacts:
