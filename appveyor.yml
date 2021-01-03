@@ -14,6 +14,7 @@ build:
   
 build_script:
   - dotnet build src\ElectronicInvoice.sln
+  - dotnet test  src\ElectronicInvoiceTests
 
 deploy:
   - provider: NuGet
