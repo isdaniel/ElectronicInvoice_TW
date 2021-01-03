@@ -6,7 +6,6 @@ before_build:
 - cmd: nuget restore src\ElectronicInvoice.sln
 
 environment:
-  MSBUILD_LOGGER: C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll
   my_variable:
     secure: HddBjnU/iNbTxarY4VSFOBwpA8OE2Slp45Ag5UuSw+sunD8vFzRTblgPInhxKCFB
   
@@ -14,7 +13,7 @@ build:
   publish_nuget: true
   
 build_script:
-  - dotnet build src\ElectronicInvoice.sln /r /t:Build; /logger:"%MSBUILD_LOGGER%"
+  - dotnet build src\ElectronicInvoice.sln
 
 deploy:
   - provider: NuGet
