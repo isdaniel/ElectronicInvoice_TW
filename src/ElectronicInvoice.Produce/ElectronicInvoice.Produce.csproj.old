@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{03B80758-E3AB-4E50-8485-1FE798380357}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ElectronicInvoice.Produce</RootNamespace>
+    <AssemblyName>ElectronicInvoice.Produce</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\CommonLib\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AwesomeProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AwesomeProxy.Net.1.0.3\lib\net45\AwesomeProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiTypeProvider.cs" />
+    <Compile Include="API\Application\CarrierDonateApi.cs" />
+    <Compile Include="API\Business\DonatedGroupApi.cs" />
+    <Compile Include="API\Business\GetBarcodeApi.cs" />
+    <Compile Include="Infrastructure\InvoiceContainer.cs" />
+    <Compile Include="InvoiceResult\InvoiceDetailReturnModel.cs" />
+    <Compile Include="Mapping\DonatedGroupModel.cs" />
+    <Compile Include="API\Business\DonateVerifyApi.cs" />
+    <Compile Include="Mapping\DonateVerifyModel.cs" />
+    <Compile Include="Mapping\CellphoneVerifyModel.cs" />
+    <Compile Include="Attributes\ApiTypeAttribute.cs" />
+    <Compile Include="API\Business\CellphoneVerifyApi.cs" />
+    <Compile Include="Attributes\ContentAttribute.cs" />
+    <Compile Include="Attributes\LogAttribute.cs" />
+    <Compile Include="Base\ApiBase.cs" />
+    <Compile Include="Base\IApiRunner.cs" />
+    <Compile Include="Base\IConfig.cs" />
+    <Compile Include="API\Application\CarrierDetailApi.cs" />
+    <Compile Include="API\Application\CarrierTitleApi.cs" />
+    <Compile Include="API\Application\DonateQueryApi.cs" />
+    <Compile Include="Extension\AttributeExtension.cs" />
+    <Compile Include="Extension\ProxyFactoryExtension.cs" />
+    <Compile Include="Extension\TypeExtension.cs" />
+    <Compile Include="Facade\JsonConvertFacde.cs" />
+    <Compile Include="Factory\InvoiceApiFactory.cs" />
+    <Compile Include="Helper\CiphertextHelper.cs" />
+    <Compile Include="Helper\CommonHelper.cs" />
+    <Compile Include="Helper\AppsettingConfig.cs" />
+    <Compile Include="Helper\EncryptHelper.cs" />
+    <Compile Include="Helper\HttpTool.cs" />
+    <Compile Include="Helper\JsonConfig.cs" />
+    <Compile Include="Infrastructure\ConsoleLog.cs" />
+    <Compile Include="Helper\ParameterHelper.cs" />
+    <Compile Include="Infrastructure\DBKeyProvider.cs" />
+    <Compile Include="Infrastructure\InvoiceType.cs" />
+    <Compile Include="InvoiceApiContext.cs" />
+    <Compile Include="API\Application\InvoiceDetailApi.cs" />
+    <Compile Include="InvoiceResult\CarrierDetail.cs" />
+    <Compile Include="InvoiceResult\CarrierTitle.cs" />
+    <Compile Include="InvoiceResult\QryWinningListViewModel.cs" />
+    <Compile Include="Mapping\CarrierDetailModel.cs" />
+    <Compile Include="Mapping\CarrierDonateModel.cs" />
+    <Compile Include="Mapping\CarrierTitleModel.cs" />
+    <Compile Include="API\Application\InvoiceTitleApi.cs" />
+    <Compile Include="Mapping\DonateQueryModel.cs" />
+    <Compile Include="Mapping\GetBarcodeModel.cs" />
+    <Compile Include="Mapping\InvoiceDetailModel.cs" />
+    <Compile Include="Mapping\InvoiceTitleModel.cs" />
+    <Compile Include="Infrastructure\CommonBaseModel.cs" />
+    <Compile Include="InvoiceResult\InvoiceTitleReturnModel.cs" />
+    <Compile Include="Mapping\qryCarrierAggModel.cs" />
+    <Compile Include="Mapping\QryWinningListModel.cs" />
+    <Compile Include="API\Application\PhoneCarrierApi.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="API\Application\QryWinningListApi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

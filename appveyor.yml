@@ -1,0 +1,33 @@
+image: Visual Studio 2019
+version: build '{build}'
+configuration: Release
+platform: Any CPU
+before_build:
+- cmd: nuget restore src\ElectronicInvoice.sln
+
+environment:
+  my_variable:
+    secure: HddBjnU/iNbTxarY4VSFOBwpA8OE2Slp45Ag5UuSw+sunD8vFzRTblgPInhxKCFB
+  
+build:
+  publish_nuget: true
+  
+build_script:
+  - dotnet build src\ElectronicInvoice.sln
+
+deploy:
+  - provider: NuGet
+    api_key:
+      secure: HddBjnU/iNbTxarY4VSFOBwpA8OE2Slp45Ag5UuSw+sunD8vFzRTblgPInhxKCFB
+    on:
+        branch: master
+    artifact: /.*(\.|\.s)nupkg/
+
+nuget:
+  project_feed: true
+        
+# artifacts:
+#   - path: 'out\*.nupkg'
+#   - path: 'out\*.snupkg'
+
+

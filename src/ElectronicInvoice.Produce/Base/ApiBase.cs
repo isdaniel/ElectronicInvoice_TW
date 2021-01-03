@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Net;
-using System.Web;
 using ElectronicInvoice.Produce.Facade;
 using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Helper;
+using System.Web;
 
 /*
  * 創建者：Daniel.shih
@@ -88,7 +85,6 @@ namespace ElectronicInvoice.Produce.Base
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [Log]
         public virtual string ExecuteApi(TModel model)
         {
             //取得加密後的參數
@@ -97,7 +93,6 @@ namespace ElectronicInvoice.Produce.Base
             return HttpTool.HttpPost(GetApiURL(), postData);
         }
 
-        [Log]
         public TRtn ExecuteApi<TRtn>(TModel model)
         {
            return JsonConvertFacde.DeserializeObject<TRtn>(ExecuteApi(model));

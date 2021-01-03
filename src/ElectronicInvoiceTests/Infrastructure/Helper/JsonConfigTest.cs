@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ElectronicInvoice.Produce.Helper;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
-using Assert = NUnit.Framework.Assert;
 
 namespace ElectronicInvoiceTests.Infrastructure.Helper
 {
