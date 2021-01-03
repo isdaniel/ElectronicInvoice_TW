@@ -14,7 +14,7 @@ build:
   publish_nuget: true
   
 build_script:
-  - msbuild src\ElectronicInvoice.sln /r /t:Build; /logger:"%MSBUILD_LOGGER%"
+  - dotnet build src\ElectronicInvoice.sln /r /t:Build; /logger:"%MSBUILD_LOGGER%"
 
 deploy:
   - provider: NuGet

@@ -1,16 +1,13 @@
-﻿using System;
-using System.Threading;
-using ElectronicInvoice.Produce.API.Application;
+﻿using ElectronicInvoice.Produce.API.Application;
 using ElectronicInvoice.Produce.API.Business;
-using ElectronicInvoice.Produce.Base;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace ElectronicInvoiceTests
 {
-    [TestClass]
+    [TestFixture]
     public class ActionMapperTest
     {
-        [TestMethod]
+        [Test]
         public void Mapper_Test_OK()
         {
             Assert.AreEqual(new DonateVerifyApi(null,null).GetMapperAction, "preserveCodeCheck");

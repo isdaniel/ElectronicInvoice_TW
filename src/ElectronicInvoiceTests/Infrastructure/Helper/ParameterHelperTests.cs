@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
 using ElectronicInvoice.Produce.Helper;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace ElectronicInvoiceTests.Infrastructure.Helper
 {
-    [TestClass()]
+    [TestFixture]
     public class ParameterHelperTests
     {
         private Dictionary<string, string> dict;
 
-        [TestInitialize]
+        [SetUp]
         public void Init()
         {
             dict = new Dictionary<string, string>();
         }
 
-        [TestMethod()]
+        [Test]
         public void DictionaryToParameter_fullString_True()
         {
             dict["name"] = "daniel";
@@ -27,7 +27,7 @@ namespace ElectronicInvoiceTests.Infrastructure.Helper
             Assert.AreEqual(result, expected);
         }
 
-        [TestMethod()]
+        [Test()]
         public void DictionaryToParameter_hasNullString_True()
         {
             dict["name"] = "daniel";
