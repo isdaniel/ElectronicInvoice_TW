@@ -3,6 +3,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<PackageId>ElectronicInvoiceTW_1.5.1</PackageId>
+	<Authors>Daniel_Shih</Authors>
+	<PackageTags>C# OOP Invoice_TW</PackageTags>
+	<RepositoryType>git</RepositoryType>
+	<PackageProjectUrl>https://github.com/isdaniel/ElectronicInvoice_TW</PackageProjectUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\..\CommonLib\</OutputPath>
