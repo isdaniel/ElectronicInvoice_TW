@@ -7,7 +7,7 @@ before_build:
 
 environment:
   my_variable:
-    secure: HddBjnU/iNbTxarY4VSFOBwpA8OE2Slp45Ag5UuSw+sunD8vFzRTblgPInhxKCFB
+    secure: GWztiV993airUIgYQa/8Yp0jZuZ9IWVjAJDxwBRTOvN2C5pBqlArgsUY4uqrGujp
   
 build:
   publish_nuget: true
@@ -21,7 +21,7 @@ after_build:
 deploy:
   - provider: NuGet
     api_key:
-      secure: HddBjnU/iNbTxarY4VSFOBwpA8OE2Slp45Ag5UuSw+sunD8vFzRTblgPInhxKCFB
+      secure: GWztiV993airUIgYQa/8Yp0jZuZ9IWVjAJDxwBRTOvN2C5pBqlArgsUY4uqrGujp
     on:
         branch: master
     artifact: /.*(\.|\.s)nupkg/
