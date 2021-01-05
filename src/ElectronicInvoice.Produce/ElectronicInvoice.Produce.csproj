@@ -8,6 +8,7 @@
 	<PackageTags>C# OOP Invoice_TW</PackageTags>
 	<RepositoryType>git</RepositoryType>
 	<PackageProjectUrl>https://github.com/isdaniel/ElectronicInvoice_TW</PackageProjectUrl>
+	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\..\CommonLib\</OutputPath>

@@ -29,8 +29,8 @@ deploy:
 nuget:
   project_feed: true
         
-# artifacts:
-#   - path: 'out\*.nupkg'
-#   - path: 'out\*.snupkg'
+artifacts:
+  - path: 'CommonLib\*.nupkg'
+  - path: 'CommonLib\*.snupkg'
 
 
