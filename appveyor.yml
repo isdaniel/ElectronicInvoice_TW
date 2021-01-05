@@ -30,7 +30,7 @@ nuget:
   project_feed: true
         
 artifacts:
-  - path: 'CommonLib\*.nupkg'
-  - path: 'CommonLib\*.snupkg'
+  - path: '**\*.nupkg'
+  - path: '**\*.snupkg'
 
 
