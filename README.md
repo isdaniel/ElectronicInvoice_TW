@@ -111,6 +111,10 @@ JsonConfig 範例
 - [ ] [雲端發票行動支付應用API規格(v1.6)](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1510206811150_0.pdf)
 - [ ] [電子發票政府應用API規格(v1.2)](https://www.einvoice.nat.gov.tw/home/DownLoad?fileName=1528963625157_0.pdf) 
 
+### Release Note:
+
+* 1.5.0 ~ 2.0.0 支援.net core和.net framework 4.6.1以上
+
 ### Contributors :  
 
 ![](https://contrib.rocks/image?repo=isdaniel/ElectronicInvoice_TW)
