@@ -88,11 +88,7 @@ JsonConfig 範例
 	}
 }
 ```
- 
-## 執行結果
-![Alt text](https://az787680.vo.msecnd.net/user/九桃/7a594954-113f-45bd-827f-39d19508fcc3/1510882195_20334.png "執行結果")
 
-<br/>
 
 [SDK說明連結](https://www.slideshare.net/SHIHBINGSHOU/invoice-tw-sdk/SHIHBINGSHOU/invoice-tw-sdk) 
 
