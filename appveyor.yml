@@ -3,7 +3,7 @@ version: build '{build}'
 configuration: Release
 platform: Any CPU
 before_build:
-- cmd: nuget restore src\ElectronicInvoice.sln
+- cmd: nuget restore src\ElectronicInvoice_TW\ElectronicInvoice.sln
 
 environment:
   my_variable:
@@ -13,10 +13,10 @@ build:
   publish_nuget: true
   
 build_script:
-  - dotnet build src\ElectronicInvoice.sln
+  - dotnet build src\ElectronicInvoice_TW\ElectronicInvoice.sln
   - dotnet test  src\ElectronicInvoiceTests
 after_build:
-  - dotnet pack src\ElectronicInvoice.Produce
+  - dotnet pack src\ElectronicInvoice_TW\ElectronicInvoice.Produce
 
 deploy:
   - provider: NuGet
