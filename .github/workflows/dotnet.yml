@@ -19,10 +19,10 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: src/ElectronicInvoice_TW/ElectronicInvoice.sln
+      working-directory: src/ElectronicInvoice_TW
     - name: Build
       run: dotnet build --no-restore
-      working-directory: src/ElectronicInvoice_TW/ElectronicInvoice.sln
+      working-directory: src/ElectronicInvoice_TW
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: src/ElectronicInvoice_TW/ElectronicInvoiceTests
