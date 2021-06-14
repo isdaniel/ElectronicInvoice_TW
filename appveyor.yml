@@ -14,7 +14,7 @@ build:
   
 build_script:
   - dotnet build src\ElectronicInvoice_TW\ElectronicInvoice.sln
-  - dotnet test  src\ElectronicInvoiceTests
+  - dotnet test  src\ElectronicInvoice_TW\ElectronicInvoiceTests
 after_build:
   - dotnet pack src\ElectronicInvoice_TW\ElectronicInvoice.Produce
 
