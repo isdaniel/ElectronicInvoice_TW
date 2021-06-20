@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Extension;
@@ -34,22 +35,28 @@ namespace ElectronicInvoice.Produce
         public string ExecuteApi<TModel>(TModel model) 
             where TModel : class, new()
         {
-            return ExecuteApiProcess(model, x => x.ExecuteApi(model));
+            return ExecuteApiProcess<TModel, string>(x => x.ExecuteApi(model));
         }
 
         public TRtn ExecuteApi<TModel,TRtn>(TModel model) 
             where TModel : class, new()
         {
-            return ExecuteApiProcess(model, x=>x.ExecuteApi<TRtn>(model));
+            return ExecuteApiProcess<TModel, TRtn>(x=>x.ExecuteApi<TRtn>(model));
         }
 
-        public TRtn ExecuteApi<TRtn,TModel>(TModel model) 
+        public Task<TRtn> ExecuteApiAsync<TModel, TRtn>(TModel model)
             where TModel : class, new()
         {
-            return ExecuteApiProcess(model, x=>x.ExecuteApi<TRtn>(model));
+            return ExecuteApiProcess<TModel, Task<TRtn>>(x => x.ExecuteApiAsync<TRtn>(model));
         }
 
-        private TRtn ExecuteApiProcess<TModel,TRtn>(TModel model,Func<ApiBase<TModel>, TRtn> fun1)
+        public Task<string> ExecuteApiAsync<TModel>(TModel model)
+            where TModel : class, new()
+        {
+            return ExecuteApiProcess<TModel, Task<string>>(x => x.ExecuteApiAsync(model));
+        }
+
+        private TRtn ExecuteApiProcess<TModel,TRtn>(Func<ApiBase<TModel>, TRtn> fun1)
             where TModel : class, new()
         {
             object apiObject;

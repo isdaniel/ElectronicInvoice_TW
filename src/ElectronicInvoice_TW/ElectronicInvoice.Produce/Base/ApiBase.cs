@@ -4,8 +4,8 @@ using ElectronicInvoice.Produce.Facade;
 using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Helper;
+using System.Threading.Tasks;
 using System.Web;
-
 /*
  * 創建者：Daniel.shih
  * 目的：方便日後實作財政部電子發票API
@@ -96,6 +96,15 @@ namespace ElectronicInvoice.Produce.Base
         public TRtn ExecuteApi<TRtn>(TModel model)
         {
            return JsonConvertFacde.DeserializeObject<TRtn>(ExecuteApi(model));
+        }
+
+        public Task<string> ExecuteApiAsync(TModel model) {
+            return Task.Run(() => ExecuteApi(model));
+        }
+
+        public Task<TRtn> ExecuteApiAsync<TRtn>(TModel model)
+        {
+            return Task.Run(() => ExecuteApi<TRtn>(model));
         }
 
         /// <summary>

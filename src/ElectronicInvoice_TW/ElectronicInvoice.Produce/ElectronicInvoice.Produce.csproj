@@ -9,8 +9,8 @@
 	<RepositoryType>git</RepositoryType>
 	<PackageProjectUrl>https://github.com/isdaniel/ElectronicInvoice_TW</PackageProjectUrl>
 	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-	<Version>1.5.1</Version>
-	<PackageReleaseNotes>Support for .net standerd 2.0(which mean support .net core) and .net version higher than 4.62</PackageReleaseNotes>
+	<Version>1.5.2</Version>
+	<PackageReleaseNotes>Support for .net standerd 2.0(which mean support .net core) and .net version higher than 4.61 & Support async method to call api</PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\</OutputPath>
