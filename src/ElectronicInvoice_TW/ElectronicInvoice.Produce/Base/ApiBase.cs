@@ -14,7 +14,7 @@ using System.Web;
 
 namespace ElectronicInvoice.Produce.Base
 {
-    public abstract class ApiBase<TModel> : MarshalByRefObject, IApiRunner<TModel>
+    public abstract partial class ApiBase<TModel> : MarshalByRefObject, IApiRunner<TModel>
         where TModel : class, new()
     {
         public ApiBase(IConfig config,ISysLog log)
@@ -96,15 +96,6 @@ namespace ElectronicInvoice.Produce.Base
         public TRtn ExecuteApi<TRtn>(TModel model)
         {
            return JsonConvertFacde.DeserializeObject<TRtn>(ExecuteApi(model));
-        }
-
-        public Task<string> ExecuteApiAsync(TModel model) {
-            return Task.Run(() => ExecuteApi(model));
-        }
-
-        public Task<TRtn> ExecuteApiAsync<TRtn>(TModel model)
-        {
-            return Task.Run(() => ExecuteApi<TRtn>(model));
         }
 
         /// <summary>
