@@ -1,8 +1,9 @@
 ﻿using System;
+using ElectronicInvoice.Produce.Infrastructure;
 
 namespace ElectronicInvoice.Produce.Mapping
 {
-    public class DonatedGroupModel
+    public class DonatedGroupModel : CommonBaseModel
     {
         public string Ban { get; set; }
         public string Account { get; set; }
