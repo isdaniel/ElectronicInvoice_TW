@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicInvoice.Produce.Base
 {
-    public abstract partial class ApiBase<TModel> : MarshalByRefObject, IApiRunner<TModel>
+    public abstract partial class ApiBase<TModel> :  IApiRunner<TModel>
         where TModel : class, new()
     {
         public Task<string> ExecuteApiAsync(TModel model)

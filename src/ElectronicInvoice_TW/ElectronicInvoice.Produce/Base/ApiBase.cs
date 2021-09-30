@@ -14,7 +14,7 @@ using System.Web;
 
 namespace ElectronicInvoice.Produce.Base
 {
-    public abstract partial class ApiBase<TModel> : MarshalByRefObject, IApiRunner<TModel>
+    public abstract partial class ApiBase<TModel> : IApiRunner<TModel>
         where TModel : class, new()
     {
         public ApiBase(IConfig config,ISysLog log)
@@ -89,8 +89,10 @@ namespace ElectronicInvoice.Produce.Base
         {
             //取得加密後的參數
             string postData = GetInvoiceParameter(SetParameter(model));
-
-            return HttpTool.HttpPost(GetApiURL(), postData);
+            Logger.WriteLog($"Send Api Parametr：{postData}");
+            var result = HttpTool.HttpPost(GetApiURL(), postData);
+            Logger.WriteLog($"Recive Api Result：{result}");
+            return result;
         }
 
         public TRtn ExecuteApi<TRtn>(TModel model)

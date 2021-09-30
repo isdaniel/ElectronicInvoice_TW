@@ -14,7 +14,7 @@ namespace ElectronicInvoice.Produce.API.Application
         {
             SortedDictionary<string, string> parameter = new SortedDictionary<string, string>
             {
-                ["version"] = "0.3",
+                ["version"] = model.Version,
                 ["action"] = GetMapperAction,
                 ["cardType"] = model.CardType.GetCardName(),
                 ["cardNo"] = model.CardNo,

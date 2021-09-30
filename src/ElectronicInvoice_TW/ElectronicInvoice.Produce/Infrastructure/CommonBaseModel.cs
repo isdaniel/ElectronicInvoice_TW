@@ -16,5 +16,7 @@ namespace ElectronicInvoice.Produce.Infrastructure
         public string UUID => "9774d56d682e549c";
 
         public string Serial => DateTime.Now.ToString("MMddssmmss");
+
+        public string Version { get; set; } = "0.3";
     }
 }
