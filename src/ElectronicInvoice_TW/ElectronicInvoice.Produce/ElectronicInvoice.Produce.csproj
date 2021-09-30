@@ -10,7 +10,7 @@
 	<PackageProjectUrl>https://github.com/isdaniel/ElectronicInvoice_TW</PackageProjectUrl>
 	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 	<Version>1.5.4</Version>
-	<PackageReleaseNotes>Add logger in standard lib & add api version for parameters </PackageReleaseNotes>
+	<PackageReleaseNotes>Add logger in standard lib and add api version for parameters </PackageReleaseNotes>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\</OutputPath>
