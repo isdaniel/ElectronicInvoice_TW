@@ -7,9 +7,10 @@ namespace ElectronicInvoice.Produce
 {
     public class ApiTypeProvider
     {
-        private static ApiTypeProvider _instance;
-        public static ApiTypeProvider Instance => _instance ?? 
-                                                  (_instance = new ApiTypeProvider());
+        private object _sync = new object();
+
+        private readonly static ApiTypeProvider _instance = new ApiTypeProvider();
+        public static ApiTypeProvider Instance => _instance;
         
         private ApiTypeProvider()
         {

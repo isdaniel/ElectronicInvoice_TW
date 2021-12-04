@@ -8,9 +8,9 @@ namespace ElectronicInvoice.Produce.Infrastructure
 {
     internal class InvoiceContainer
     {
-        private static InvoiceContainer _instance;
+        private readonly static InvoiceContainer _instance = new InvoiceContainer();
 
-        public static InvoiceContainer Instance => _instance ?? (_instance = new InvoiceContainer());
+        public static InvoiceContainer Instance => _instance;
 
         private InvoiceContainer()
         {

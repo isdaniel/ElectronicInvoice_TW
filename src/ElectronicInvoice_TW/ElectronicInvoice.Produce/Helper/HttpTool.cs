@@ -53,8 +53,7 @@ namespace ElectronicInvoice.Produce.Helper
                 using (Stream responseStream = response.GetResponseStream())
                 using (StreamReader reader = new StreamReader(responseStream))
                 {
-                    var result = await reader.ReadToEndAsync().ConfigureAwait(false);
-                    return result;
+                    return await reader.ReadToEndAsync().ConfigureAwait(false);
                 }
             }
         }

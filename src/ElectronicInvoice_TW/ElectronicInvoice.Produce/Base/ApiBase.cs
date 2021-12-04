@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using ElectronicInvoice.Produce.Facade;
 using ElectronicInvoice.Produce.Infrastructure;
-using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Helper;
 using System.Threading.Tasks;
 using System.Web;
@@ -52,6 +51,13 @@ namespace ElectronicInvoice.Produce.Base
                 }
 
                 return result;
+            }
+        }
+
+        public void AddActionMapper(string apiContext,string invName) {
+            if (_actionMapper.ContainsKey(apiContext))
+            {
+                _actionMapper.Add(apiContext, invName);
             }
         }
 

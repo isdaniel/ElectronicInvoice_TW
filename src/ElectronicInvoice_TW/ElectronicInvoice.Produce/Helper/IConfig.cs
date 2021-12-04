@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectronicInvoice.Produce.Base
+namespace ElectronicInvoice.Produce.Helper
 {
     public interface IConfig
     {
@@ -15,12 +15,5 @@ namespace ElectronicInvoice.Produce.Base
         string IsMockAPI { get; }
 
         Dictionary<string, string> GetApiURLTable();
-    }
-    
-    public interface IKeyProvider
-    {
-        string Key { get;}
-
-        string IV { get; }
     }
 }

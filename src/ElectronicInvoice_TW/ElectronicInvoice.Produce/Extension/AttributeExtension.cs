@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace ElectronicInvoice.Produce.Extension
 {
-    public static class ExtensionAttribute
+    public static class AttributeExtension
     {
         public static TValue GetAttributeValue<TAttribute, TValue>(
           this Type attrType,

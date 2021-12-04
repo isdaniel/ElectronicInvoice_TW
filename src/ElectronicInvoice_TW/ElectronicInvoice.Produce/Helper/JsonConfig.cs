@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Facade;
 
 namespace ElectronicInvoice.Produce.Helper

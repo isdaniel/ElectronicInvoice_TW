@@ -12,7 +12,7 @@ namespace ElectronicInvoice.Produce
 {
     public class InvoiceApiContext
     {
-        private static Dictionary<Type, object> _apiMapperCache;
+        private Dictionary<Type, object> _apiMapperCache;
         public InvoiceApiContext(IConfig config) : this(config,new ConsoleLog())
         {
            

@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicInvoiceTests", "ElectronicInvoiceTests\ElectronicInvoiceTests.csproj", "{DE2CAB24-A906-423C-B24F-B5C4772FFFA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectronicInvoiceTests", "ElectronicInvoiceTests\ElectronicInvoiceTests.csproj", "{DE2CAB24-A906-423C-B24F-B5C4772FFFA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicInvoice.Produce", "ElectronicInvoice.Produce\ElectronicInvoice.Produce.csproj", "{03B80758-E3AB-4E50-8485-1FE798380357}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectronicInvoice.Produce", "ElectronicInvoice.Produce\ElectronicInvoice.Produce.csproj", "{03B80758-E3AB-4E50-8485-1FE798380357}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E39D0A2B-45AE-4D8F-B42B-53B387C02482}
 	EndGlobalSection
 EndGlobal
