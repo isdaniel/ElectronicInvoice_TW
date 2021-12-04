@@ -21,12 +21,4 @@ namespace ElectronicInvoice.Produce.Helper
             return _configModel.ApiURLTable;
         }
     }
-
-    internal class ConfigModel
-    {
-        public string GovAppId { get; set; }
-        public string GovAPIKey { get; set; }
-        public string IsMockAPI { get; set; }
-        public Dictionary<string, string> ApiURLTable { get; set; }
-    }
 }

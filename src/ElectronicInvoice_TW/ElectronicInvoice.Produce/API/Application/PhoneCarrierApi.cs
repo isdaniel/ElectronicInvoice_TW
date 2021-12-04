@@ -29,7 +29,7 @@ namespace ElectronicInvoice.Produce.API.Application
             return ParameterHelper.DictionaryToParameter(parameter);
         }
 
-        public QryCarrierAggApi(IConfig config, ISysLog log) : base(config, log)
+        internal QryCarrierAggApi(IConfig config, ISysLog log) : base(config, log)
         {
         }
     }

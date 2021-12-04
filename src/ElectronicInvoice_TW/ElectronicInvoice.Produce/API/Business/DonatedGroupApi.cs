@@ -28,7 +28,7 @@ namespace ElectronicInvoice.Produce.API.Business
             return ParameterHelper.DictionaryToParameter(parameter);
         }
 
-        public DonatedGroupApi(IConfig config, ISysLog log) : base(config, log)
+        internal DonatedGroupApi(IConfig config, ISysLog log) : base(config, log)
         {
         }
     }

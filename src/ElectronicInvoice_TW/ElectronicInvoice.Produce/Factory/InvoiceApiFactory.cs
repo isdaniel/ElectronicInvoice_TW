@@ -57,7 +57,7 @@ namespace ElectronicInvoice.Produce.Factory
                 {
                     return attr.ApiType;
                 }
-                throw new Exception("Model尚未賦予ApiTypeAttribute");
+                throw new NotSupportedException("Model尚未賦予ApiTypeAttribute");
             });
         }
     }

@@ -28,4 +28,7 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E39D0A2B-45AE-4D8F-B42B-53B387C02482}
 	EndGlobalSection
+	GlobalSection(NDepend) = preSolution
+		Project = ".\ElectronicInvoice.ndproj"
+	EndGlobalSection
 EndGlobal

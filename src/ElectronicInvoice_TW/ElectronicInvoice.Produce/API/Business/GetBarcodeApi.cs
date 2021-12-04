@@ -24,7 +24,7 @@ namespace ElectronicInvoice.Produce.API.Business
             return ParameterHelper.DictionaryToParameter(parameter);
         }
 
-        public GetBarcodeApi(IConfig config, ISysLog log) : base(config, log)
+        internal GetBarcodeApi(IConfig config, ISysLog log) : base(config, log)
         {
         }
     }

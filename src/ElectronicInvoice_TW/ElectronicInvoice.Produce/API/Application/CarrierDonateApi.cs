@@ -36,7 +36,7 @@ namespace ElectronicInvoice.Produce.API.Application
 
         }
 
-        public CarrierDonateApi(IConfig config, ISysLog log) : base(config, log)
+        internal CarrierDonateApi(IConfig config, ISysLog log) : base(config, log)
         {
         }
     }

@@ -22,7 +22,7 @@ namespace ElectronicInvoice.Produce.API.Business
             return ParameterHelper.DictionaryToParameter(parameter);
         }
 
-        public DonateVerifyApi(IConfig config, ISysLog log) : base(config, log)
+        internal DonateVerifyApi(IConfig config, ISysLog log) : base(config, log)
         {
         }
     }

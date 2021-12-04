@@ -27,7 +27,7 @@ namespace ElectronicInvoice.Produce.API.Application
             return ParameterHelper.DictionaryToParameter(parameter);
         }
 
-        public QryWinningListApi(IConfig config, ISysLog log) : base(config, log)
+        internal QryWinningListApi(IConfig config, ISysLog log) : base(config, log)
         {
         }
     }

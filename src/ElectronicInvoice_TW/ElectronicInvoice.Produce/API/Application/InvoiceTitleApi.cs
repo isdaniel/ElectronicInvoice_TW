@@ -25,7 +25,7 @@ namespace ElectronicInvoice.Produce.API.Application
             return ParameterHelper.DictionaryToParameter(parameter);
         }
 
-        public InvoiceTitleApi(IConfig config, ISysLog log) : base(config, log)
+        internal InvoiceTitleApi(IConfig config, ISysLog log) : base(config, log)
         {
         }
     }

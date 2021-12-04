@@ -32,13 +32,16 @@ namespace ElectronicInvoice.Produce.Infrastructure
             return null;
         }
 
-        public void TryToAdd<T>(T obj) 
+        public bool TryToAdd<T>(T obj) 
             where T : class
         {
             if (!Container.ContainsKey(typeof(T)))
             {
                 Container.Add(typeof(T),obj);
+                return true;
             }
+
+            return false;
         }
     }
 }

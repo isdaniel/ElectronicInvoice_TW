@@ -10,7 +10,7 @@ namespace ElectronicInvoice.Produce.Extension
 {
     internal static class TypeExtension
     {
-        public static string GetCardName(this CardType type)
+        internal static string GetCardName(this CardType type)
         {
             return type.GetAttributeValue<ContentAttribute, string>(x => x.Name);
         }

@@ -81,7 +81,7 @@ namespace ElectronicInvoice.Produce.Base
             string result;
 
             if (!ConfigSetting.GetApiURLTable().TryGetValue(apiName,out result))
-                throw new Exception($"請確認Config有ApiURL設定： {apiName}");
+                throw new NotSupportedException($"請確認Config有ApiURL設定： {apiName}");
             
             return result;
         }

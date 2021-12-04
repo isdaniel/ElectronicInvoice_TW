@@ -31,7 +31,7 @@ namespace ElectronicInvoice.Produce.API.Application
             return ParameterHelper.DictionaryToParameter(parameter);
         }
 
-        public CarrierDetailApi(IConfig config, ISysLog log) : base(config, log)
+        internal CarrierDetailApi(IConfig config, ISysLog log) : base(config, log)
         {
         }
     }

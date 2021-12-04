@@ -68,7 +68,7 @@ namespace ElectronicInvoice.Produce
                 return fun1(apiInstance.GetProxyApi());
             }
 
-            throw new Exception("Can't Get Type from ApiMapperTable.");
+            throw new NotSupportedException("Can't Get Type from ApiMapperTable.");
         }
     }
 }
