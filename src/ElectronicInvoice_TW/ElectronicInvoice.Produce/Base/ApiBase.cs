@@ -54,13 +54,6 @@ namespace ElectronicInvoice.Produce.Base
             }
         }
 
-        public void AddActionMapper(string apiContext,string invName) {
-            if (_actionMapper.ContainsKey(apiContext))
-            {
-                _actionMapper.Add(apiContext, invName);
-            }
-        }
-
         protected ISysLog Logger { get; set; }
 
         protected IConfig ConfigSetting { get; set; }

@@ -16,6 +16,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Remove="Produce\**" />
+    <EmbeddedResource Remove="Produce\**" />
+    <None Remove="Produce\**" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ElectronicInvoice.Produce\ElectronicInvoice.Produce.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -28,7 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
-    <Folder Include="Produce\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

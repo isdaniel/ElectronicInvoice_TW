@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Extension;
@@ -37,7 +39,8 @@ namespace ElectronicInvoice.Produce.Factory
             where T : class, new()
         {
             object[] args = { _config,_log};
-            ApiBase<T> realSubject = Activator.CreateInstance(GetApiType(model), args) as ApiBase<T>;
+            var ctor = GetApiType(model).GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).First();
+            ApiBase<T> realSubject = (ctor.Invoke(args)) as ApiBase<T>;
 
             return realSubject.GetProxyApi();
         }
