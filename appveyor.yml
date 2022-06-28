@@ -5,9 +5,6 @@ platform: Any CPU
 before_build:
 - cmd: nuget restore src\ElectronicInvoice_TW\ElectronicInvoice.sln
 
-environment:
-  my_variable:
-    secure: NGYhTyX6mHnKogihdx3/5VGkwA6B/wvoobysuR1oTQJKwvC0n6jqd7/hvHFvRuSI
   
 build:
   publish_nuget: true
@@ -21,7 +18,7 @@ after_build:
 deploy:
   - provider: NuGet
     api_key:
-      secure: GWztiV993airUIgYQa/8Yp0jZuZ9IWVjAJDxwBRTOvN2C5pBqlArgsUY4uqrGujp
+      secure: NGYhTyX6mHnKogihdx3/5VGkwA6B/wvoobysuR1oTQJKwvC0n6jqd7/hvHFvRuSI
     on:
         branch: master
     artifact: /.*(\.|\.s)nupkg/
