@@ -7,7 +7,7 @@ before_build:
 
 environment:
   my_variable:
-    secure: o6MNge766j7iHaoDxkY33G39jIf2z9Snvx3xgpq+9d2Uu3n2VpgGhmRcHfSXQan2
+    secure: NGYhTyX6mHnKogihdx3/5VGkwA6B/wvoobysuR1oTQJKwvC0n6jqd7/hvHFvRuSI
   
 build:
   publish_nuget: true
