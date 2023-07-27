@@ -18,7 +18,7 @@ after_build:
 deploy:
   - provider: NuGet
     api_key:
-      secure: NGYhTyX6mHnKogihdx3/5VGkwA6B/wvoobysuR1oTQJKwvC0n6jqd7/hvHFvRuSI
+      secure: 6rJtTgnzBZSQzEE6EYgr3ZSBS9ttHAb+ithM8MsWIXwQsmRYrzXSNb61PsDDdKJ6
     on:
         branch: master
     artifact: /.*(\.|\.s)nupkg/
