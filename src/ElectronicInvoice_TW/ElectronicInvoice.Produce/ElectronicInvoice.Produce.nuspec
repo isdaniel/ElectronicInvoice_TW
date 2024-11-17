@@ -16,7 +16,7 @@
     <dependencies>
       <group targetFramework="netstandard2.0">
          <dependency id="Microsoft.Extensions.Configuration.Json" version="3.1.10" />
-         <dependency id="Newtonsoft.Json" version="12.0.3" />
+         <dependency id="Newtonsoft.Json" version="13.0.1" />
          <dependency id="System.Data.DataSetExtensions" version="4.5.0" />
          <dependency id="System.Configuration.ConfigurationManager" version="4.4.1" />
       </group>
@@ -26,4 +26,3 @@
     </dependencies>
   </metadata>
 </package>
-
