@@ -5,7 +5,7 @@ using System.Linq;
 namespace ElectronicInvoice.Produce.Helper
 {
     /// <summary>
-    /// 吃WebSetting
+    /// WebSetting
     /// </summary>
     public class AppsettingConfig : IConfig
     {

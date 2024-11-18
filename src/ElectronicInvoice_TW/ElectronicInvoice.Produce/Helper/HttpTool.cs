@@ -79,6 +79,29 @@ namespace ElectronicInvoice.Produce.Helper
             X509Chain chain,
             SslPolicyErrors sslPolicyErrors)
         {
+            if (sslPolicyErrors != SslPolicyErrors.None)
+            {
+                return false; 
+            }
+            if (chain != null)
+            {
+                foreach (var chainStatus in chain.ChainStatus)
+                {
+                    if (chainStatus.Status != X509ChainStatusFlags.NoError)
+                    {
+                        return false; 
+                    }
+                }
+            }
+            
+            if (certification is X509Certificate2 cert)
+            {
+                if (cert.Subject != "CN=ExpectedSubject")
+                {
+                    return false; // Reject connection
+                }
+            }
+
             return true;
         }
         #endregion
