@@ -90,7 +90,7 @@ JsonConfig 範例
 ```
 
 
-[SDK說明連結](https://www.slideshare.net/SHIHBINGSHOU/invoice-tw-sdk/SHIHBINGSHOU/invoice-tw-sdk) 
+[SDK說明連結](https://www.slideshare.net/slideshow/invoice-tw-sdk/140842837) 
 
 [Blog原理解說](https://dotblogs.com.tw/daniel/2017/10/15/203221) 
 
