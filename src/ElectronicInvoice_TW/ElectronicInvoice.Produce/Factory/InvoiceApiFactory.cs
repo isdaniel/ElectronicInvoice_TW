@@ -25,6 +25,9 @@ namespace ElectronicInvoice.Produce.Factory
             _log = log;
         }
 
+        /// <summary>
+        /// default used AppsettingConfig
+        /// </summary>
         public InvoiceApiFactory() : this(new AppsettingConfig())
         {
         }
@@ -38,6 +41,11 @@ namespace ElectronicInvoice.Produce.Factory
         public ApiBase<T> GetProxyInstace<T>(T model)
             where T : class, new()
         {
+            if (model == null)
+            {
+                throw new NullReferenceException("model can't be null!");
+            }
+
             object[] args = { _config,_log};
             var ctor = GetApiType(model).GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).First();
             ApiBase<T> realSubject = (ctor.Invoke(args)) as ApiBase<T>;
@@ -53,6 +61,11 @@ namespace ElectronicInvoice.Produce.Factory
         internal Type GetApiType<T>(T model)
             where T : class, new()
         {
+            if (model == null)
+            {
+                throw new NullReferenceException("model can't be null!");
+            }
+
             var modelType = model.GetType();
             return modelType.GetAttributeValue((ApiTypeAttribute attr) =>
             {

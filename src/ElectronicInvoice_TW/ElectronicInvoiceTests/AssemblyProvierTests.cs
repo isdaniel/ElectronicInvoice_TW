@@ -6,14 +6,6 @@ using NUnit.Framework;
 
 namespace ElectronicInvoiceTests
 {
-    public class MyApiClass{
-    }
-
-    [ApiType(ApiType = typeof(MyApiClass))]
-    public class APIModel
-    {
-    }
-
     [TestFixture()]
     public class AssemblyProvierTests
     {
@@ -27,14 +19,13 @@ namespace ElectronicInvoiceTests
         }
 
         [Test()]
-        public void RegisterAssembly_Contain_()
+        public void RegisterAssembly_Contain()
         {
             ApiTypeProvider.Instance.RegisterAssembly(Assembly.GetExecutingAssembly());
 
-            var act = ApiTypeProvider.Instance.GetTypeFromAssembly<ApiTypeAttribute>()
-                .FirstOrDefault(x => x == typeof(APIModel));
+            var act = ApiTypeProvider.Instance.GetTypeFromAssembly<ApiTypeAttribute>().FirstOrDefault(x => x == typeof(TestModel));
 
-            Assert.AreEqual(act,typeof(APIModel));
+            Assert.AreEqual(typeof(TestModel), act);
         }
     }
 }

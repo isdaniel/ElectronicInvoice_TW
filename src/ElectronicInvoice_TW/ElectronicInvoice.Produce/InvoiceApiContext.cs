@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Base;
@@ -20,12 +21,15 @@ namespace ElectronicInvoice.Produce
 
         public InvoiceApiContext(IConfig config,ISysLog log)
         {
-            object[] args = { config,log};
-            _apiMapperCache = ApiTypeProvider.Instance
-                .GetTypeFromAssembly<ApiTypeAttribute>()
+            _apiMapperCache = ApiTypeProvider.Instance.GetTypeFromAssembly<ApiTypeAttribute>()
                 .ToDictionary(x => x,
-                    x => x.GetAttributeValue((ApiTypeAttribute y) => 
-                        Activator.CreateInstance(y.ApiType,args)));
+                    x => x.GetAttributeValue((ApiTypeAttribute y) =>
+                                 Activator.CreateInstance(
+                                     y.ApiType,
+                                     BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public,
+                                     null,
+                                     new object[] { config, log },
+                                     null)));
         }
 
         public InvoiceApiContext():this(new AppsettingConfig())
@@ -53,15 +57,13 @@ namespace ElectronicInvoice.Produce
         public Task<string> ExecuteApiAsync<TModel>(TModel model)
             where TModel : class, new()
         {
-            return ExecuteApiProcess<TModel, Task<string>>(x => x.ExecuteApiAsync(model));
+            return ExecuteApiProcess<TModel, Task<string>>(async x => await x.ExecuteApiAsync(model));
         }
 
         private TRtn ExecuteApiProcess<TModel,TRtn>(Func<ApiBase<TModel>, TRtn> fun1)
             where TModel : class, new()
         {
-            object apiObject;
-
-            if (_apiMapperCache.TryGetValue(typeof(TModel), out apiObject) &&
+            if (_apiMapperCache.TryGetValue(typeof(TModel), out var apiObject) &&
                 apiObject is ApiBase<TModel>)
             {
                 var apiInstance = (ApiBase<TModel>)apiObject;

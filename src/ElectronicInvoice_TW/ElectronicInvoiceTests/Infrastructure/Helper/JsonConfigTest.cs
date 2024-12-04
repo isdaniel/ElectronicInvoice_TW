@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Helper;
 using NUnit.Framework;
 

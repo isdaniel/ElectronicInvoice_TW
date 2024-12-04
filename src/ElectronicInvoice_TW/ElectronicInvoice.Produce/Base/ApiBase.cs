@@ -43,9 +43,7 @@ namespace ElectronicInvoice.Produce.Base
         {
             get
             {
-                string result;
-
-                if (!_actionMapper.TryGetValue(GetType().Name, out result))
+                if (!_actionMapper.TryGetValue(GetType().Name, out string result))
                 {
                     result = string.Empty;
                 }
@@ -86,9 +84,10 @@ namespace ElectronicInvoice.Produce.Base
         /// <returns></returns>
         public virtual string ExecuteApi(TModel model)
         {
+            if (model == null) 
+                throw new ArgumentNullException("傳入 model 不能為 NULL");
             //取得加密後的參數
             string postData = GetInvoiceParameter(SetParameter(model));
-            Logger.WriteLog($"Send Api Parametr：{postData}");
             var result = HttpTool.HttpPost(GetApiURL(), postData);
             Logger.WriteLog($"Recive Api Result：{result}");
             return result;
@@ -105,10 +104,11 @@ namespace ElectronicInvoice.Produce.Base
         /// <returns></returns>
         private string GetInvoiceParameter(string paraData)
         {
-            //###進行加密動作
             string signature = CiphertextHelper.
                 EncryptionHMACSHA1Base64(ConfigSetting.GovAPIKey, paraData);
-            return $"{ReplacePlus(paraData)}&signature={HttpUtility.UrlEncode(signature)}";
+            string fullParameter = $"{ReplacePlus(paraData)}&signature={HttpUtility.UrlEncode(signature)}";
+            Logger.WriteLog($"Send Api Parametr：{fullParameter}");
+            return fullParameter;
         }
 
         /// <summary>

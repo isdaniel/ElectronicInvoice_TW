@@ -28,6 +28,7 @@ namespace ElectronicInvoice.Produce.API.Application
                 ["invDate"] = model.InvDate.ToString("yyyy/MM/dd"),
                 ["uuid"] = model.UUID,
                 ["cardEncrypt"] = model.CardEncrypt,
+                ["isBuyerType"] = model.IsBuyerType.ToString(),
                 ["npoBan"] = model.NpoBan,
                 ["appID"] = ConfigSetting.GovAppId
             };

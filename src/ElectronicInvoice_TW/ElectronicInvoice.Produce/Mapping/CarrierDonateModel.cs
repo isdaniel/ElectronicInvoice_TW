@@ -17,5 +17,9 @@ namespace ElectronicInvoice.Produce.Mapping
         public string InvNum { get; set; }
         public string NpoBan { get; set; }
         public string CardEncrypt { get; set; }
+        /// <summary>
+        /// default value (N) as same as doc
+        /// </summary>
+        public BuyerType IsBuyerType { get; set; } = BuyerType.N;
     }
 }
