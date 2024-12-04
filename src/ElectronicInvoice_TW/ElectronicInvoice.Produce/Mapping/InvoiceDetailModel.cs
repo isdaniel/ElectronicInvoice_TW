@@ -30,5 +30,9 @@ namespace ElectronicInvoice.Produce.Mapping
 
         public string RandomNumber { get; set; }
         public string Version { get; set; } = "0.5";
+        /// <summary>
+        /// default value (N) as same as doc
+        /// </summary>
+        public BuyerType IsBuyerType { get; set; } = BuyerType.N;
     }
 }

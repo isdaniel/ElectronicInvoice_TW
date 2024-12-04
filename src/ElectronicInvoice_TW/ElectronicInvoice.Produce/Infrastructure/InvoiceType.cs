@@ -23,4 +23,12 @@ namespace ElectronicInvoice.Produce.Infrastructure
         [Content(Name = "3J0002")]
         PhoneBarCode
     }
+
+    public enum BuyerType
+    {
+        [Content(Name = "N")]
+        N,
+        [Content(Name = "Y")]
+        Y
+    }
 }

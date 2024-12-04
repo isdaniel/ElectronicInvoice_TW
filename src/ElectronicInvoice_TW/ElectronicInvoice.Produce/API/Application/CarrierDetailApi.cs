@@ -22,6 +22,8 @@ namespace ElectronicInvoice.Produce.API.Application
                 ["timeStamp"] = model.TimeStamp,
                 ["invNum"] = model.InvNum,
                 ["invDate"] = model.InvDate,
+                ["isBuyerType"] = model.IsBuyerType.ToString(),
+                ["page"] = model.Page.ToString(),
                 ["uuid"] = model.UUID,
                 ["cardEncrypt"] = model.CardEncrypt,
                 ["appID"] = ConfigSetting.GovAppId

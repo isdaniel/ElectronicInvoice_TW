@@ -22,6 +22,7 @@ namespace ElectronicInvoice.Produce.API.Application
                 ["encrypt"] = model.Encrypt,
                 ["sellerID"] = model.SellerID,
                 ["randomNumber"] = model.RandomNumber,
+                ["isBuyerType"] = model.IsBuyerType.ToString(),
                 ["UUID"] = model.UUID,
                 ["appID"] = ConfigSetting.GovAppId
             };

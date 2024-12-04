@@ -10,16 +10,18 @@ namespace ElectronicInvoice.Produce.Base
     public abstract partial class ApiBase<TModel> :  IApiRunner<TModel>
         where TModel : class, new()
     {
-        public Task<string> ExecuteApiAsync(TModel model)
+        public virtual async Task<string> ExecuteApiAsync(TModel model)
         {
             string postData = GetInvoiceParameter(SetParameter(model));
 
-            return HttpTool.HttpPostAsync(GetApiURL(), postData);
+            var result = await HttpTool.HttpPostAsync(GetApiURL(), postData);
+            Logger.WriteLog($"Recive Api Result：{result}");
+            return result;
         }
 
-        public async Task<TRtn> ExecuteApiAsync<TRtn>(TModel model)
+        public virtual async Task<TRtn> ExecuteApiAsync<TRtn>(TModel model)
         {
-            var result = await ExecuteApiAsync(model);
+            var result = await this.ExecuteApiAsync(model);
             return JsonConvertFacde.DeserializeObject<TRtn>(result);
         }
     }

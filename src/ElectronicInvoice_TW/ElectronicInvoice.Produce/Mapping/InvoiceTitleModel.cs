@@ -18,5 +18,10 @@ namespace ElectronicInvoice.Produce.Mapping
         public InvoiceType Type { get; set; }
         public string InvNum { get; set; }
         public DateTime InvDate { get; set; }
+
+        /// <summary>
+        /// default value (N) as same as doc
+        /// </summary>
+        public BuyerType IsBuyerType { get; set; } = BuyerType.N;
     }
 }

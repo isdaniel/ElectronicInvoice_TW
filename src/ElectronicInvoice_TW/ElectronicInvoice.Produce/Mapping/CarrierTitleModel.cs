@@ -20,5 +20,10 @@ namespace ElectronicInvoice.Produce.Mapping
 
         public string CardEncrypt { get; set; }
         public CardType CardType { get; set; }
+
+        /// <summary>
+        /// default value (N) as same as doc
+        /// </summary>
+        public BuyerType IsBuyerType { get; set; } = BuyerType.N;
     }
 }

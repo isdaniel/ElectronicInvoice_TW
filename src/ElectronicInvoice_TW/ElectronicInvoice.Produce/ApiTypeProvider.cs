@@ -7,31 +7,44 @@ namespace ElectronicInvoice.Produce
 {
     public class ApiTypeProvider
     {
-        private object _sync = new object();
+        private static readonly Lazy<ApiTypeProvider> _instance = new Lazy<ApiTypeProvider>(() => new ApiTypeProvider());
 
-        private readonly static ApiTypeProvider _instance = new ApiTypeProvider();
-        public static ApiTypeProvider Instance => _instance;
-        
+        public static ApiTypeProvider Instance => _instance.Value;
+
+        private readonly HashSet<Assembly> _assemblyList;
+
         private ApiTypeProvider()
         {
-            AssemblyList = new List<Assembly>()
+            _assemblyList = new HashSet<Assembly>
             {
                 Assembly.Load("ElectronicInvoice.Produce")
             };
         }
 
-        public List<Assembly> AssemblyList { get; }
-
-        public void RegisterAssembly(Assembly assembly)
+        public IList<Assembly> AssemblyList
         {
-            AssemblyList.Add(assembly);
+            get {
+                lock (_assemblyList)
+                {
+                    return _assemblyList.ToList();
+                }
+            }
         }
 
-        internal IEnumerable<Type> GetTypeFromAssembly<T>() where T : Attribute
+        // Ensure thread safety when modifying the list
+        public virtual void RegisterAssembly(Assembly assembly)
+        {
+            lock (_assemblyList)
+            {
+                _assemblyList.Add(assembly);
+            }
+        }
+
+        public virtual IEnumerable<Type> GetTypeFromAssembly<T>() where T : Attribute
         {
             return AssemblyList
-                .SelectMany(x => x.ExportedTypes, (a, b) => b)
-                .Where(x => x.GetCustomAttribute<T>() != null);
+               .SelectMany(a => a.GetExportedTypes())
+               .Where(t => t.GetCustomAttribute<T>() != null);
         }
     }
 }

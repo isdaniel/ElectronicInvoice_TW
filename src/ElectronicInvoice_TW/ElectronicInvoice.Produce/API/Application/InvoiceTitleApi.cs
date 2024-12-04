@@ -18,6 +18,7 @@ namespace ElectronicInvoice.Produce.API.Application
                 ["action"] = GetMapperAction,
                 ["generation"] = "V2",
                 ["invDate"] = model.InvDate.ToString("yyyy/MM/dd"),
+                ["isBuyerType"] = model.IsBuyerType.ToString(),
                 ["UUID"] = model.UUID,
                 ["appID"] = ConfigSetting.GovAppId
             };
