@@ -83,6 +83,7 @@ namespace ElectronicInvoice.Produce.Helper
             {
                 return false; 
             }
+
             if (chain != null)
             {
                 foreach (var chainStatus in chain.ChainStatus)
@@ -91,14 +92,6 @@ namespace ElectronicInvoice.Produce.Helper
                     {
                         return false; 
                     }
-                }
-            }
-            
-            if (certification is X509Certificate2 cert)
-            {
-                if (cert.Subject != "CN=ExpectedSubject")
-                {
-                    return false; // Reject connection
                 }
             }
 
