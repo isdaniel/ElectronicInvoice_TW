@@ -10,7 +10,7 @@ namespace ElectronicInvoice.Produce.Infrastructure
     {
         private readonly static InvoiceContainer _instance = new InvoiceContainer();
 
-        public static InvoiceContainer Instance => _instance;
+        internal static InvoiceContainer Instance => _instance;
 
         private InvoiceContainer()
         {
@@ -19,7 +19,7 @@ namespace ElectronicInvoice.Produce.Infrastructure
 
         internal Dictionary<Type, object> Container { get; }
 
-        public T GetObject<T>() 
+        internal T GetObject<T>() 
             where T : class
         {
             object obj;
@@ -32,7 +32,7 @@ namespace ElectronicInvoice.Produce.Infrastructure
             return null;
         }
 
-        public bool TryToAdd<T>(T obj) 
+        internal bool TryToAdd<T>(T obj) 
             where T : class
         {
             if (!Container.ContainsKey(typeof(T)))

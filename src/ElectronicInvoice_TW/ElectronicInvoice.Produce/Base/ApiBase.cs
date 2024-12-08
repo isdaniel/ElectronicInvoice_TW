@@ -24,6 +24,9 @@ namespace ElectronicInvoice.Produce.Base
             InvoiceContainer.Instance.TryToAdd(log);
         }
 
+        /// <summary>
+        /// Provide TW Invoice action parameter mapping
+        /// </summary>
         private readonly Dictionary<string,string> _actionMapper = new Dictionary<string, string>()
         {
             { "CarrierDetailApi","carrierInvDetail"},

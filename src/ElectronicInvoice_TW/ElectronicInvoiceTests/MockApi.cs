@@ -8,7 +8,7 @@ namespace ElectronicInvoiceTests
 {
     //model class should be public
     [ApiType(ApiType = typeof(MockApi))]
-    public class TestModel { }
+    public class TestModel { public string TestData { get; set; } }
     internal class InvalidModel { }
     internal class MockApi : ApiBase<TestModel>
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ElectronicInvoice.Produce.Facade;
+using System;
 
 namespace ElectronicInvoice.Produce.Helper
 {
@@ -9,6 +10,9 @@ namespace ElectronicInvoice.Produce.Helper
 
         public JsonConfig(string JsonData)
         {
+            if (string.IsNullOrEmpty(JsonData)) {
+                throw new ArgumentException("parameter JsonData can't be Null or empty string");
+            }
             _configModel = JsonConvertFacde.DeserializeObject<ConfigModel>(JsonData);
         }
 

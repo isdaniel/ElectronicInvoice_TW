@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ElectronicInvoice.Produce.Attributes;
 using ElectronicInvoice.Produce.Helper;
 using NUnit.Framework;
@@ -8,6 +9,20 @@ namespace ElectronicInvoiceTests.Infrastructure.Helper
     [TestFixture]
     public class JsonConfigTest
     {
+        [Test]
+        public void Invalid_JsonFile_Null()
+        {
+            string JsonData = null;
+            Assert.Throws<ArgumentException>(() => { new JsonConfig(JsonData); }, "parameter JsonData can't be Null or empty string");
+        }
+
+        [Test]
+        public void Invalid_JsonFile_EmptyString()
+        {
+            string JsonData = string.Empty;
+            Assert.Throws<ArgumentException>(() => { new JsonConfig(JsonData); }, "parameter JsonData can't be Null or empty string");
+        }
+
         [Test]
         public void JsonFileTest()
         {

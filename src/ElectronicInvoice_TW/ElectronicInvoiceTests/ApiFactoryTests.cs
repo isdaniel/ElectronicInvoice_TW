@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.AccessControl;
 using ElectronicInvoice.Produce;
 using ElectronicInvoice.Produce.API;
 using ElectronicInvoice.Produce.API.Application;
 using ElectronicInvoice.Produce.Factory;
 using ElectronicInvoice.Produce.Helper;
+using ElectronicInvoice.Produce.Infrastructure;
 using ElectronicInvoice.Produce.Mapping;
 using Moq;
 using NUnit.Framework;
@@ -77,6 +79,88 @@ namespace ElectronicInvoiceTests
         public void FactoryProduce_Test_True(ITester tester)
         {
             tester.Compare();
+        }
+
+        [Test]
+        public void Constructor_WithConfig_ShouldInitializeCorrectly()
+        {
+            // Arrange
+            var mockConfig = new Mock<IConfig>();
+
+            // Act
+            var factory = new InvoiceApiFactory(mockConfig.Object);
+
+            // Assert
+            Assert.NotNull(factory);
+        }
+
+        [Test]
+        public void Constructor_WithConfigAndLog_ShouldInitializeCorrectly()
+        {
+            // Arrange
+            var mockConfig = new Mock<IConfig>();
+            var mockLog = new Mock<ISysLog>();
+
+            // Act
+            var factory = new InvoiceApiFactory(mockConfig.Object, mockLog.Object);
+
+            // Assert
+            Assert.NotNull(factory);
+        }
+
+        [Test]
+        public void GetProxyInstance_ShouldReturnProxyApiInstance()
+        {
+            // Arrange
+            var mockConfig = new Mock<IConfig>();
+            var mockLog = new Mock<ISysLog>();
+            var factory = new InvoiceApiFactory(mockConfig.Object, mockLog.Object);
+            var model = new TestModel { TestData = "Sample" };
+
+            // Act
+            var proxy = factory.GetProxyInstace(model);
+
+            // Assert
+            Assert.NotNull(proxy);
+            Assert.That(proxy, Is.InstanceOf<MockApi>());
+        }
+
+        [Test]
+        public void GetProxyInstance_WithNullModel_ShouldThrowException()
+        {
+            // Arrange
+            var mockConfig = new Mock<IConfig>();
+            var mockLog = new Mock<ISysLog>();
+            var factory = new InvoiceApiFactory(mockConfig.Object, mockLog.Object);
+
+            // Act & Assert
+            Assert.Throws<NullReferenceException>(() => factory.GetProxyInstace<TestModel>(null));
+        }
+
+        [Test]
+        public void GetApiType_ShouldReturnCorrectApiType()
+        {
+            // Arrange
+            var factory = new InvoiceApiFactory();
+            var model = new TestModel();
+
+            // Act
+            var apiType = factory.GetApiType(model);
+
+            // Assert
+            Assert.NotNull(apiType);
+           
+            Assert.AreEqual(typeof(MockApi), apiType);
+        }
+
+        [Test]
+        public void GetApiType_WithNullModel_ShouldThrowException()
+        {
+            // Arrange
+            var factory = new InvoiceApiFactory();
+
+            // Act & Assert
+            Assert.Throws<NullReferenceException>(() => factory.GetApiType<TestModel>(null));
         }
     }
 }
