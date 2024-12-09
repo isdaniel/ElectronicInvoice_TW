@@ -7,6 +7,7 @@ using AutoMapper;
 using ElectronicInvoice.Produce.InvoiceResult;
 using ElectronicInvoice.Produce.Base;
 using ElectronicInvoice.Produce.Factory;
+using ElectronicInvoice.Produce.Helper;
 
 namespace ElectronicInvoice.Service
 {
@@ -46,9 +47,9 @@ namespace ElectronicInvoice.Service
             var title = JsonConvertFacde.DeserializeObject<CarrierTitleResult>(result);
             List<InvoiceViewModel> InvoiceList = null;
             //查詢成功再加入List中
-            if (title.code == "200")
+            if (title.Code == 200)
             {
-                InvoiceList = _mapper.Map<List<InvoiceViewModel>>(title.details);
+                InvoiceList = _mapper.Map<List<InvoiceViewModel>>(title.Details);
             }
             return InvoiceList ?? new List<InvoiceViewModel>();
         }
@@ -57,10 +58,10 @@ namespace ElectronicInvoice.Service
         {
             return new CarrierDetailModel()
             {
-                InvNum = detail.invNum,
-                CardNo = detail.cardNo,
+                InvNum = detail.InvNum,
+                CardNo = detail.CardNo,
                 CardEncrypt = carrierTitle.CardEncrypt,
-                InvDate = $"{Convert.ToInt32(detail.invDate.year) + 1911}/{detail.invDate.month}/{detail.invDate.date}"
+                InvDate = $"{Convert.ToInt32(detail.InvDate.Year) + 1911}/{detail.InvDate.Year}/{detail.InvDate.Year}"
             };
         }
 
