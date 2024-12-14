@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Security;
@@ -18,23 +18,7 @@ namespace ElectronicInvoice.Produce.Helper
         /// <returns></returns>
         internal static string HttpPost(string posturl, string postData)
         {
-            SetSecurityProtocol();
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(posturl);
-            request.Method = "POST";
-            byte[] postcontentsArray = Encoding.UTF8.GetBytes(postData);
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = postcontentsArray.Length;
-
-            using (Stream requestStream = request.GetRequestStream())
-            {
-                requestStream.Write(postcontentsArray, 0, postcontentsArray.Length);
-                WebResponse response = request.GetResponse();
-                using (Stream responseStream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(responseStream))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
+            return HttpPostAsync(posturl,postData).GetAwaiter().GetResult();   
         }
 
         internal async static Task<string> HttpPostAsync(string posturl, string postData)
