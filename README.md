@@ -1,6 +1,8 @@
 [![ElectronicInvoice_TW](https://img.shields.io/nuget/v/ElectronicInvoice_TW.svg?style=plastic)](https://www.nuget.org/packages/ElectronicInvoice_TW/)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/ElectronicInvoice_TW.svg)](https://www.nuget.org/packages/ElectronicInvoice_TW/) 
 [![Build status](https://ci.appveyor.com/api/projects/status/4ktwufjfsxmpishy/branch/master?svg=true)](https://ci.appveyor.com/project/isdaniel/electronicinvoice-tw/branch/master)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/isdaniel/ElectronicInvoice_TW)
+
 -----
 
 Nuget下載
