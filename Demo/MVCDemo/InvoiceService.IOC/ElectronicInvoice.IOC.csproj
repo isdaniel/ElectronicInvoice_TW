@@ -36,7 +36,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="AutoMapper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
-      <HintPath>..\packages\AutoMapper.15.1.3\lib\netstandard2.0\AutoMapper.dll</HintPath>
+      <HintPath>..\packages\AutoMapper.15.1.4\lib\netstandard2.0\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AwesomeProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
